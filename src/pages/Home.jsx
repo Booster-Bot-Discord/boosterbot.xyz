@@ -1,7 +1,7 @@
 import React from 'react';
-import RoleIMG from '../assets/images/role.png';
-import StatsIMG from '../assets/images/stats.png';
-import EmojiIMG from '../assets/images/emoji.png';
+import RoleIMG from '../assets/images/role-claim.png';
+import StatsIMG from '../assets/images/stats-drop.png';
+import EmojiIMG from '../assets/images/emoji-info.png';
 import GreetIMG from '../assets/images/greet.png';
 import '../assets/styles/pages/home.scss';
 import BottomCTA from '../components/BottomCTA';
@@ -35,14 +35,14 @@ export default function Home () {
         			<h3 className="section-title"><span className="text-highlight">Amazing</span> Greet<br/> Messages</h3>
         			<p className="section-body short">Booster Bot provides you the most versatile custom greet messages & Images you can set and bot will send random message and image from list of provided options whenever someone boosts the server.</p>
         		</div>
-				<img height="15rem!important;" alt="Booster Bot provides vast verity and options to set custom greet messages" src={GreetIMG}/>
+				<img className="img-ex" height="15rem!important;" alt="Booster Bot provides vast verity and options to set custom greet messages" src={GreetIMG}/>
     		</section>
     		<section className="reverse">
 				<div className="text-area">
 					<h3 className="section-title"><span className="text-highlight">Cool</span> Booster<br/> Commands</h3>
 					<p className="section-body">Booster Bot provides you cool additional commands for servre booster. Boosters can maintain their own custom/private role (only name and color).</p>
         		</div>
-				<img alt="Booster Bot's features for server boosters - custom/personal role" src={RoleIMG}/>
+				<img className="img-ex" alt="Booster Bot's features for server boosters - custom/personal role" src={RoleIMG}/>
     		</section>
 			<div id="nitropay-home-middle" class="nitropay" />
 			<section>
@@ -50,14 +50,14 @@ export default function Home () {
 					<h3 className="section-title"><span className="text-highlight">Maintain</span> Server<br/> Booster stats</h3>
 					<p className="section-body">Want so see who boosted your server and when? Or want to arrange boosters on basis of number of boosts and old to new booster?<br/>Booster Bot got you for tracking and maintaining booster stats for your server.</p>
 				</div>
-				<img height="15rem!important;" alt="Booster Bot stores and maintains booster's data and stats for you." src={StatsIMG}/>
+				<img id="homepage-snowflake-image" height="15rem!important;" alt="Booster Bot stores and maintains booster's data and stats for you." src={StatsIMG}/>
 			</section>
 			<section className="reverse">
 				<div className="text-area">
 					<h3 className="section-title"><span className="text-highlight">Unique</span> Server<br/> Features</h3>
 					<p className="section-body">Booster Bot adds unique features to your Server and exciting features like restricting emojis to specific role, boost level roles and more!</p>
 				</div>
-				<img id="homepage-snowflake-image" alt="Unique commands for your server by booster bot ex. restrict emoji(s) to specific role!" src={EmojiIMG}/>
+				<img className="img-ex" height="15rem!important;" alt="Unique commands for your server by booster bot ex. restrict emoji(s) to specific role!" src={EmojiIMG}/>
 			</section>
 			<div id="nitropay-home-bottom" class="nitropay" />
 			<br/>
