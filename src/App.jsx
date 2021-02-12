@@ -1,14 +1,19 @@
 import React from "react";
+//import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
+import "./assets/styles/main.scss";
 
 const App = () => {
   return (
     <>
-      <div className="App">
-        <header className="App-header">
-          <p>Hello World</p>
-        </header>
-      </div>
-    </>
+		<div id="pseudoBody">
+			{/* <NavBar /> */}
+			<Home />
+		</div>
+		<Footer />
+		<div id='modals' />
+	</>
   );
 };
 
