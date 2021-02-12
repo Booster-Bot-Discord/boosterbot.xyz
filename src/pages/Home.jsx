@@ -55,9 +55,9 @@ export default function Home () {
 			<section className="reverse">
 				<div className="text-area">
 					<h3 className="section-title"><span className="text-highlight">Unique</span> Server<br/> Features</h3>
-					<p className="section-body">We have two GIANT servers for you to join, all about Dank Memer! One is purely for support and announcements, and the other is a community server based around using the bot and participating in giveaways of our currency system!</p>
+					<p className="section-body">Booster Bot adds unique features to your Server and exciting features like restricting emojis to specific role, boost level roles and more!</p>
 				</div>
-				<img id="homepage-snowflake-image" alt="We have two GIANT community servers for Dank Memer. One is for bot support, the other is for hanging out with other users and giveaways!" src={EmojiIMG}/>
+				<img id="homepage-snowflake-image" alt="Unique commands for your server by booster bot ex. restrict emoji(s) to specific role!" src={EmojiIMG}/>
 			</section>
 			<div id="nitropay-home-bottom" class="nitropay" />
 			<br/>
