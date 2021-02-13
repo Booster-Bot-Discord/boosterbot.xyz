@@ -16,7 +16,11 @@ export default function Home () {
 					<p id="home-hero-text-slogan">Track, log and greet your server boosters <span className="text-highlight">easily</span> with the best server <span className="text-highlight">booster manager</span> bot.</p>
 				</div><br/>
 				<div id="home-hero-cta">
-					<a id="home-hero-cta-invite" href="https://invite.boosterbot.xyz" rel="noreferrer noopener">Invite now</a>
+					<a id="home-hero-cta-invite"
+						href="https://discord.com/oauth2/authorize?client_id=797339074146205706&permissions=1342457921&redirect_uri=https%3A%2F%2Fjsl-web.herokuapp.com%2F&scope=bot"
+						rel="noreferrer noopener">
+						Invite now
+					</a>
 				</div>
 					<div id="home-hero-circles">
 						<svg height="500" width="1020">
