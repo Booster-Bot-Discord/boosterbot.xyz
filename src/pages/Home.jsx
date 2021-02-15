@@ -44,7 +44,7 @@ export default function Home () {
     		<section className="reverse">
 				<div className="text-area">
 					<h3 className="section-title"><span className="text-highlight">Cool</span> Booster<br/> Commands</h3>
-					<p className="section-body">Booster Bot provides you cool additional commands for servre booster. Boosters can maintain their own custom/private role (only name and color).</p>
+					<p className="section-body">Booster Bot provides you cool additional commands for server booster. Boosters can maintain their own custom/private role (only name and color).</p>
         		</div>
 				<img className="img-ex" alt="Booster Bot's features for server boosters - custom/personal role" src={RoleIMG}/>
     		</section>
@@ -52,7 +52,7 @@ export default function Home () {
 			<section>
 				<div className="text-area">
 					<h3 className="section-title"><span className="text-highlight">Maintain</span> Server<br/> Booster stats</h3>
-					<p className="section-body">Want so see who boosted your server and when? Or want to arrange boosters on basis of number of boosts and old to new booster?<br/>Booster Bot got you for tracking and maintaining booster stats for your server.</p>
+					<p className="section-body">Want to see who boosted your server and when? Or want to arrange boosters on basis of number of boosts and old to new booster?<br/>Booster Bot got you for tracking and maintaining booster stats for your server.</p>
 				</div>
 				<img id="homepage-snowflake-image" height="15rem!important;" alt="Booster Bot stores and maintains booster's data and stats for you." src={StatsIMG}/>
 			</section>
