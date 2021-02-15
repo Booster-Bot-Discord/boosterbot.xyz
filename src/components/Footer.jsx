@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import Logo from "../assets/images/bb.png";
 import KoFi from "../assets/images/ko-fi.png";
 import Patreon from "../assets/images/patreon.png";
 
-import '../assets/styles/components/footer.scss';
+import "../assets/styles/components/footer.scss";
 
 export default React.memo(() => (
 	<footer>

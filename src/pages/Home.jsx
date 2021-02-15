@@ -1,10 +1,10 @@
-import React from 'react';
-import RoleIMG from '../assets/images/role-claim.png';
-import StatsIMG from '../assets/images/stats-drop.png';
-import EmojiIMG from '../assets/images/emoji-info.png';
-import GreetIMG from '../assets/images/greet.png';
-import '../assets/styles/pages/home.scss';
-import BottomCTA from '../components/BottomCTA';
+import React from "react";
+import RoleIMG from "../assets/images/role-claim.png";
+import StatsIMG from "../assets/images/stats-drop.png";
+import EmojiIMG from "../assets/images/emoji-info.png";
+import GreetIMG from "../assets/images/greet.png";
+import "../assets/styles/pages/home.scss";
+import BottomCTA from "../components/BottomCTA";
 
 export default function Home () {
 
