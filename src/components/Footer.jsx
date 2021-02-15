@@ -18,10 +18,10 @@ export default React.memo(() => (
 			</div>
 			<div id="footer-links">
 				<div className="footer-links-col">
-					<a className="footer-link" href="https://www.patreon.com/join/boosterbot"> 
+					<a className="footer-link" rel="noreferrer" target="_blank"  href="https://www.patreon.com/join/boosterbot"> 
 					<img height="15rem!important;" src={Patreon} alt="Patreon Logo" /> Patreon
 					</a>
-					<a className="footer-link" href="https://ko-fi.com/diabolusgx">
+					<a className="footer-link" rel="noreferrer" target="_blank"  href="https://ko-fi.com/diabolusgx">
 						<img height="15rem!important;" src={KoFi} alt="Ko-Fi Logo" /> Ko-Fi
 					</a>
 				</div>
