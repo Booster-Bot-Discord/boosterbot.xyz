@@ -71,7 +71,7 @@ router.get("/callback", async (req, res) => {
     }
 
     req.session.user = await { ...user, token: user.id };
-    res.redirect(req.session.redirect || "/landing");
+    res.redirect(req.session.redirect || "/");
 });
 
 router.get("/logout", (req, res) => {

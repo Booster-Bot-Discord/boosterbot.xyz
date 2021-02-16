@@ -19,7 +19,7 @@ app.use("/static", express.static(__dirname + "/../app/assets/"));
 
 app.get("/premium", (req, res) => res.redirect("https://www.patreon.com/join/boosterbot"));
 app.get("/support", (req, res) => res.redirect("https://discord.gg/8kdx63YsDf"));
-app.get("/invite", (req, res) => res.redirect("https://discord.com/api/oauth2/authorize?client_id=797339074146205706&permissions=1342457921&redirect_uri=https%3A%2F%2Fboosterbot.xyz%2Foauth%2Fcallback&scope=bot"));
+app.get("/invite", (req, res) => res.redirect("https://discord.com/oauth2/authorize?client_id=797339074146205706&permissions=1342457921&redirect_uri=https%3A%2F%2Fboosterbot.xyz%2Flanding&scope=bot&response_type=code"));
 
 const Routers = require("./routers");
 app.set("trust proxy", 1);
