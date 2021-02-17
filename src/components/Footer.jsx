@@ -25,10 +25,6 @@ export default React.memo(() => (
 						<img height="15rem!important;" src={KoFi} alt="Ko-Fi Logo" /> Ko-Fi
 					</a>
 				</div>
-				<div className="footer-links-col">
-					<p className="footer-link">WORK IN PROGRESS!</p>
-					<p className="footer-link">Other Things are under maintainance.</p>
-				</div>
 			</div>
     	</div>
   	</footer>
