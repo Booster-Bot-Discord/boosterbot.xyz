@@ -11,9 +11,9 @@ export default function BottomCTA () {
                     target="_blank" 
                     href="https://discord.com/oauth2/authorize?client_id=797339074146205706&permissions=1342457921&redirect_uri=https%3A%2F%2Fboosterbot.xyz%2Flanding&scope=bot&response_type=code"
                     rel="noreferrer noopener">
-                    Invite Bot
+                    Invite <br/>Bot
                 </a>
-                <a id="bottom-cta-button" href="https://discord.gg/8kdx63YsDf" rel="noreferrer noopener">Join Server</a>
+                <a id="bottom-cta-button" href="https://discord.gg/8kdx63YsDf" rel="noreferrer noopener">Join <br/>Server</a>
             </div>
             <p id="bottom-cta-text">Still not sure If you want this bot or not?<br/>Checkout easy to use <Link to="/commands" className="text-highlight">commands</Link> page!</p>
         </div>

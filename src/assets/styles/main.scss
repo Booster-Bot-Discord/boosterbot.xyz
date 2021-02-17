@@ -8,7 +8,7 @@
 }
 
 $bgMain: #292929;
-$darkYellow: #E0B020;
+$darkYellow: #e0b020;
 a {
     text-decoration: none;
 }
@@ -24,8 +24,13 @@ body {
     scroll-behavior: smooth;
     background: $bgMain;
     font-family: "Inter", sans-serif;
-    
-    h1, h2, h3, h4, h5, h6 {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-family: "Montserrat";
     }
     .content {
@@ -45,63 +50,79 @@ body {
         margin: 5vh auto;
     }
 
-    .blurple { color: #7289DA; }  
-    .bebble { color: #f9d02b; }
+    .blurple {
+        color: #7289da;
+    }
+    .bebble {
+        color: #f9d02b;
+    }
     .text-highlight {
         color: $darkYellow;
         font-weight: inherit;
     }
 
-	#bottom-cta {
-		width: 100%;
-		display: grid;
-		place-items: center;
-		margin: 10vh 0;
-		&-subtitle {
-			font-size: 18px;
-		}
-		&-button {
-			display: block;
-			width: 180px;
-			font-size: 18px;
-			font-family: "Montserrat";
-			font-weight: 700;
-			text-transform: uppercase;
-			background: #bf9a22;
-			color: #ffffff;
-			margin: 20px 0;
-			padding: 20px 30px;
-			border-radius: 5px;
-			box-shadow: 0px 0px 35px rgba(249, 208, 43, 0.5),
-						inset 0px 0px 20px rgba(249, 208, 43, 0.3);
-			transition: transform ease-in-out .3s, box-shadow ease-in-out .3s;
-			box-sizing: border-box;
-			&:hover {
+    #bottom-cta {
+        width: 100%;
+        display: grid;
+        place-items: center;
+        &-subtitle {
+            font-size: 18px;
+        }
+        &-button {
+            display: block;
+            width: 180px;
+            font-size: 18px;
+            font-family: "Montserrat";
+            font-weight: 700;
+            text-transform: uppercase;
+            background: #bf9a22;
+            color: #ffffff;
+            margin: 20px 0;
+            padding: 20px 30px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 35px rgba(249, 208, 43, 0.5),
+                inset 0px 0px 20px rgba(249, 208, 43, 0.3);
+            transition: transform ease-in-out 0.3s, box-shadow ease-in-out 0.3s;
+            box-sizing: border-box;
+            &:hover {
                 text-decoration: none;
-				transform: translateY(-5px);
-				box-shadow: 0px 5px 15px rgba(249, 208, 43, 0.7),
-							inset 0px 0px 20px rgba(249, 208, 43, 0.3);
-
-			}
-		}
-		&-text {
-			font-family: "Inter", sans-serif;
-			a {
-				font-weight: 400;
-				&:hover {
-					text-decoration: underline;
-				}
-			}
-		}
-	}		
-} 
-
+                transform: translateY(-5px);
+                box-shadow: 0px 5px 15px rgba(249, 208, 43, 0.7),
+                    inset 0px 0px 20px rgba(249, 208, 43, 0.3);
+            }
+        }
+        &-text {
+            font-family: "Inter", sans-serif;
+            a {
+                font-weight: 400;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
 @media only screen and (max-width: 454px) {
     body {
         #bottom-cta {
-            width: 80vw;
-            margin: 5vh auto;
-			text-align: center;
-		}
+            display: block;
+            margin: auto;
+            &-subtitle {
+                font-size: 15px;
+                text-align: center;
+                margin: 5px;
+            }
+            &-title {
+                padding-bottom: 10px;
+                font-size: 30px;
+                text-align: center;
+            }
+            &-button {
+                width: 150px;
+            }
+            &-text {
+                text-align: center;
+            }
+        }
     }
 }
