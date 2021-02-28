@@ -1,6 +1,7 @@
 import React from "react";
 import RoleIMG from "../assets/images/role-claim.png";
-import StatsIMG from "../assets/images/stats-drop.png";
+import StatsIMG from "../assets/images/vcstats.png";
+//import StatsIMG from "../assets/images/stats-drop.png";
 import EmojiIMG from "../assets/images/emoji-info.png";
 import GreetIMG from "../assets/images/greet.png";
 import "../assets/styles/pages/home.scss";
@@ -52,9 +53,10 @@ export default function Home () {
 			<section>
 				<div className="text-area">
 					<h3 className="section-title"><span className="text-highlight">Maintain</span> Server<br/> Booster stats</h3>
-					<p className="section-body">Want to see who boosted your server and when? Or want to arrange boosters on basis of number of boosts and old to new booster?<br/>Booster Bot got you for tracking and maintaining booster stats for your server.</p>
+					<p className="section-body">Want these Cool Looking Stats VCs with customizable names? OR Want to see who boosted your server and when?<br/>Booster Bot got you for tracking and maintaining booster stats for your server.</p>
 				</div>
-				<img id="homepage-snowflake-image" height="15rem!important;" alt="Booster Bot stores and maintains booster's data and stats for you." src={StatsIMG}/>
+				<img className="img-ex" height="15rem!important;" alt="Booster Bot stores and maintains booster's data and stats for you." src={StatsIMG}/>
+				{/* <img id="homepage-snowflake-image" height="15rem!important;" alt="Booster Bot stores and maintains booster's data and stats for you." src={StatsIMG}/> */}
 			</section>
 			<section className="reverse">
 				<div className="text-area">
