@@ -148,13 +148,15 @@
         },
         {
             "t": [
-                "rank"
+                "stats"
             ],
-            "u": "bb rank <current | alltime> <add | remove> <role>",
-            "d": "Add or Remove role from current or all time server boosters.",
+            "u": "bb stats <crete | update | delete> <allboosts | currboosts | allboosters | currboosters>",
+            "d": "Create or Update VCs for server booster stats.",
             "p": [
-                "manageRoles",
-                "embedLinks"
+                "manageServer",
+                "manageChannels",
+                "viewChannels",
+                "connect"
             ]
         },
         {
@@ -176,6 +178,17 @@
             "d": "Restrict emoji(s) to specified role i.e Only provided role members will be able to use this emoji. `bb help emoji` to see detailed instructions.",
             "p": [
                 "manageEmojis",
+                "embedLinks"
+            ]
+        },
+        {
+            "t": [
+                "rank"
+            ],
+            "u": "bb rank <current | alltime> <add | remove> <role>",
+            "d": "Add or Remove role from current or all time server boosters.",
+            "p": [
+                "manageRoles",
                 "embedLinks"
             ]
         }

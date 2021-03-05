@@ -32,6 +32,8 @@
 			background: #1a1a1a;
 			padding: 20px 30px;
 			transition: transform ease-in-out .3s, box-shadow ease-in-out .3s;
+			box-shadow: 0px 0px 15px rgba(232, 187, 42, 0.5),
+					inset 0px 0px 5px rgba(255, 208, 55, 0.1);
 			&-name {
 				font-size: 25px;
                 font-weight: 600;
@@ -41,9 +43,8 @@
 			&:hover {
 				cursor: pointer;
 				transform: translateY(-5px);
-				box-shadow: 0px 0px 10px rgba(0,0,0,0.1),
-							0px 10px 10px rgba(0,0,0,0.02),
-							0px 0px 35px rgba(242, 245, 62, 0.2);
+				box-shadow: 0px 5px 15px rgba(232, 187, 42, 0.7),
+						inset 0px 0px 15px rgba(191, 154, 34, 0.3);
 			}
 		}
 	}

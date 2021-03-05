@@ -17,9 +17,11 @@ app.use(bodyParser.json());
 app.use("/", express.static(__dirname + "/../build"));
 app.use("/static", express.static(__dirname + "/../app/assets/"));
 
+app.get("/status", (req, res) => res.redirect("https://status.watchbot.app/bot/797339074146205706"));
 app.get("/premium", (req, res) => res.redirect("https://www.patreon.com/join/boosterbot"));
+app.get("/kofi", (req, res) => res.redirect("https://ko-fi.com/diabolusgx"));
 app.get("/support", (req, res) => res.redirect("https://discord.gg/8kdx63YsDf"));
-app.get("/invite", (req, res) => res.redirect("https://discord.com/oauth2/authorize?client_id=797339074146205706&permissions=1342457921&redirect_uri=https%3A%2F%2Fboosterbot.xyz%2Flanding&scope=bot&response_type=code"));
+app.get("/invite", (req, res) => res.redirect("https://discord.com/api/oauth2/authorize?client_id=797339074146205706&permissions=1343581297&redirect_uri=https%3A%2F%2Fboosterbot.xyz%2Flanding&scope=bot&response_type=code"));
 
 const Routers = require("./routers");
 app.set("trust proxy", 1);
