@@ -9,7 +9,7 @@ export default function BottomCTA () {
             <div id="invite-buttons-cta">
                 <a id="bottom-cta-button"
                     target="_blank" 
-                    href="https://discord.com/oauth2/authorize?client_id=797339074146205706&permissions=1342457921&redirect_uri=https%3A%2F%2Fboosterbot.xyz%2Flanding&scope=bot&response_type=code"
+                    href="https://discord.com/api/oauth2/authorize?client_id=797339074146205706&permissions=1343581297&redirect_uri=https%3A%2F%2Fboosterbot.xyz%2Flanding&scope=bot&response_type=code"
                     rel="noreferrer noopener">
                     Invite <br/>Bot
                 </a>
