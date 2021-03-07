@@ -18,6 +18,7 @@ export default function Home () {
 				</div><br/>
 				<div id="home-hero-cta">
 					<a id="home-hero-cta-invite"
+						target="_blank"
 						href="https://discord.com/api/oauth2/authorize?client_id=797339074146205706&permissions=1343581297&redirect_uri=https%3A%2F%2Fboosterbot.xyz%2Flanding&scope=bot&response_type=code"
 						rel="noreferrer noopener">
 						Invite now
