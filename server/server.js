@@ -18,6 +18,7 @@ app.use("/", express.static(__dirname + "/../build"));
 app.use("/static", express.static(__dirname + "/../app/assets/"));
 
 app.get("/status", (req, res) => res.redirect("https://status.watchbot.app/bot/797339074146205706"));
+app.get("/vote", (req, res) => res.redirect("https://top.gg/bot/797339074146205706/vote"));
 app.get("/premium", (req, res) => res.redirect("https://www.patreon.com/join/boosterbot"));
 app.get("/kofi", (req, res) => res.redirect("https://ko-fi.com/diabolusgx"));
 app.get("/support", (req, res) => res.redirect("https://discord.gg/8kdx63YsDf"));
