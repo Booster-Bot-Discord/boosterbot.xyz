@@ -11,7 +11,7 @@ export default React.memo(() => (
       		<div id="footer-left">
 			    <img id="footer-logo" src={Logo} alt="Booster Bot logo" />
 				<div id="footer-left-text">
-					<h2 id="footer-title">Booster Bot</h2>
+					<h2 id="footer-title">Booster Bot Web</h2>
 					<span id="footer-copyright">Copyright © 2019 Melms Media LLC</span>
 					<span data-ccpa-link="1"></span>
 				</div>
