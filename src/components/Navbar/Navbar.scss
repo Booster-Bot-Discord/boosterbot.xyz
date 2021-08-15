@@ -1,0 +1,44 @@
+@import "../../scss/config";
+
+.topVector {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    z-index: 1;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $navy-blue;
+    &-brand {
+        margin: 1rem 3rem;
+        display: flex;
+        &-logo {
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+        &-title {
+            color: $white;
+            margin-left: 0.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+            filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.5));
+        }
+    }
+    &-links {
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        margin: 1rem 3rem;
+    }
+    &-link {
+        margin: 0 2rem;
+        padding: 0.5rem;
+        color: $black;
+        font-size: 1.5rem;
+        font-weight: 650;
+    }
+}
