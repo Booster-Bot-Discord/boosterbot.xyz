@@ -1,0 +1,38 @@
+@import './scss/config';
+@import url(https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600;700;800;900&display=swap);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// reset styles
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+@layer utilities {
+    .scrollbar {
+        // For Firefox
+        scrollbar-color: $yellow $grey-darker;
+        scrollbar-width: thin;
+
+        // For Chromium
+        &::-webkit-scrollbar {
+            width: 0.4rem;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: $grey-darkest;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $yellow;
+            border-radius: 0.5rem;
+        }
+    }
+}
+
+body {
+    font-family: "Biryani", sans-serif;
+    scroll-behavior: smooth;
+}

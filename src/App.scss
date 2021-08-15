@@ -1,0 +1,5 @@
+@import './scss/config';
+
+body {
+    @include site-background;
+}
