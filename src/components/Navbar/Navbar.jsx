@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 import logo from "../../assets/logo.svg";
 import navVector from "../../assets/nav-vector.svg";
-// import topVector from "../../assets/top-vector.svg";
 import discordLogo from "../../assets/discord-white.logo.svg";
 
 import "./Navbar.scss";
