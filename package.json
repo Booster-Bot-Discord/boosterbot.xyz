@@ -2,6 +2,7 @@
   "name": "boosterbot.xyz",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:4000",
   "dependencies": {
     "@craco/craco": "^6.2.0",
     "@reduxjs/toolkit": "^1.6.1",
@@ -11,12 +12,12 @@
     "axios": "^0.21.1",
     "framer-motion": "^4.1.17",
     "joi": "^17.4.2",
-    "node-sass": "4.14.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "sass": "^1.38.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

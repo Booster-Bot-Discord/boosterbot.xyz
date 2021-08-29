@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDiscordLogin } from "../../services/auth";
 
 import logo from "../../assets/logo.svg";
 import navVector from "../../assets/nav-vector.svg";
@@ -8,6 +10,10 @@ import discordLogo from "../../assets/discord-white.logo.svg";
 import "./Navbar.scss";
 
 const Navbar = () => {
+    const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+    const username = useSelector((state) => state.user.username);
+    const discordLogin = useDiscordLogin();
+
     return (
         <>
             <div className="nav">
@@ -30,10 +36,14 @@ const Navbar = () => {
                     <NavLink to="/" className="nav-link">
                         commands
                     </NavLink>
-                    <div className="login-button">
-                        <img src={discordLogo} alt="discord_logo" />
-                        <p className="login-title">login</p>
-                    </div>
+                    {!isAuthenticated ? (
+                        <button onClick={discordLogin} className="login-button">
+                            <img src={discordLogo} alt="discord_logo" />
+                            <p className="login-title">login</p>
+                        </button>
+                    ): (
+                        <p className="login-title">{username}</p>
+                    )}
                 </div>
             </div>
         </>

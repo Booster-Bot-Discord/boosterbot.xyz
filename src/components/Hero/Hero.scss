@@ -2,7 +2,7 @@
 
 .hero {
     height: calc(100vh - 100px);
-    width: 100vw;
+    width: 100%;
     @include hero-background;
     // background-color: $navy-blue;
     position: relative;
@@ -12,7 +12,7 @@
         align-items: center;
         justify-content: center;
         height: calc(80vh - 100px);
-        width: 100vw;
+        width: 100%;
     }
     &-heading {
         display: flex;
@@ -21,6 +21,7 @@
         font-size: 5rem;
         font-weight: bold;
         text-align: center;
+        // drop-shadow(offset-x offset-y blur-radius color)
         filter: drop-shadow(0 1px 0.15rem rgba(255, 255, 255, 0.25));
         &-img {
             width: 6rem;
@@ -39,7 +40,7 @@
         border: 0.2rem solid $white;
         border-radius: 0 2rem 0 2rem;
         // offset-x | offset-y | blur-radius | spread-radius | color
-        box-shadow: 2px 2px 10px 1px rgba(255, 255, 255, 0.25);
+        box-shadow: 1px 1px 8px 1px rgba(255, 255, 255, 0.25);
     }
     &-wave {
         position: absolute;

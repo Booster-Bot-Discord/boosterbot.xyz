@@ -4,7 +4,6 @@ import {
     deauthenticate,
     setId,
     setDiscordId,
-    setDiscriminator,
     setPermissionLevel,
     setUsername
 } from '../store/userSlice';
@@ -12,7 +11,7 @@ import { useDispatch } from 'react-redux';
 
 export const useDiscordLogin = () => {
     return function () {
-        window.open(`http://localhost:3000/auth/discord`, "_self");
+        window.open(`http://localhost:4000/api/v1/auth/discord`, "_self");
     }
 }
 
@@ -20,6 +19,7 @@ export const useAuthCheck = () => {
     const dispatch = useDispatch();
 
     return function () {
+        console.log("checking");
         authCheck()
             .then(res => {
                 if (res.status === 200) {
@@ -27,7 +27,6 @@ export const useAuthCheck = () => {
                     dispatch(setId(res.data.id));
                     dispatch(setDiscordId(res.data.discordId));
                     dispatch(setUsername(res.data.username));
-                    dispatch(setDiscriminator(res.data.discriminator));
                     dispatch(setPermissionLevel(res.data.permissionLevel));
                 }
             })
@@ -47,7 +46,6 @@ export const useLogout = () => {
                 dispatch(setId(""));
                 dispatch(setDiscordId(""));
                 dispatch(setUsername(""));
-                dispatch(setDiscriminator(""));
                 dispatch(setPermissionLevel(1));
             })
             .catch(err => {

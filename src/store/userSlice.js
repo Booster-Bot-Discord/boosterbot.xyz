@@ -7,7 +7,6 @@ const userSlice = createSlice({
         id: "",
         discordId: "",
         username: "",
-        discriminator: "",
         permissionLevel: 1
     },
     reducers: {
@@ -26,9 +25,6 @@ const userSlice = createSlice({
         setUsername: (state, action) => {
             state.username = action.payload;
         },
-        setDiscriminator: (state, action) => {
-            state.discriminator = action.payload;
-        },
         setPermissionLevel: (state, action) => {
             state.permissionLevel = action.payload;
         }
@@ -41,7 +37,6 @@ export const {
     setId,
     setDiscordId,
     setUsername,
-    setDiscriminator,
     setPermissionLevel
 } = userSlice.actions;
 
