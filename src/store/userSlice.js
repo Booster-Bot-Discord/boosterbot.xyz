@@ -7,6 +7,7 @@ const userSlice = createSlice({
         id: "",
         discordId: "",
         username: "",
+        avatar: "",
         permissionLevel: 1
     },
     reducers: {
@@ -25,6 +26,9 @@ const userSlice = createSlice({
         setUsername: (state, action) => {
             state.username = action.payload;
         },
+        setAvatar: (state, action) => {
+            state.avatar = action.payload;
+        },
         setPermissionLevel: (state, action) => {
             state.permissionLevel = action.payload;
         }
@@ -37,6 +41,7 @@ export const {
     setId,
     setDiscordId,
     setUsername,
+    setAvatar,
     setPermissionLevel
 } = userSlice.actions;
 

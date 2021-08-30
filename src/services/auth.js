@@ -5,7 +5,8 @@ import {
     setId,
     setDiscordId,
     setPermissionLevel,
-    setUsername
+    setUsername,
+    setAvatar
 } from '../store/userSlice';
 import { useDispatch } from 'react-redux';
 
@@ -27,6 +28,7 @@ export const useAuthCheck = () => {
                     dispatch(setId(res.data.id));
                     dispatch(setDiscordId(res.data.discordId));
                     dispatch(setUsername(res.data.username));
+                    dispatch(setAvatar(res.data.avatar));
                     dispatch(setPermissionLevel(res.data.permissionLevel));
                 }
             })
@@ -46,6 +48,7 @@ export const useLogout = () => {
                 dispatch(setId(""));
                 dispatch(setDiscordId(""));
                 dispatch(setUsername(""));
+                dispatch(setAvatar(""));
                 dispatch(setPermissionLevel(1));
             })
             .catch(err => {

@@ -5,13 +5,14 @@
     top: -20px;
     right: 0;
     z-index: 1;
+    // drop-shadow(offset-x offset-y blur-radius color)
+    filter: drop-shadow(0 3px 0.80rem rgba(0, 0, 0, 0.25));
 }
 
 .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $navy-blue;
     &-brand {
         margin: 1rem 3rem;
         display: flex;
@@ -32,13 +33,63 @@
         display: flex;
         justify-content: space-between;
         padding: 0.5rem;
-        margin: 1rem 3rem;
+        margin: 1rem 5rem 0 0;
     }
     &-link {
-        margin: 0 2rem;
+        margin: 0 2.5rem;
         padding: 0.5rem;
-        color: $black;
-        font-size: 1.5rem;
-        font-weight: 650;
+        color: $gray;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+    &-user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        &-avatar {
+            height: 3rem;
+            width: 3rem;
+            border-radius: 50%;
+            border: 2px solid $blurple;
+            margin: -0.1rem 0.5rem 0 1rem;
+        }
+        &-arrowButton {
+            border: solid black;
+            border-width: 0 4px 4px 0;
+            padding: 5px;
+            margin: -0.5rem 0 0 0.2rem;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transition: 0.3s ease-in-out;
+        }
+        &-dropdown {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: $white;
+            border: 1px solid $black;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            position: absolute;
+            top: 100%;
+            right: -50%;
+            &-link {
+                margin: 0.5rem;
+                padding: 0.5rem;
+                color: $black;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+            &-logout {
+                width: 100%;
+                padding: 0.5rem;
+                color: $white;
+                font-size: 1rem;
+                font-weight: 700;
+                background-color: $red;
+            }
+        }
     }
 }

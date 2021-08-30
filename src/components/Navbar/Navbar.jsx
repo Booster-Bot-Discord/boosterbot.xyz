@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useDiscordLogin } from "../../services/auth";
+import { useDiscordLogin, useLogout } from "../../services/auth";
 
 import logo from "../../assets/logo.svg";
 import navVector from "../../assets/nav-vector.svg";
@@ -11,8 +11,13 @@ import "./Navbar.scss";
 
 const Navbar = () => {
     const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
-    const username = useSelector((state) => state.user.username);
+    const avatar = useSelector((state) => state.user.avatar);
+    const discordId = useSelector((state) => state.user.discordId);
     const discordLogin = useDiscordLogin();
+    const logout = useLogout();
+
+    const [showDropdown, setShowDropdown] = React.useState(false);
+    const toggleDropdown = () => setShowDropdown(!showDropdown);
 
     return (
         <>
@@ -21,28 +26,42 @@ const Navbar = () => {
                 <img src={navVector} className="topVector" alt="top-vector" />
                 <NavLink to="/" className="nav-brand">
                     <img src={logo} className="nav-brand-logo" alt="logo" />
-                    <p className="nav-brand-title">boosterbot</p>
+                    <p className="nav-brand-title">Booster Bot</p>
                 </NavLink>
                 <div className="nav-links">
                     <NavLink to="/" className="nav-link">
-                        invite
+                        Invite
                     </NavLink>
                     <NavLink to="/" className="nav-link">
-                        docs
+                        Docs
                     </NavLink>
                     <NavLink to="/" className="nav-link">
-                        discord
+                        Discord
                     </NavLink>
                     <NavLink to="/" className="nav-link">
-                        commands
+                        Commands
                     </NavLink>
                     {!isAuthenticated ? (
                         <button onClick={discordLogin} className="login-button">
                             <img src={discordLogo} alt="discord_logo" />
-                            <p className="login-title">login</p>
+                            <p className="login-title">Login</p>
                         </button>
-                    ): (
-                        <p className="login-title">{username}</p>
+                    ) : (
+                        <div className="nav-user">
+                            <img
+                                className="nav-user-avatar"
+                                src={`https://cdn.discordapp.com/avatars/${discordId}/${avatar}.jpg?size=128`}
+                                alt="avatar"
+                            />
+                            <button onClick={toggleDropdown} className="nav-user-arrowButton" />
+                            {showDropdown && (
+                                <div className="nav-user-dropdown">
+                                    <NavLink to="/" className="nav-user-dropdown-link">Dashboard</NavLink>
+                                    <NavLink to="/" className="nav-user-dropdown-link">Premium</NavLink>
+                                    <button className="nav-user-dropdown-logout" onClick={logout}>Logout</button>
+                                </div>
+                            )}
+                        </div>
                     )}
                 </div>
             </div>

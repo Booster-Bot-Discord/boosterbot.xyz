@@ -1,0 +1,24 @@
+.blob-wrapper {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    &-1 {
+        top: 32%;
+        left: 32%;
+        width: 12%;
+        height: 12%;
+    }
+    &-2 {
+        top: 10%;
+        left: 30%;
+        width: 5%;
+        height: 5%;
+    }
+    &-3 {
+        top: 15%;
+        left: 25%;
+        width: 3%;
+        height: 3%;
+    }
+}

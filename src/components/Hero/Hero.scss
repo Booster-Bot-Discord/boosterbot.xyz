@@ -1,7 +1,7 @@
 @import "../../scss/config";
 
 .hero {
-    height: calc(100vh - 100px);
+    height: 100vh;
     width: 100%;
     @include hero-background;
     // background-color: $navy-blue;
@@ -11,18 +11,20 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: calc(80vh - 100px);
+        height: 90vh;
         width: 100%;
+        z-index: 2;
     }
     &-heading {
         display: flex;
         flex-direction: column;
         color: $white;
+        z-index: 2;
         font-size: 5rem;
         font-weight: bold;
         text-align: center;
         // drop-shadow(offset-x offset-y blur-radius color)
-        filter: drop-shadow(0 1px 0.15rem rgba(255, 255, 255, 0.25));
+        filter: drop-shadow(0 3px 0.20rem rgba(0, 0, 0, 0.5));
         &-img {
             width: 6rem;
             height: 6rem;
@@ -34,13 +36,14 @@
         align-self: center;
         justify-self: center;
         color: $white;
+        z-index: 2;
         padding: 1rem;
         font-size: 1.6rem;
         font-weight: 600;
         border: 0.2rem solid $white;
-        border-radius: 0 2rem 0 2rem;
+        border-radius: 0 1rem;
         // offset-x | offset-y | blur-radius | spread-radius | color
-        box-shadow: 1px 1px 8px 1px rgba(255, 255, 255, 0.25);
+        box-shadow: 1px 1px 8px 1px rgba(255, 255, 255, 0.5);
     }
     &-wave {
         position: absolute;
