@@ -11,7 +11,7 @@
         color: $white;
         font-size: 6rem;
         font-weight: 800;
-        margin: 1rem;
+        margin: 4rem 0 1rem 0;
     }
     &-mid-line {
         margin: 1rem;
@@ -31,7 +31,7 @@
         padding: 2rem;
         margin: 2rem;
         border-radius: 1rem;
-        background-color: rgba($color: #a8a8a8, $alpha: 0.10);
+        background-color: rgba($color: #a8a8a8, $alpha: 0.1);
         // (offset-x offset-y blur-radius color)
         box-shadow: 0 8px 30px $black;
         &-content {
@@ -59,11 +59,63 @@
     background: linear-gradient(to top, #ffb800 30%, #ff40e0 100%);
 }
 .strong-commands {
-    background: linear-gradient(to bottom, #C1FF72 20%, #00F0FF 100%);
+    background: linear-gradient(to bottom, #c1ff72 20%, #00f0ff 100%);
 }
 .strong-messages {
-    background: linear-gradient(to top, #8FFF00 50%, #00FFE0 100%);
+    background: linear-gradient(to top, #8fff00 50%, #00ffe0 100%);
 }
 .strong-boosts {
-    background: linear-gradient(to bottom, #FCFF5C 50%, #EEAE00 100%);
+    background: linear-gradient(to bottom, #fcff5c 50%, #eeae00 100%);
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+    &-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    &-item {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: rgba($color: #a8a8a8, $alpha: 0.1);
+        box-shadow: 0 8px 30px $black;
+        line-height: 1.5;
+        &-heading {
+            margin: 1rem 0;
+            color: $white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            filter: drop-shadow(0 2px 5px $black);
+        }
+        &-content {
+            color: $gray;
+            font-size: 1.2rem;
+            font-weight: 600;
+            filter: drop-shadow(0 2px 3px $black);
+        }
+        &-logo {
+            width: 2.5rem;
+            &.heart-eyes-logo {
+                filter: drop-shadow(0 0 1rem $golden);
+            }
+            &.ghost-logo {
+                filter: drop-shadow(0 0 1rem $white);
+            }
+            &.monky-logo {
+                filter: drop-shadow(0 0 1rem $yellow);
+            }
+            &.heart-logo {
+                filter: drop-shadow(0 0 1rem $red);
+            }
+        }
+    }
 }
