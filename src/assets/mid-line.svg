@@ -1,0 +1,9 @@
+<svg width="519" height="12" viewBox="0 0 519 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="8" y1="6" x2="506" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<circle cx="6" cy="6" r="6" transform="rotate(-90 6 6)" fill="white"/>
+<circle cx="6" cy="6" r="3" transform="rotate(-90 6 6)" fill="black"/>
+<circle cx="252" cy="6" r="6" transform="rotate(-90 252 6)" fill="white"/>
+<circle cx="252" cy="6" r="3" transform="rotate(-90 252 6)" fill="black"/>
+<circle cx="513" cy="6" r="6" transform="rotate(-90 513 6)" fill="white"/>
+<circle cx="513" cy="6" r="3" transform="rotate(-90 513 6)" fill="black"/>
+</svg>

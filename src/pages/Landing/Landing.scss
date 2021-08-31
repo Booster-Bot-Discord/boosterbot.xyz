@@ -1,0 +1,69 @@
+@import "../../scss/config";
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    &-heading {
+        color: $white;
+        font-size: 6rem;
+        font-weight: 800;
+        margin: 1rem;
+    }
+    &-mid-line {
+        margin: 1rem;
+    }
+    &-container {
+        margin-top: 5rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    &-item {
+        min-width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        margin: 2rem;
+        border-radius: 1rem;
+        background-color: rgba($color: #a8a8a8, $alpha: 0.10);
+        // (offset-x offset-y blur-radius color)
+        box-shadow: 0 8px 30px $black;
+        &-content {
+            color: $white;
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.75;
+            text-align: center;
+            // drop-shadow(offset-x offset-y blur-radius color)
+            filter: drop-shadow(0 2px 5px $black);
+        }
+        & strong {
+            font-size: 2rem;
+            font-weight: 800;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
+
+.strong-members {
+    background: linear-gradient(to top, #00ff47 0%, #ffe600 75%);
+}
+.strong-servers {
+    background: linear-gradient(to top, #ffb800 30%, #ff40e0 100%);
+}
+.strong-commands {
+    background: linear-gradient(to bottom, #C1FF72 20%, #00F0FF 100%);
+}
+.strong-messages {
+    background: linear-gradient(to top, #8FFF00 50%, #00FFE0 100%);
+}
+.strong-boosts {
+    background: linear-gradient(to bottom, #FCFF5C 50%, #EEAE00 100%);
+}

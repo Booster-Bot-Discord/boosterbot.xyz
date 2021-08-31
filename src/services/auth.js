@@ -20,7 +20,6 @@ export const useAuthCheck = () => {
     const dispatch = useDispatch();
 
     return function () {
-        console.log("checking");
         authCheck()
             .then(res => {
                 if (res.status === 200) {
