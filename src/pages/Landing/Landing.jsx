@@ -1,6 +1,8 @@
 import React from "react";
 import Hero from "../../components/Hero/Hero";
-import CtaMid from "../../components/CtaMid/CtaMid";
+import CtaMid from "../../components/Cta/CtaMid";
+import CtaBottom from "../../components/Cta/CtaBottom";
+import Footer from "../../components/Footer/Footer";
 
 import { getStats } from "../../api/index.js";
 
@@ -128,7 +130,7 @@ const Landing = () => {
                         <div className="features-item">
                             <img className="features-item-logo monky-logo" src={monkyLogo} alt="logo" />
                             <h3 className="features-item-heading">
-                                Track Server Boostsers
+                                Track Server Boosters
                             </h3>
                             <p className="features-item-content">
                                 See who boosted and how many times OR removed boost from your server by setting up log channel.
@@ -145,6 +147,9 @@ const Landing = () => {
                         </div>
                     </div>
                 </section>
+
+                <CtaBottom />
+                <Footer />
             </div>
         </>
     );

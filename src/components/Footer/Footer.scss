@@ -1,0 +1,7 @@
+@import "../../scss/config";
+
+.footer {
+    height: 30vh;
+    display: flex;
+    background-color: rgba($color: $navy-blue, $alpha: 0.5);
+}

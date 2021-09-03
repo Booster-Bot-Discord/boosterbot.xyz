@@ -31,7 +31,7 @@
         padding: 2rem;
         margin: 2rem;
         border-radius: 1rem;
-        background-color: rgba($color: #a8a8a8, $alpha: 0.1);
+        background-color: rgba($color: $grayish, $alpha: 0.1);
         // (offset-x offset-y blur-radius color)
         box-shadow: 0 8px 30px $black;
         &-content {
