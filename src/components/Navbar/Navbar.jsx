@@ -56,7 +56,7 @@ const Navbar = () => {
                             <button onClick={toggleDropdown} className="nav-user-arrowButton" />
                             {showDropdown && (
                                 <div className="nav-user-dropdown">
-                                    <NavLink to="/" className="nav-user-dropdown-link">Dashboard</NavLink>
+                                    <NavLink to="/dashboard" className="nav-user-dropdown-link">Dashboard</NavLink>
                                     <NavLink to="/" className="nav-user-dropdown-link">Premium</NavLink>
                                     <button className="nav-user-dropdown-logout" onClick={logout}>Logout</button>
                                 </div>

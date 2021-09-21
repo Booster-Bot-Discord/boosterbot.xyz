@@ -1,0 +1,30 @@
+@import "../../scss/config";
+
+.guild {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    &-icon {
+        height: 8rem;
+        width: 8rem;
+        border-radius: 50%;
+        margin: -0.1rem 0.5rem 0 1rem;
+    }
+    &-manageable {
+        border: 2px solid $green;
+    }
+    &-invitable {
+        border: 2px solid $red;
+    }
+    &-premium {
+        border: 2px solid $golden;
+    }
+    &-name {
+        color: $white;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0.5rem 0;
+    }
+}

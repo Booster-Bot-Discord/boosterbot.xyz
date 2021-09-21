@@ -1,0 +1,47 @@
+@import "../../scss/config";
+
+.dashboard {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 75%;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: rgba($color: #a8a8a8, $alpha: 0.1);
+        box-shadow: 0 8px 30px $black;
+        line-height: 1.5;
+    }
+    &-header {
+        color: $white;
+        width: 100%;
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 2px solid $grayish;
+    }
+    &-heading {
+        color: $white;
+        font-size: 1.5rem;
+        font-weight: 800;
+        padding: 2rem;
+        border-bottom: 1px solid $grayish;
+    }
+    &-guilds {
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .invitable {
+        color: $white;
+        font-size: 1rem;
+        border-bottom: 1px solid $grayish;
+    }
+}
