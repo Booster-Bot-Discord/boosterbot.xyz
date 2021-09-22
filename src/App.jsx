@@ -23,6 +23,10 @@ function App() {
             <Dashboard />
           </Route>
 
+          <Route path="/dashboard/:id" exact>
+            <Dashboard />
+          </Route>
+
           <Route path="/">
             <Landing />
           </Route>

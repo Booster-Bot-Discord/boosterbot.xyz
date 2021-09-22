@@ -82,9 +82,9 @@ const Dashboard = () => {
                         ))}
                     </div>
 
-                    {/* {invitableGuilds.length > 0 && (
+                    {invitableGuilds.length > 0 && (
                         <p className="invitable">You can invite Booster Bot to following servers:</p>
-                    )} */}
+                    )}
                     <div className="dashboard-guilds">
                         {invitableGuilds.map((guild) => (
                             <Guild
