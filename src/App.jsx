@@ -7,7 +7,8 @@ import Loading from './components/Loading';
 import './scss/App.scss';
 
 const Landing = React.lazy(() => import('./pages/Landing/Landing'));
-const Dashboard = React.lazy(() => import('./pages/Dashboard/Dashboard'))
+const Dashboard = React.lazy(() => import('./pages/Dashboard/Dashboard'));
+const ServerPicker = React.lazy(() => import('./pages/ServerPicker/ServerPicker'))
 
 function App() {
   const authCheck = useAuthCheck();
@@ -20,7 +21,7 @@ function App() {
           <Switch>
 
           <Route path="/dashboard" exact>
-            <Dashboard />
+            <ServerPicker />
           </Route>
 
           <Route path="/dashboard/:id" exact>
