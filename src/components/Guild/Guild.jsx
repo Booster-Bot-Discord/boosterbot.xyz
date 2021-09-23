@@ -20,7 +20,7 @@ const Guild = ({ guild, manageable, invitable }) => {
                 {manageable ? (
                     <Link
                         onClick={populateGuildInfo}
-                        to={`/dashboard/${guild.id}`}
+                        to={`/dashboard/${guild.id}/general`}
                     >
                         <img
                             alt={guild.name + " icon"}

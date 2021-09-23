@@ -1,4 +1,4 @@
-import AnimatedRings from "../assets/rings.svg";
+import AnimatedRings from "../../assets/rings.svg";
 import { AnimatePresence, motion } from "framer-motion";
 
 const backdropVariants = {

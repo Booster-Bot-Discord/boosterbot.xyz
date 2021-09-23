@@ -10,15 +10,20 @@ import "./ServerPicker.scss";
 
 const ServerPicker = () => {
     const username = useSelector((state) => state.user.username);
+    const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
     const [manageableGuilds, setManageableGuilds] = React.useState([]);
     const [invitableGuilds, setInvitableGuilds] = React.useState([]);
+
+    // if not logged in, redirect to home
+    if (!isAuthenticated) {
+        window.location.href = "/";
+    }
 
     // returns common guilds with manage permissions
     const getManageableGuilds = (userGuilds, botGuilds) =>
         userGuilds.filter(
             (guild) =>
-                (guild.owner ||
-                    (guild.permissions & 0x0000000020) === 0x0000000020) &&
+                (guild.owner || (guild.permissions & 0x20) === 0x20) &&
                 botGuilds.includes(guild.id)
         );
 
@@ -26,8 +31,7 @@ const ServerPicker = () => {
     const getInvitableGuilds = (userGuilds, botGuilds) =>
         userGuilds.filter(
             (guild) =>
-                (guild.owner ||
-                    (guild.permissions & 0x0000000020) === 0x0000000020) &&
+                (guild.owner || (guild.permissions & 0x20) === 0x20) &&
                 !botGuilds.includes(guild.id)
         );
 
@@ -83,7 +87,9 @@ const ServerPicker = () => {
                     </div>
 
                     {invitableGuilds.length > 0 && (
-                        <p className="invitable">You can invite Booster Bot to following servers:</p>
+                        <p className="invitable">
+                            You can invite Booster Bot to following servers:
+                        </p>
                     )}
                     <div className="server-picker-guilds">
                         {invitableGuilds.map((guild) => (

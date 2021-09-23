@@ -5,7 +5,7 @@ const GuildConfig = require("../database/models/GuildConfig");
 // get guild config from database.
 const getGuildConfig = async (req, res) => {
     try {
-        const guildConfig = await GuildConfig.findOne({ id: req.params.id });
+        const guildConfig = await GuildConfig.findOne({ id: req.params.guildId });
         if (!guildConfig) {
             return res.status(404).json({ message: "Guild config not found" });
         }
@@ -21,7 +21,7 @@ const getGuildData = async (req, res) => {
     try {
         const result = await axios({
             method: "get",
-            url: `http://localhost:3000/guilds/${req.params.id}`
+            url: `http://localhost:3000/guilds/${req.params.guildId}`
         });
         return res.status(200).json(result.data);
     }
