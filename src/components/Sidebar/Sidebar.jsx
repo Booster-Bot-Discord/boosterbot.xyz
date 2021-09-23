@@ -36,7 +36,11 @@ function Sidebar() {
                                 );
                             }}
                         >
-                            <div className="sidebar-item-icon">{item.icon}</div>
+                            <div className="sidebar-item-icon">
+                                {activeTab === item.link
+                                    ? item.activeIcon
+                                    : item.icon}
+                            </div>
                             <h3 className="sidebar-item-title">{item.title}</h3>
                         </div>
                     );
