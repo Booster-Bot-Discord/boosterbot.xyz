@@ -1,15 +1,13 @@
-import { getGuildData, getGuildConfig, getGuildChannels } from '../api';
+import { getGuildData, getGuildConfig } from '../api';
 import {
     setAvailable,
     setDiscordId,
     setName,
     setIcon,
     setRoles,
-    setEmojis,
     setChannels,
     setConfig,
-    setMemberCount,
-    setPresenceCount
+    setMemberCount
 } from '../store/guildSlice';
 import { useDispatch } from 'react-redux';
 
@@ -25,20 +23,13 @@ export const useGuildData = () => {
                     dispatch(setDiscordId(res.data.id));
                     dispatch(setName(res.data.name));
                     dispatch(setIcon(res.data.icon));
-                    dispatch(setMemberCount(res.data.approximate_member_count));
-                    dispatch(setPresenceCount(res.data.approximate_presence_count));
+                    dispatch(setMemberCount(res.data.memberCount));
+                    dispatch(setChannels(
+                        res.data.channels.sort((a, b) => {
+                            return a.position - b.position;
+                        })
+                    ));
                     dispatch(setRoles(res.data.roles));
-                    dispatch(setEmojis(res.data.emojis));
-                }
-            }).catch(err => {
-                console.log(err);
-            });
-
-        // store guild channels from discord
-        getGuildChannels(guildId)
-            .then(res => {
-                if (res.status === 200) {
-                    dispatch(setChannels(res.data));
                 }
             }).catch(err => {
                 console.log(err);

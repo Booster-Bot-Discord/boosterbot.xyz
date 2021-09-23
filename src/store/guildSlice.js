@@ -8,9 +8,7 @@ const guildSlice = createSlice({
         name: "",
         icon: "",
         memberCount: 0,
-        presenceCount: 0,
         roles: [],
-        emojis: [],
         channels: [],
         config: null,
     },
@@ -30,14 +28,8 @@ const guildSlice = createSlice({
         setMemberCount: (state, action) => {
             state.memberCount = action.payload;
         },
-        setPresenceCount: (state, action) => {
-            state.presenceCount = action.payload;
-        },
         setRoles: (state, action) => {
             state.roles = action.payload;
-        },
-        setEmojis: (state, action) => {
-            state.emojis = action.payload;
         },
         setChannels: (state, action) => {
             state.channels = action.payload;
@@ -57,8 +49,7 @@ export const {
     setEmojis,
     setChannels,
     setConfig,
-    setMemberCount,
-    setPresenceCount
+    setMemberCount
 } = guildSlice.actions;
 
 export default guildSlice.reducer;

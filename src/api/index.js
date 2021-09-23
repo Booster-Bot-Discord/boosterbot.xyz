@@ -17,5 +17,4 @@ export const getAllBotGuildIds = () => API.get('/api/v1/bot/allguildids');
 
 // Guild routes
 export const getGuildData = (guildId) => API.get(`/api/v1/guild/data/${guildId}`);
-export const getGuildChannels = (guildId) => API.get(`/api/v1/guild/data/${guildId}/channels`);
 export const getGuildConfig = (guildId) => API.get(`/api/v1/guild/config/${guildId}`);
