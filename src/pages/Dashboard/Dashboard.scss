@@ -3,4 +3,7 @@
 .dashboard {
     display: flex;
     height: 90vh;
+    &-content {
+        width: 85%;
+    }
 }

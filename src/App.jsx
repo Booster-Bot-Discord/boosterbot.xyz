@@ -7,6 +7,7 @@ import {
     Redirect,
     useHistory,
 } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { useAuthCheck } from "./services/auth";
 
 import Loading from "./components/utilities/Loading";
@@ -27,6 +28,7 @@ function App() {
     React.useEffect(authCheck, []);
     return (
         <>
+            <ToastContainer />
             <BrowserRouter>
                 <Suspense fallback={<Loading />}>
                     <Switch>

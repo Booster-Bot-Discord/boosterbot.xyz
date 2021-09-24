@@ -4,10 +4,14 @@ import {
     setDiscordId,
     setName,
     setIcon,
+    setMemberCount,
+    setPermissions,
+    setHighRolePosition,
     setRoles,
     setChannels,
-    setConfig,
-    setMemberCount
+    setDbGeneraConfig,
+    setDbGreetConfig,
+    setDbBoostersData
 } from '../store/guildSlice';
 import { useDispatch } from 'react-redux';
 
@@ -24,6 +28,8 @@ export const useGuildData = () => {
                     dispatch(setName(res.data.name));
                     dispatch(setIcon(res.data.icon));
                     dispatch(setMemberCount(res.data.memberCount));
+                    dispatch(setPermissions(res.data.permissions));
+                    dispatch(setHighRolePosition(res.data.highestRolePosition));
                     dispatch(setChannels(
                         res.data.channels.sort((a, b) => {
                             return a.position - b.position;
@@ -39,7 +45,9 @@ export const useGuildData = () => {
         getGuildConfig(guildId)
             .then(res => {
                 if (res.status === 200) {
-                    dispatch(setConfig(res.data));
+                    dispatch(setDbGeneraConfig(res.data.dbGeneraConfig));
+                    dispatch(setDbGreetConfig(res.data.dbGreetConfig));
+                    dispatch(setDbBoostersData(res.data.dbBoostersData));
                 }
             }).catch(err => {
                 console.log(err);

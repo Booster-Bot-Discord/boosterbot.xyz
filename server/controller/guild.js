@@ -1,15 +1,16 @@
 require("dotenv").config();
 const axios = require("axios");
 const GuildConfig = require("../database/models/GuildConfig");
+const GreetConfig = require("../database/models/GreetConfig");
+const GuildData = require("../database/models/GuildData");
 
 // get guild config from database.
 const getGuildConfig = async (req, res) => {
     try {
-        const guildConfig = await GuildConfig.findOne({ id: req.params.guildId });
-        if (!guildConfig) {
-            return res.status(404).json({ message: "Guild config not found" });
-        }
-        return res.status(200).json(guildConfig);
+        const dbGeneraConfig = await GuildConfig.findOne({ id: req.params.guildId });
+        const dbGreetConfig = await GreetConfig.findOne({ id: req.params.guildId });
+        const dbBoostersData = await GuildData.findOne({ id: req.params.guildId });
+        return res.status(200).json({ dbGeneraConfig, dbGreetConfig, dbBoostersData });
     }
     catch (err) {
         return res.status(500).json({ error: err.message });

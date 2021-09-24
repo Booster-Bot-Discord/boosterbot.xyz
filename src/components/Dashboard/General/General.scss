@@ -1,0 +1,75 @@
+@import "../../../scss/config";
+
+.general {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    &-header {
+        color: $white;
+        font-size: 2rem;
+        font-weight: 800;
+    }
+    &-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        color: $grayish;
+        &-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            height: 100%;
+            padding: 2rem;
+            border-radius: 1rem;
+            background-color: rgba($color: $navy-blue, $alpha: 0.25);
+            box-shadow: 0 8px 30px $black;
+        }
+        &-title {
+            display: flex;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            width: 100%;
+            border-bottom: 2px solid $grayish;
+        }
+    }
+}
+
+.bot {
+    &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-top: 3rem;
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+    &-title {
+        display: flex;
+        justify-content: space-evenly;
+        width: 15%;
+        text-indent: 50%;
+        font-size: 1.5rem;
+        font-weight: 800;
+    }
+    &-pair {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    &-input {
+        @include input-style(60%);
+    }
+    &-button {
+        @include button-style(20%, 2rem);
+    }
+}

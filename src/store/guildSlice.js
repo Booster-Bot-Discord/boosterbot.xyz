@@ -8,9 +8,13 @@ const guildSlice = createSlice({
         name: "",
         icon: "",
         memberCount: 0,
+        permissions: null,
+        highestRolePosition: 0,
         roles: [],
         channels: [],
-        config: null,
+        dbGeneraConfig: null,
+        dbGreetConfig: null,
+        dbBoostersData: null
     },
     reducers: {
         setAvailable: (state, action) => {
@@ -28,14 +32,26 @@ const guildSlice = createSlice({
         setMemberCount: (state, action) => {
             state.memberCount = action.payload;
         },
+        setPermissions: (state, action) => {
+            state.permissions = action.payload;
+        },
+        setHighRolePosition: (state, action) => {
+            state.highestRolePosition = action.payload;
+        },
         setRoles: (state, action) => {
             state.roles = action.payload;
         },
         setChannels: (state, action) => {
             state.channels = action.payload;
         },
-        setConfig: (state, action) => {
-            state.config = action.payload;
+        setDbGeneraConfig: (state, action) => {
+            state.dbGeneraConfig = action.payload;
+        },
+        setDbGreetConfig: (state, action) => {
+            state.dbGreetConfig = action.payload;
+        },
+        setDbBoostersData: (state, action) => {
+            state.dbBoostersData = action.payload;
         }
     }
 });
@@ -45,10 +61,14 @@ export const {
     setDiscordId,
     setName,
     setIcon,
+    setPermissions,
+    setHighRolePosition,
     setRoles,
     setEmojis,
     setChannels,
-    setConfig,
+    setDbGeneraConfig,
+    setDbGreetConfig,
+    setDbBoostersData,
     setMemberCount
 } = guildSlice.actions;
 

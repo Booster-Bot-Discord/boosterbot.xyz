@@ -3,11 +3,11 @@
 // Colors --------------------
 $white: #fff;
 $black: #000;
-$gray: #9B9D8E;
-$grayish: #A8A8A8;
+$gray: #808080;
+$grayish: #bababa;
 $gray-darkest: #101010;
 $gray-darker: #1a1c23;
-$blue-lighter: #90C3F1;
+$blue-lighter: #90c3f1;
 $navy-blue: #20275c;
 $navy-blue-dark: #171742;
 $purple: #6a2bc2;
@@ -18,6 +18,36 @@ $golden: #fec502;
 $yellow: #fee75c;
 $green: #57f287;
 $red: #ed4245;
+
+@mixin input-style($width) {
+    color: $black;
+    height: 2rem;
+    width: $width;
+    outline: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 2px solid $grayish;
+    &:focus {
+        border: 2px solid $golden;
+        box-shadow: 0 0 10px rgba($color: $golden, $alpha: 0.3);
+    }
+}
+
+@mixin button-style($width, $height) {
+    width: $width;
+    height: $height;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 2px solid $grayish;
+    &:hover {
+        border: 2px solid $golden;
+        box-shadow: 0 0 10px rgba($color: $golden, $alpha: 0.3);
+    }
+}
 
 @mixin hero-background {
     background-position: center;

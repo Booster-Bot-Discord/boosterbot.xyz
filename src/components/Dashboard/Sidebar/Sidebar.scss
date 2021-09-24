@@ -1,4 +1,4 @@
-@import "../../scss/config";
+@import "../../../scss/config";
 
 .sidebar {
     display: flex;
@@ -15,6 +15,28 @@
     border-radius: 0 1rem 0 0;
     background-color: rgba($color: $navy-blue, $alpha: 0.5);
     box-shadow: 0 8px 30px $black;
+    &-guild {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &-icon {
+            height: 5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid rgba($color: $golden, $alpha: 0.75);
+            box-shadow: 0 2px 20px rgba($color: $golden, $alpha: 0.5);
+        }
+        &-name {
+            color: $white;
+            font-size: 1.25rem;
+            font-weight: 800;  
+            margin-top: 0.5rem;
+        }
+        &-members {
+            font-size: 1rem;
+        }
+    }
     &-item {
         display: flex;
         width: 100%;
