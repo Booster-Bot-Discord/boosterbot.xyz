@@ -21,14 +21,25 @@ function General() {
         if (prefixValue.length < 1 || prefixValue.length > 35) {
             return toast.error("Prefix length can be 1 to 35 characters long.");
         }
+        updateGuildConfig(guildId, { prefix: prefixValue })
+            .then(() => {
+                toast.success(`Prefix updated to ${prefixValue}`);
+            })
+            .catch((err) => {
+                toast.error(err.message);
+            });
     };
 
     const changeNickname = () => {
         if (nickname.length < 1 || nickname.length > 32) {
-            return toast.error("Nickname length can be 1 to 35 characters long.");
+            return toast.error(
+                "Nickname length can be 1 to 35 characters long."
+            );
         }
         if (!permissions.CHANGE_NICKNAME) {
-            return toast.error("Bot don't have permission to change it's nickname.");
+            return toast.error(
+                "Bot don't have permission to change it's nickname."
+            );
         }
         setNickname("");
         updateBotNickname(guildId, nickname)
