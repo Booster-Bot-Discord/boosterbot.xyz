@@ -9,7 +9,7 @@ import {
     setHighRolePosition,
     setRoles,
     setChannels,
-    setDbGeneraConfig,
+    setDbGeneralConfig,
     setDbGreetConfig,
     setDbBoostersData
 } from '../store/guildSlice';
@@ -45,7 +45,7 @@ export const useGuildData = () => {
         getGuildConfig(guildId)
             .then(res => {
                 if (res.status === 200) {
-                    dispatch(setDbGeneraConfig(res.data.dbGeneraConfig));
+                    dispatch(setDbGeneralConfig(res.data.dbGeneraConfig));
                     dispatch(setDbGreetConfig(res.data.dbGreetConfig));
                     dispatch(setDbBoostersData(res.data.dbBoostersData));
                 }

@@ -1,0 +1,68 @@
+@import "../../scss/config";
+
+.dd {
+    &-wrapper {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        &-title {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            color: $white;
+            width: 70%;
+            height: 3rem;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            border: 2px solid $gray;
+            transition: ease-in-out 0.25s;
+            &:hover {
+                border: 2px solid $golden;
+                box-shadow: 0 0 10px rgba($color: $golden, $alpha: 0.3);
+            }
+        }
+        &-action {
+            @include button-style(20%, 3rem);
+        }
+    }
+    &-list {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        width: 70%;
+        max-height: 20rem;
+        overflow-y: auto;
+        &-item {
+            padding: 0.5rem 1rem;
+            width: 100%;
+            cursor: pointer;
+            font-weight: 600;
+            color: $navy-blue;
+            background-color: $grayish;
+            border-left: 2px solid $gray;
+            border-right: 2px solid $gray;
+            border-bottom: 2px solid $gray;
+            transition: ease-in-out 0.2s;
+            &:hover {
+                background-color: $navy-blue;
+                color: $white;
+            }
+            &:first-child {
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+            }
+            &:last-child {
+                border-bottom-left-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+            }
+        }
+    }
+}

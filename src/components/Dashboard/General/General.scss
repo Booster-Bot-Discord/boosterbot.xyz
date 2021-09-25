@@ -27,7 +27,7 @@
             height: 100%;
             padding: 2rem;
             border-radius: 1rem;
-            background-color: rgba($color: $navy-blue, $alpha: 0.25);
+            background-color: rgba($color: $navy-blue, $alpha: 0.30);
             box-shadow: 0 8px 30px $black;
         }
         &-title {
@@ -71,5 +71,29 @@
     }
     &-button {
         @include button-style(20%, 3rem);
+    }
+}
+
+.guild {
+    &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-top: 3rem;
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+    &-title {
+        display: flex;
+        font-size: 1.5rem;
+        font-weight: 800;
+    }
+    &-info {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
     }
 }
