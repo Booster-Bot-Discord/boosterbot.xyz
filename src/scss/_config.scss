@@ -19,9 +19,9 @@ $yellow: #fee75c;
 $green: #57f287;
 $red: #ed4245;
 
-@mixin input-style($width) {
+@mixin input-style($width, $height) {
     color: $black;
-    height: 2rem;
+    height: $height;
     width: $width;
     outline: none;
     padding: 0.5rem;
@@ -39,6 +39,7 @@ $red: #ed4245;
     width: $width;
     height: $height;
     cursor: pointer;
+    padding: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 0.5rem;

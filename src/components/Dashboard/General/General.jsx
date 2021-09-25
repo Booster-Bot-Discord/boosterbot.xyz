@@ -1,20 +1,45 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
+import { updateGuildConfig, updateBotNickname } from "../../../api/index";
 
 import "./General.scss";
 
 function General() {
+    const guildId = useSelector((state) => state.guild.discordId);
     const guildName = useSelector((state) => state.guild.name);
     const guildConfig = useSelector((state) => state.guild.dbGeneraConfig);
+    const permissions = useSelector((state) => state.guild.permissions);
 
     const [prefixValue, setPrefixValue] = React.useState(
         guildConfig?.prefix || "bb"
     );
     const [nickname, setNickname] = React.useState("");
 
-    const changePrefix = () => {};
+    const changePrefix = () => {
+        if (prefixValue.length < 1 || prefixValue.length > 35) {
+            return toast.error("Prefix length can be 1 to 35 characters long.");
+        }
+    };
 
-    const changeNickname = () => {};
+    const changeNickname = () => {
+        if (nickname.length < 1 || nickname.length > 32) {
+            return toast.error("Nickname length can be 1 to 35 characters long.");
+        }
+        if (!permissions.CHANGE_NICKNAME) {
+            return toast.error("Bot don't have permission to change it's nickname.");
+        }
+        setNickname("");
+        updateBotNickname(guildId, nickname)
+            .then(() => {
+                toast.success("Nickname changed.");
+            })
+            .catch((err) => {
+                console.log(err, err.body);
+                toast.error("Nickname can't be changed.");
+            });
+    };
 
     return (
         <>

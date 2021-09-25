@@ -17,6 +17,17 @@ const getGuildConfig = async (req, res) => {
     }
 }
 
+// update guild config in database
+const updateGuildConfig = async (req, res) => {
+    try {
+        GuildConfig.findOneAndUpdate({ id: req.params.guildId }, req.body);
+        return res.status(200).json({ message: "Guild config updated" });
+    }
+    catch (err) {
+        return res.status(500).json({ error: "Could not update settings" });
+    }
+}
+
 // get guild from discord api
 const getGuildData = async (req, res) => {
     try {
@@ -34,5 +45,6 @@ const getGuildData = async (req, res) => {
 
 module.exports = {
     getGuildConfig,
+    updateGuildConfig,
     getGuildData
 };

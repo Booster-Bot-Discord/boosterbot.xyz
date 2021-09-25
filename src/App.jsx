@@ -13,6 +13,7 @@ import { useAuthCheck } from "./services/auth";
 import Loading from "./components/utilities/Loading";
 
 import "./scss/App.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 const Landing = React.lazy(() => import("./pages/Landing/Landing"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
@@ -28,7 +29,7 @@ function App() {
     React.useEffect(authCheck, []);
     return (
         <>
-            <ToastContainer />
+            <ToastContainer theme="dark" />
             <BrowserRouter>
                 <Suspense fallback={<Loading />}>
                     <Switch>

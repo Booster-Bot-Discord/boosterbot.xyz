@@ -53,7 +53,7 @@
     }
     &-title {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         width: 15%;
         text-indent: 50%;
         font-size: 1.5rem;
@@ -67,9 +67,9 @@
         width: 100%;
     }
     &-input {
-        @include input-style(60%);
+        @include input-style(60%, 3rem);
     }
     &-button {
-        @include button-style(20%, 2rem);
+        @include button-style(20%, 3rem);
     }
 }
