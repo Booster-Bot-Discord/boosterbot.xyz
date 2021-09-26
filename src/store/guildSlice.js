@@ -12,6 +12,8 @@ const guildSlice = createSlice({
         highestRolePosition: 0,
         roles: [],
         channels: [],
+        systemChannelId: null,
+        systemChannelFlags: [],
         dbGeneralConfig: null,
         dbGreetConfig: null,
         dbBoostersData: null
@@ -44,6 +46,12 @@ const guildSlice = createSlice({
         setChannels: (state, action) => {
             state.channels = action.payload;
         },
+        setSystemChannelId: (state, action) => {
+            state.systemChannelId = action.payload;
+        },
+        setSystemChannelFlags: (state, action) => {
+            state.systemChannelFlags = action.payload;
+        },
         setDbGeneralConfig: (state, action) => {
             state.dbGeneralConfig = action.payload;
         },
@@ -66,6 +74,8 @@ export const {
     setRoles,
     setEmojis,
     setChannels,
+    setSystemChannelId,
+    setSystemChannelFlags,
     setDbGeneralConfig,
     setDbGreetConfig,
     setDbBoostersData,

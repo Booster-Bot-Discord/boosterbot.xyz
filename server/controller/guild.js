@@ -38,11 +38,24 @@ const updateGuildSystemChannel = async (req, res) => {
     try {
         await axios.default.patch(`http://localhost:3000/systemchannel/${req.params.guildId}`, {
             channelId: req.body.channelId
-        })
+        });
         return res.status(200).json({ message: "Guild system channel updated." });
     }
     catch (err) {
         return res.status(500).json({ error: "Could not update system channel." });
+    }
+}
+
+// update guild system channal flags in discord api
+const updateGuildSystemChannelFlags = async (req, res) => {
+    try {
+        await axios.default.patch(`http://localhost:3000/systemchannelflags/${req.params.guildId}`, {
+            systemChannelFlags: req.body.flags
+        });
+        return res.status(200).json({ message: "Guild system channel flags updated." });
+    }
+    catch (err) {
+        return res.status(500).json({ error: "Could not update system channel flags." });
     }
 }
 
@@ -65,5 +78,6 @@ module.exports = {
     getGuildConfig,
     updateGuildConfig,
     updateGuildSystemChannel,
+    updateGuildSystemChannelFlags,
     getGuildData
 };

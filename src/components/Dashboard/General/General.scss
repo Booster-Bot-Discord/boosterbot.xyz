@@ -4,11 +4,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     height: 100%;
     width: 100%;
     &-header {
         color: $white;
+        padding: 3rem;
         font-size: 2rem;
         font-weight: 800;
     }
@@ -27,7 +28,7 @@
             height: 100%;
             padding: 2rem;
             border-radius: 1rem;
-            background-color: rgba($color: $navy-blue, $alpha: 0.30);
+            background-color: rgba($color: $navy-blue, $alpha: 0.3);
             box-shadow: 0 8px 30px $black;
         }
         &-title {
@@ -37,6 +38,9 @@
             font-weight: 800;
             width: 100%;
             border-bottom: 2px solid $grayish;
+        }
+        &-info {
+            margin-top: 1rem;
         }
     }
 }
@@ -79,7 +83,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        margin-top: 3rem;
+        margin-top: 2rem;
         width: 100%;
         font-size: 1.2rem;
         font-weight: 800;
@@ -89,11 +93,34 @@
         font-size: 1.5rem;
         font-weight: 800;
     }
-    &-info {
+    &-pair {
         margin-top: 1rem;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
         width: 100%;
+        &-info {
+            display: flex;
+            align-items: center;
+            height: 3rem;
+            width: 80%;
+            b {
+                display: inline-block;
+                color: $orange;
+            }
+            span {
+                display: inline-block;
+                color: $white;
+            }
+        }
+        &-button {
+            @include button-style(20%, 3rem);
+        }
+    }
+    &-info {
+        margin-top: 1rem;
+        span {
+            color: $white;
+        }
     }
 }

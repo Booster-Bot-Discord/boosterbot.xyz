@@ -21,3 +21,4 @@ export const getGuildData = (guildId) => API.get(`/api/v1/guild/data/${guildId}`
 export const getGuildConfig = (guildId) => API.get(`/api/v1/guild/config/${guildId}`);
 export const updateGuildConfig = (guildId, data) => API.patch(`/api/v1/guild/config/${guildId}`, data);
 export const updateGuildSystemChannel = (guildId, channelId) => API.patch(`/api/v1/guild/systemchannel/${guildId}`, { channelId });
+export const updateGuildSystemChannelFlags = (guildId, flags) => API.patch(`/api/v1/guild/systemchannelflags/${guildId}`, { flags });

@@ -9,6 +9,8 @@ import {
     setHighRolePosition,
     setRoles,
     setChannels,
+    setSystemChannelId,
+    setSystemChannelFlags,
     setDbGeneralConfig,
     setDbGreetConfig,
     setDbBoostersData
@@ -36,6 +38,8 @@ export const useGuildData = () => {
                         })
                     ));
                     dispatch(setRoles(res.data.roles));
+                    dispatch(setSystemChannelId(res.data.systemChannelId));
+                    dispatch(setSystemChannelFlags(res.data.systemChannelFlags));
                 }
             }).catch(err => {
                 console.log(err);

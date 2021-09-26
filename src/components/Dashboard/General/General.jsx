@@ -2,11 +2,16 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 
-import { setDbGeneralConfig } from "../../../store/guildSlice";
+import {
+    setDbGeneralConfig,
+    setSystemChannelId,
+    setSystemChannelFlags,
+} from "../../../store/guildSlice";
 import {
     updateGuildConfig,
     updateBotNickname,
     updateGuildSystemChannel,
+    updateGuildSystemChannelFlags,
 } from "../../../api/index";
 
 import Dropdown from "../../Dropdown/Dropdown";
@@ -20,6 +25,8 @@ function General() {
     const guildChannels = useSelector((state) => state.guild.channels);
     const guildConfig = useSelector((state) => state.guild.dbGeneralConfig);
     const permissions = useSelector((state) => state.guild.permissions);
+    const systemChannelId = useSelector((state) => state.guild.systemChannelId);
+    const guildFlags = useSelector((state) => state.guild.systemChannelFlags);
 
     const toastId = React.useRef(null);
     const [disableButton, setDisableButton] = React.useState(false);
@@ -28,17 +35,17 @@ function General() {
     );
     const [nickname, setNickname] = React.useState("");
     const [selectedChannel, setSelectedChannel] = React.useState(
-        guildChannels?.find((c) => c.id === guildConfig?.systemChannel) ||
-            "-- disabled --"
+        guildChannels?.find((c) => c.id === systemChannelId)
     );
 
     React.useEffect(() => {
         setSelectedChannel(
-            guildChannels?.find((c) => c.id === guildConfig?.systemChannel) ||
-                "-- disabled --"
+            guildChannels?.find((c) => c.id === systemChannelId)
         );
+    }, [systemChannelId, guildChannels]);
+    React.useEffect(() => {
         setPrefixValue(guildConfig?.prefix || "bb");
-    }, [guildConfig, guildChannels]);
+    }, [guildConfig]);
 
     // reusable error handler
     const handleError = (error) => {
@@ -109,14 +116,12 @@ function General() {
     // handle change system channel apply
     const changeSystemChannel = () => {
         if (!permissions.MANAGE_GUILD) {
-            return toast.warn(
-                "Bot don not have permission to MANAGE SERVER."
-            );
+            return toast.warn("Bot do not have permission to MANAGE SERVER.");
         }
         if (selectedChannel === "-- disabled --") {
             return toast.warn("Please select a valid channel.");
         }
-        if (guildConfig.systemChannel === selectedChannel.id) {
+        if (systemChannelId === selectedChannel.id) {
             return toast.warn(
                 `System channel is already set to ${selectedChannel.name}`
             );
@@ -127,14 +132,37 @@ function General() {
         });
         updateGuildSystemChannel(guildId, selectedChannel.id)
             .then(() => {
-                dispatch(
-                    setDbGeneralConfig({
-                        ...guildConfig,
-                        systemChannel: selectedChannel.id,
-                    })
-                );
+                dispatch(setSystemChannelId(selectedChannel.id));
                 toast.update(toastId.current, {
                     render: "System Channel updated!",
+                    type: toast.TYPE.SUCCESS,
+                    autoClose: 5000,
+                });
+                setDisableButton(false);
+            })
+            .catch((err) => handleError(err));
+    };
+
+    // handle system channel flags change
+    const changeSystemChannelFlags = () => {
+        if (!permissions.MANAGE_GUILD) {
+            return toast.warn("Bot do not have permission to MANAGE SERVER.");
+        }
+        setDisableButton(true);
+        toastId.current = toast.info("Changing System Channel Flags...", {
+            autoClose: false,
+        });
+        updateGuildSystemChannelFlags(guildId, guildFlags)
+            .then(() => {
+                dispatch(
+                    setSystemChannelFlags(
+                        guildFlags?.filter(
+                            (f) => f !== "SUPPRESS_PREMIUM_SUBSCRIPTIONS"
+                        )
+                    )
+                );
+                toast.update(toastId.current, {
+                    render: "System Channel Flags updated!",
                     type: toast.TYPE.SUCCESS,
                     autoClose: 5000,
                 });
@@ -210,6 +238,12 @@ function General() {
                         <h4 className="general-content-title">
                             Server Settings
                         </h4>
+                        <p className="general-content-info">
+                            You need to setup a system channel and enable boost
+                            messages to make everything work properly.
+                        </p>
+
+                        {/* System Channel */}
                         <div className="guild-container">
                             <p className="guild-title">System Channel</p>
 
@@ -232,6 +266,31 @@ function General() {
                                 disableButton={disableButton}
                                 onApply={changeSystemChannel}
                             />
+                        </div>
+                        <div className="guild-container">
+                            <p className="guild-title">Boost Message</p>
+                            {guildFlags?.includes(
+                                "SUPPRESS_PREMIUM_SUBSCRIPTIONS"
+                            ) ? (
+                                <div className="guild-pair">
+                                    <p className="guild-pair-info">
+                                        Boost messages <b>disabled</b>!
+                                    </p>
+                                    <button
+                                        className="guild-pair-button"
+                                        onClick={changeSystemChannelFlags}
+                                    >
+                                        Enable
+                                    </button>
+                                </div>
+                            ) : (
+                                <p className="guild-info">
+                                    <span>Boost message are enabled 🎉</span>{" "}
+                                    <br />
+                                    Make sure bot has all permissions in System
+                                    Channel.
+                                </p>
+                            )}
                         </div>
                     </div>
                 </div>
