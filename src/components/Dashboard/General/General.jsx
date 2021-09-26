@@ -8,7 +8,7 @@ import {
     setSystemChannelFlags,
 } from "../../../store/guildSlice";
 import {
-    updateGuildConfig,
+    updatePrefix,
     updateBotNickname,
     updateGuildSystemChannel,
     updateGuildSystemChannelFlags,
@@ -69,7 +69,7 @@ function General() {
         toastId.current = toast.info("Updating prefix...", {
             autoClose: false,
         });
-        updateGuildConfig(guildId, { prefix: prefixValue })
+        updatePrefix(guildId, prefixValue)
             .then(() => {
                 dispatch(
                     setDbGeneralConfig({ ...guildConfig, prefix: prefixValue })
@@ -104,7 +104,7 @@ function General() {
         updateBotNickname(guildId, nickname)
             .then(() => {
                 toast.update(toastId.current, {
-                    render: "Prefix updated!",
+                    render: "Nickname updated!",
                     type: toast.TYPE.SUCCESS,
                     autoClose: 5000,
                 });

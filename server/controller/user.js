@@ -8,7 +8,7 @@ const getAllGuilds = async (req, res) => {
     }
     catch (err) {
         res.status(500).json({
-            error: err.message
+            message: err.message
         });
     }
 }

@@ -1,10 +1,11 @@
 require("dotenv").config();
 require("./strategies/discord");
 
-const express = require('express');
-const passport = require('passport');
-const helmet = require('helmet');
-const sessions = require('client-sessions');
+const express = require("express");
+const passport = require("passport");
+const helmet = require("helmet");
+const sessions = require("client-sessions");
+const rateLimit = require("express-rate-limit");
 
 const database = require("./database");
 
@@ -28,6 +29,14 @@ app.use(sessions({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+// setup rate limits
+const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100,
+    message: "Enter the chill zone."
+});
+app.use("/api/v1/", apiLimiter);
 
 // Routes
 const routes = require("./Routes");

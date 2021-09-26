@@ -30,8 +30,8 @@ function Dropdown({
                     onKeyPress={() => toggle()}
                     onClick={() => toggle()}
                 >
-                    {channel && "#"}
-                    {selected?.name}
+                    {channel && selected && "#"}
+                    {selected?.name || "<-- select -->"}
                 </p>
                 {apply && (
                     <button

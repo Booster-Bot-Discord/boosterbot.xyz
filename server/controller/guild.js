@@ -13,7 +13,7 @@ const getGuildConfig = async (req, res) => {
         return res.status(200).json({ dbGeneraConfig, dbGreetConfig, dbBoostersData });
     }
     catch (err) {
-        return res.status(500).json({ error: err.message });
+        return res.status(500).json({ message: err.message });
     }
 }
 
@@ -21,15 +21,10 @@ const getGuildConfig = async (req, res) => {
 const updateGuildConfig = async (req, res) => {
     try {
         await GuildConfig.findOneAndUpdate({ id: req.params.guildId }, req.body);
-        if (req.body.hasOwnProperty("prefix")) {
-            await axios.default.patch(`http://localhost:3000/prefix/${req.params.guildId}`, {
-                prefix: req.body.prefix
-            });
-        }
         return res.status(200).json({ message: "Guild config updated" });
     }
     catch (err) {
-        return res.status(500).json({ error: "Could not update settings" });
+        return res.status(500).json({ message: "Could not update settings" });
     }
 }
 
@@ -42,7 +37,7 @@ const updateGuildSystemChannel = async (req, res) => {
         return res.status(200).json({ message: "Guild system channel updated." });
     }
     catch (err) {
-        return res.status(500).json({ error: "Could not update system channel." });
+        return res.status(500).json({ message: "Could not update system channel." });
     }
 }
 
@@ -55,7 +50,7 @@ const updateGuildSystemChannelFlags = async (req, res) => {
         return res.status(200).json({ message: "Guild system channel flags updated." });
     }
     catch (err) {
-        return res.status(500).json({ error: "Could not update system channel flags." });
+        return res.status(500).json({ message: "Could not update system channel flags." });
     }
 }
 
@@ -70,7 +65,7 @@ const getGuildData = async (req, res) => {
     }
     catch (err) {
         console.log(err);
-        return res.status(500).json({ error: err.message });
+        return res.status(500).json({ message: err.message });
     }
 }
 

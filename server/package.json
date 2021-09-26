@@ -12,6 +12,7 @@
     "client-sessions": "^0.8.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.3.0",
     "helmet": "^4.6.0",
     "mongoose": "^6.0.3",
     "passport": "^0.4.1",
