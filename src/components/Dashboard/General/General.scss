@@ -97,12 +97,10 @@
         margin-top: 1rem;
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         justify-content: space-evenly;
         width: 100%;
         &-info {
-            display: flex;
-            align-items: center;
-            height: 3rem;
             width: 80%;
             b {
                 display: inline-block;

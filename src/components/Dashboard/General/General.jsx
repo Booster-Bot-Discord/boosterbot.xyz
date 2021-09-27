@@ -269,12 +269,12 @@ function General() {
                         </div>
                         <div className="guild-container">
                             <p className="guild-title">Boost Message</p>
-                            {guildFlags?.includes(
+                            {!guildFlags?.includes(
                                 "SUPPRESS_PREMIUM_SUBSCRIPTIONS"
                             ) ? (
                                 <div className="guild-pair">
                                     <p className="guild-pair-info">
-                                        Boost messages <b>disabled</b>!
+                                        Boost messages <b>disabled.</b>
                                     </p>
                                     <button
                                         className="guild-pair-button"
