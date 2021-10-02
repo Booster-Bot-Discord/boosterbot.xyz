@@ -47,13 +47,13 @@ const Navbar = () => {
                             <p className="login-title">Login</p>
                         </button>
                     ) : (
-                        <div className="nav-user">
+                        <div onClick={toggleDropdown} className="nav-user">
                             <img
                                 className="nav-user-avatar"
                                 src={`https://cdn.discordapp.com/avatars/${discordId}/${avatar}.jpg?size=128`}
                                 alt="avatar"
                             />
-                            <button onClick={toggleDropdown} className="nav-user-arrowButton" />
+                            <button className="nav-user-arrowButton" />
                             {showDropdown && (
                                 <div className="nav-user-dropdown">
                                     <NavLink to="/dashboard" className="nav-user-dropdown-link">Dashboard</NavLink>

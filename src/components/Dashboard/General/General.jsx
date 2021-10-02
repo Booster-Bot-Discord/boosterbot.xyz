@@ -231,6 +231,23 @@ function General() {
                                 </button>
                             </div>
                         </div>
+
+                        {/* Premium */}
+                        <p className="bot-premium">
+                            {console.log(guildConfig?.premium)}
+                            {!guildConfig?.premium ? (
+                                <>
+                                    You're missing out premium features. <br />
+                                    <a href="/premium" target="_blank">
+                                        Get Premium now!
+                                    </a>
+                                </>
+                            ) : (
+                                <p>
+                                    <span>Premium Activated 🎉</span>
+                                </p>
+                            )}
+                        </p>
                     </div>
 
                     {/* SERVER SETTINGS */}
@@ -269,7 +286,7 @@ function General() {
                         </div>
                         <div className="guild-container">
                             <p className="guild-title">Boost Message</p>
-                            {!guildFlags?.includes(
+                            {guildFlags?.includes(
                                 "SUPPRESS_PREMIUM_SUBSCRIPTIONS"
                             ) ? (
                                 <div className="guild-pair">

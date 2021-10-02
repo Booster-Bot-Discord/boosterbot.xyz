@@ -77,6 +77,17 @@
     &-button {
         @include button-style(20%, 3rem);
     }
+    &-premium {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        span {
+            color: $golden;
+        }
+        a {
+            color: $orange;
+        }
+    }
 }
 
 .guild {
