@@ -51,6 +51,7 @@
         max-height: 20rem;
         overflow-y: auto;
         &-item {
+            z-index: 999;
             padding: 0.5rem 1rem;
             width: 100%;
             cursor: pointer;
@@ -72,7 +73,7 @@
                 border-bottom-right-radius: 0.5rem;
             }
             &-role {
-                background-color: $navy-blue;
+                background-color: $gray-darkest;
             }
             &-channel {
                 background-color: $grayish;

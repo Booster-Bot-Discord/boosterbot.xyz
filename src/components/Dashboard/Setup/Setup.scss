@@ -52,4 +52,18 @@
             @include button-style(20%, 3rem);
         }
     }
+    &-base-role {
+        @include glass-container-style(45%, 80%, column, flex-start, center);
+        &-disabled {
+            margin-top: 1rem;
+            color: $white;
+            font-weight: 800;
+        }
+    }
+    &-color {
+        @include glass-container-style(45%, 80%, column, flex-start, center);
+    }
+    &-premium-reminder {
+        @include glass-container-style(45%, 80%, column, flex-start, center);
+    }
 }

@@ -14,24 +14,37 @@ const Setup = () => {
 
     // const toastId = React.useRef(null);
     const [disableButton, setDisableButton] = useState(false);
-    const [selectedRole, setSelectedRole] = useState(
-        guildRoles.find((r) => r.id === guildConfig?.botManager)
+    const [botManagerRole, setBotManagerRole] = useState(
+        guildConfig?.botManager
+            ? guildRoles.find((r) => r.id === guildConfig?.botManager)
+            : null
+    );
+    const [baseRole, setBaseRole] = useState(
+        guildConfig?.baseRole
+            ? guildRoles.find((r) => r.id === guildConfig?.baseRole)
+            : null
     );
     const [requiredBoostsForCustomRole, setRequiredBoostsForCustomRole] =
         useState(guildConfig?.customRole || 0);
     const [giftsAllowed, setGiftsAllowed] = useState(
-        guildConfig?.giftConfig[0] || 0
+        guildConfig?.giftConfig?.length ? guildConfig?.giftConfig[0] : 0
     );
     const [requiredBoostsForGifts, setRequiredBoostsForGifts] = useState(
-        guildConfig?.giftConfig[1] || 0
+        guildConfig?.giftConfig?.length ? guildConfig?.giftConfig[1] : 0
     );
 
     // Sync gifts values
     useEffect(() => {
         if (giftsAllowed === 0) setRequiredBoostsForGifts(0);
+        else if (giftsAllowed === 1 && requiredBoostsForGifts === 0)
+            setRequiredBoostsForGifts(1);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [giftsAllowed]);
     useEffect(() => {
         if (requiredBoostsForGifts === 0) setGiftsAllowed(0);
+        else if (requiredBoostsForGifts === 1 && giftsAllowed === 0)
+            setGiftsAllowed(1);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [requiredBoostsForGifts]);
 
     return (
@@ -47,11 +60,12 @@ const Setup = () => {
                             don't have access to dashbaord)
                         </p>
                         <Dropdown
-                            className="guild-dropdown"
-                            selected={selectedRole}
-                            setSelected={setSelectedRole}
+                            selected={botManagerRole}
+                            setSelected={setBotManagerRole}
                             items={guildRoles
-                                .filter((r) => r.name !== "@everyone")
+                                .filter(
+                                    (r) => r.name !== "@everyone" && !r.tags
+                                )
                                 .sort((a, b) => {
                                     return b.position - a.position;
                                 })}
@@ -114,6 +128,71 @@ const Setup = () => {
                             </div>
                             <button className="setup-gifts-apply">Apply</button>
                         </div>
+                    </div>
+                </div>
+
+                {/* Base Role setup container */}
+                <div className="setup-base-role">
+                    <p className="setup-title">Base Role:</p>
+                    <div className="setup-content">
+                        <p>
+                            Bot will assign custom-role just above this role so
+                            that booster's name will appear in color of their
+                            custom role.
+                        </p>
+                        {requiredBoostsForCustomRole > 0 ? (
+                            <Dropdown
+                                selected={baseRole}
+                                setSelected={setBaseRole}
+                                items={guildRoles
+                                    .filter((r) => r.name !== "@everyone")
+                                    .sort((a, b) => {
+                                        return b.position - a.position;
+                                    })}
+                                role={true}
+                                clear={true}
+                                apply={true}
+                                disableButton={disableButton}
+                            />
+                        ) : (
+                            <p className="setup-base-role-disabled">
+                                Enable custom roles to setup base-role for the
+                                custom roles.
+                            </p>
+                        )}
+                    </div>
+                </div>
+
+                {/* Color setup container */}
+                <div className="setup-color">
+                    <p className="setup-title">Color:</p>
+                    <div className="setup-content">
+                        <p>
+                            Bot will use this color in all command embeds and
+                            image accent color (
+                            <i>except for greet and logs embed colors </i> ).
+                        </p>
+                    </div>
+                </div>
+
+                {/* Premium reminder container */}
+                <div className="setup-premium-reminder">
+                    <p className="setup-title">⭐ Premium Reminder:</p>
+                    <div className="setup-content">
+                        <p>
+                            Get premium now from patreon or by{" "}
+                            <b>
+                                <a
+                                    rel="noreferrer"
+                                    target="_blank"
+                                    href="https://boosterbot.xyz/vote"
+                                >
+                                    voting
+                                </a>{" "}
+                            </b>
+                            bot to support booster bot and get amazing features
+                            listed in <b>bb premium</b> command.
+                        </p>
                     </div>
                 </div>
             </div>

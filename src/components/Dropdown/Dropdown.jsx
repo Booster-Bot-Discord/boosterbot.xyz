@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ImCross } from "react-icons/im";
-import onClickOutside from "react-onclickoutside";
 
 import "./Dropdown.scss";
 
@@ -17,7 +16,6 @@ function Dropdown({
 }) {
     const [open, setOpen] = useState(false);
     const toggle = () => setOpen(!open);
-    Dropdown.handleClickOutside = () => setOpen(false);
 
     const handleOnClick = (item) => {
         setSelected(item);
@@ -65,7 +63,7 @@ function Dropdown({
                         )}
                         {selected?.name || "-- disabled --"}
                     </p>
-                    {clear && (
+                    {clear && selected && (
                         <ImCross
                             disabled={disableButton}
                             onClick={onClear}
@@ -129,8 +127,4 @@ function Dropdown({
     );
 }
 
-const clickOutsideConfig = {
-    handleClickOutside: () => Dropdown.handleClickOutside,
-};
-
-export default onClickOutside(Dropdown, clickOutsideConfig);
+export default Dropdown;
