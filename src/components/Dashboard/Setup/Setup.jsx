@@ -32,6 +32,7 @@ const Setup = () => {
     const [requiredBoostsForGifts, setRequiredBoostsForGifts] = useState(
         guildConfig?.giftConfig?.length ? guildConfig?.giftConfig[1] : 0
     );
+    const [color, setColor] = useState(guildConfig?.color || "#2f3136");
 
     // Sync gifts values
     useEffect(() => {
@@ -47,12 +48,17 @@ const Setup = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [requiredBoostsForGifts]);
 
+    // handle color change event
+    const colorChange = (e) => {
+        setColor(e.target.value);
+    };
+
     return (
         <>
             <h1 className="setup-heading">Booster Bot Setup</h1>
             <div className="setup">
                 {/* Bot Manager Setup Container */}
-                <div className="setup-bot-manager">
+                <div className="setup-std-container">
                     <p className="setup-title">Bot Manager:</p>
                     <div className="setup-content">
                         <p>
@@ -78,7 +84,7 @@ const Setup = () => {
                 </div>
 
                 {/* Custom roles setup container */}
-                <div className="setup-custom-role">
+                <div className="setup-std-container">
                     <p className="setup-title">Custom Role:</p>
                     {/* <div className="setup-custom-role-internal"> */}
                     <div className="setup-content">
@@ -95,15 +101,13 @@ const Setup = () => {
                                 value={requiredBoostsForCustomRole}
                                 setValue={setRequiredBoostsForCustomRole}
                             />
-                            <button className="setup-custom-role-apply">
-                                Apply
-                            </button>
+                            <button className="setup-apply">Apply</button>
                         </div>
                     </div>
                 </div>
 
                 {/* Gifts setup container */}
-                <div className="setup-gifts">
+                <div className="setup-std-container">
                     <p className="setup-title">Gifts:</p>
                     <div className="setup-content">
                         <p>
@@ -126,13 +130,13 @@ const Setup = () => {
                                     setValue={setRequiredBoostsForGifts}
                                 />
                             </div>
-                            <button className="setup-gifts-apply">Apply</button>
+                            <button className="setup-apply">Apply</button>
                         </div>
                     </div>
                 </div>
 
                 {/* Base Role setup container */}
-                <div className="setup-base-role">
+                <div className="setup-std-container">
                     <p className="setup-title">Base Role:</p>
                     <div className="setup-content">
                         <p>
@@ -164,7 +168,7 @@ const Setup = () => {
                 </div>
 
                 {/* Color setup container */}
-                <div className="setup-color">
+                <div className="setup-std-container">
                     <p className="setup-title">Color:</p>
                     <div className="setup-content">
                         <p>
@@ -172,11 +176,27 @@ const Setup = () => {
                             image accent color (
                             <i>except for greet and logs embed colors </i> ).
                         </p>
+                        <div className="setup-inputs">
+                            <div className="setup-color-input">
+                                <input
+                                    type="color"
+                                    value={color}
+                                    onChange={colorChange}
+                                    className="setup-color-input-color"
+                                />
+                                <input
+                                    type="text"
+                                    value={color}
+                                    className="setup-color-input-text"
+                                />
+                            </div>
+                            <button className="setup-apply">Apply</button>
+                        </div>
                     </div>
                 </div>
 
                 {/* Premium reminder container */}
-                <div className="setup-premium-reminder">
+                <div className="setup-std-container">
                     <p className="setup-title">⭐ Premium Reminder:</p>
                     <div className="setup-content">
                         <p>

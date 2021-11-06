@@ -33,37 +33,41 @@
         margin-top: 1rem;
         padding: 0.5rem;
     }
-    &-bot-manager {
+    &-apply {
+        @include button-style(20%, 3rem);
+    }
+    &-std-container {
         @include glass-container-style(45%, 80%, column, flex-start, center);
     }
     &-custom-role {
-        @include glass-container-style(45%, 80%, column, flex-start, center);
         &-internal {
             display: flex;
             justify-content: center;
         }
-        &-apply {
-            @include button-style(20%, 3rem);
-        }
-    }
-    &-gifts {
-        @include glass-container-style(45%, 80%, column, flex-start, center);
-        &-apply {
-            @include button-style(20%, 3rem);
-        }
     }
     &-base-role {
-        @include glass-container-style(45%, 80%, column, flex-start, center);
         &-disabled {
             margin-top: 1rem;
             color: $white;
             font-weight: 800;
         }
     }
-    &-color {
-        @include glass-container-style(45%, 80%, column, flex-start, center);
-    }
-    &-premium-reminder {
-        @include glass-container-style(45%, 80%, column, flex-start, center);
+    &-color-input {
+        display: flex;
+        &-text {
+            width: 50%;
+            padding: 1rem;
+            outline: none;
+            color: $black;
+            font-weight: 700;
+            height: 3rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        &-color {
+            width: 5rem;
+            height: 3rem;
+            padding: 0.1rem;
+            border-radius: 0.5rem 0 0 0.5rem;
+        }
     }
 }
