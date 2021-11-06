@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 // import { toast } from "react-toastify";
-import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 
+import IncDec from "../../IncDec/IncDec";
 import Dropdown from "../../Dropdown/Dropdown";
 
 import "./Setup.scss";
@@ -17,13 +17,22 @@ const Setup = () => {
     const [selectedRole, setSelectedRole] = useState(
         guildRoles.find((r) => r.id === guildConfig?.botManager)
     );
-    const [requiredBoosts, setRequiredBoosts] = useState(
-        guildConfig?.customRole
+    const [requiredBoostsForCustomRole, setRequiredBoostsForCustomRole] =
+        useState(guildConfig?.customRole || 0);
+    const [giftsAllowed, setGiftsAllowed] = useState(
+        guildConfig?.giftConfig[0] || 0
+    );
+    const [requiredBoostsForGifts, setRequiredBoostsForGifts] = useState(
+        guildConfig?.giftConfig[1] || 0
     );
 
-    const incrementBoostRequired = () => setRequiredBoosts(requiredBoosts + 1);
-    const decrementBoostRequired = () =>
-        requiredBoosts > 0 ? setRequiredBoosts(requiredBoosts - 1) : null;
+    // Sync gifts values
+    useEffect(() => {
+        if (giftsAllowed === 0) setRequiredBoostsForGifts(0);
+    }, [giftsAllowed]);
+    useEffect(() => {
+        if (requiredBoostsForGifts === 0) setGiftsAllowed(0);
+    }, [requiredBoostsForGifts]);
 
     return (
         <>
@@ -48,6 +57,7 @@ const Setup = () => {
                                 })}
                             role={true}
                             clear={true}
+                            apply={true}
                             disableButton={disableButton}
                         />
                     </div>
@@ -65,30 +75,44 @@ const Setup = () => {
                             of boosts.
                         </p>
 
-                        <div className="setup-custom-role-input">
-                            <p className="setup-custom-role-input-info">
-                                {requiredBoosts > 0 ? (
-                                    <>
-                                        <span>{requiredBoosts}</span> boosts
-                                        required to claim custom role
-                                    </>
-                                ) : (
-                                    <>
-                                        <span>Disabled</span> no one can claim
-                                        custom role
-                                    </>
-                                )}
-                            </p>
-                            <div className="setup-custom-role-input-icons">
-                                <BiUpArrow
-                                    className="setup-custom-role-input-icons-icon"
-                                    onClick={incrementBoostRequired}
-                                />
-                                <BiDownArrow
-                                    className="setup-custom-role-input-icons-icon"
-                                    onClick={decrementBoostRequired}
+                        <div className="setup-inputs">
+                            <IncDec
+                                title="Boosts Required to claim custom role"
+                                value={requiredBoostsForCustomRole}
+                                setValue={setRequiredBoostsForCustomRole}
+                            />
+                            <button className="setup-custom-role-apply">
+                                Apply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Gifts setup container */}
+                <div className="setup-gifts">
+                    <p className="setup-title">Gifts:</p>
+                    <div className="setup-content">
+                        <p>
+                            Allow boosters to GIFT their personal role to
+                            specified number of friends if they have required
+                            number of boosts with <b>bb gift</b> command.
+                        </p>
+                        <div className="setup-inputs">
+                            <div>
+                                <IncDec
+                                    title="Allowed Gifts"
+                                    value={giftsAllowed}
+                                    setValue={setGiftsAllowed}
                                 />
                             </div>
+                            <div>
+                                <IncDec
+                                    title="Required boosts"
+                                    value={requiredBoostsForGifts}
+                                    setValue={setRequiredBoostsForGifts}
+                                />
+                            </div>
+                            <button className="setup-gifts-apply">Apply</button>
                         </div>
                     </div>
                 </div>

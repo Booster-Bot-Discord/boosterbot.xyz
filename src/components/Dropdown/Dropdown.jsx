@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ImCross } from "react-icons/im";
 import onClickOutside from "react-onclickoutside";
 
 import "./Dropdown.scss";
@@ -64,16 +65,16 @@ function Dropdown({
                         )}
                         {selected?.name || "-- disabled --"}
                     </p>
+                    {clear && (
+                        <ImCross
+                            disabled={disableButton}
+                            onClick={onClear}
+                            className="dd-header-clear"
+                        >
+                            Clear
+                        </ImCross>
+                    )}
                 </div>
-                {clear && (
-                    <button
-                        disabled={disableButton}
-                        onClick={onClear}
-                        className="dd-header-clear"
-                    >
-                        Clear
-                    </button>
-                )}
                 {apply && (
                     <button
                         disabled={disableButton}

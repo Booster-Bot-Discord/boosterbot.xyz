@@ -20,53 +20,36 @@
         align-self: start;
     }
     &-content {
-        padding: 1rem;
+        padding: 1rem 1rem 0 1rem;
         color: $grayish;
         b {
             color: $fuchia;
         }
     }
+    &-inputs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding: 0.5rem;
+    }
     &-bot-manager {
-        @include glass-container-style(45%, column, flex-start, center);
+        @include glass-container-style(45%, 80%, column, flex-start, center);
     }
     &-custom-role {
-        @include glass-container-style(45%, column, flex-start, center);
+        @include glass-container-style(45%, 80%, column, flex-start, center);
         &-internal {
             display: flex;
             justify-content: center;
         }
-        &-input {
-            display: flex;
-            justify-content: space-between;
-            border: 2px solid $grayish;
-            border-radius: 0.5rem;
-            margin-top: 1rem;
-            padding: 0.5rem;
-            &-info {
-                span {
-                    margin: 0 0.5rem;
-                    color: $white;
-                    font-size: 1.25rem;
-                    font-weight: 900;
-                }
-            }
-            &-icons {
-                display: flex;
-                margin-right: 1rem;
-                &-icon {
-                    color: $white;
-                    font-size: 2rem;
-                    cursor: pointer;
-                    &:hover {
-                        color: $fuchia;
-                    }
-                }
-            }
-            transition: ease-in-out 0.25s;
-            &:hover {
-                border: 2px solid $fuchia;
-                box-shadow: 0 0 10px rgba($color: $fuchia, $alpha: 0.3);
-            }
+        &-apply {
+            @include button-style(20%, 3rem);
+        }
+    }
+    &-gifts {
+        @include glass-container-style(45%, 80%, column, flex-start, center);
+        &-apply {
+            @include button-style(20%, 3rem);
         }
     }
 }

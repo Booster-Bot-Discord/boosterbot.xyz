@@ -31,11 +31,11 @@
         }
         &-clear {
             justify-self: flex-end;
-            height: 3rem;
-            width: 20%;
+            height: 1.5rem;
+            width: 1.5rem;
             color: $white;
             padding: 0.25rem;
-            border-radius: 0.5rem;
+            border-radius: 50%;
             background-color: $red;
         }
         &-apply {

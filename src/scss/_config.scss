@@ -50,7 +50,7 @@ $red: #ed4245;
     }
 }
 
-@mixin glass-container-style($width, $direction, $align, $justify) {
+@mixin glass-container-style($width, $bigwidth, $direction, $align, $justify) {
     display: flex;
     flex-direction: $direction;
     align-items: $align;
@@ -61,6 +61,9 @@ $red: #ed4245;
     border-radius: 1rem;
     background-color: rgba($color: $navy-blue, $alpha: 0.3);
     box-shadow: 0 8px 30px $black;
+    @media screen and (max-width: 1300px) {
+        width: $bigwidth;
+    }
 }
 
 @mixin hero-background {
