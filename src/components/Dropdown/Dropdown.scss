@@ -15,6 +15,7 @@
         &-title {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             padding: 0.5rem 1rem;
             color: $white;
             width: 70%;
@@ -28,7 +29,16 @@
                 box-shadow: 0 0 10px rgba($color: $golden, $alpha: 0.3);
             }
         }
-        &-action {
+        &-clear {
+            justify-self: flex-end;
+            height: 3rem;
+            width: 20%;
+            color: $white;
+            padding: 0.25rem;
+            border-radius: 0.5rem;
+            background-color: $red;
+        }
+        &-apply {
             @include button-style(20%, 3rem);
         }
     }
@@ -46,10 +56,8 @@
             cursor: pointer;
             font-weight: 600;
             color: $navy-blue;
-            background-color: $grayish;
             border-left: 2px solid $gray;
             border-right: 2px solid $gray;
-            border-bottom: 2px solid $gray;
             transition: ease-in-out 0.2s;
             &:hover {
                 background-color: $navy-blue;
@@ -63,6 +71,27 @@
                 border-bottom-left-radius: 0.5rem;
                 border-bottom-right-radius: 0.5rem;
             }
+            &-role {
+                background-color: $navy-blue;
+            }
+            &-channel {
+                background-color: $grayish;
+                border-bottom: 2px solid $gray;
+            }
         }
+    }
+    &-role {
+        min-width: 80%;
+        display: flex;
+        align-items: center;
+        padding: 0.2rem 0.75rem;
+        border-radius: 1rem;
+    }
+    &-role-badge {
+        width: 1rem;
+        height: 1rem;
+        margin: 0 1.25rem 0 0.5rem;
+        border-radius: 50%;
+        display: inline-block;
     }
 }

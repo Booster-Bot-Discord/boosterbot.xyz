@@ -234,7 +234,6 @@ function General() {
 
                         {/* Premium */}
                         <p className="bot-premium">
-                            {console.log(guildConfig?.premium)}
                             {!guildConfig?.premium ? (
                                 <>
                                     You're missing out premium features. <br />

@@ -50,6 +50,19 @@ $red: #ed4245;
     }
 }
 
+@mixin glass-container-style($width, $direction, $align, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+    width: $width;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: rgba($color: $navy-blue, $alpha: 0.3);
+    box-shadow: 0 8px 30px $black;
+}
+
 @mixin hero-background {
     background-position: center;
     // background-color: $blurple;
