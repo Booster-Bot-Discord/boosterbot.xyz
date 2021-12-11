@@ -1,5 +1,5 @@
 const express = require("express");
-const { isGuildManager } = require("../middleware/isLoggedIn");
+const { isGuildManager } = require("../middleware/isGuildManager");
 const { getGuildConfig, getGuildData, updateGuildConfig, updateGuildSystemChannel, updateGuildSystemChannelFlags } = require("../controller/guild");
 
 const router = express.Router();

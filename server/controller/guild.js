@@ -20,6 +20,7 @@ const getGuildConfig = async (req, res) => {
 // update guild config in database
 const updateGuildConfig = async (req, res) => {
     try {
+        await axios.default.delete(`http://localhost:3000/guild/${req.params.guildId}/cache`);
         await GuildConfig.findOneAndUpdate({ id: req.params.guildId }, req.body);
         return res.status(200).json({ message: "Guild config updated" });
     }

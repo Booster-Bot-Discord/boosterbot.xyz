@@ -108,47 +108,70 @@ const Landing = () => {
                 <section className="features">
                     <div className="features-container">
                         <div className="features-item">
-                            <img className="features-item-logo heart-eyes-logo" src={heartEyesLogo} alt="logo" />
+                            <img
+                                className="features-item-logo heart-eyes-logo"
+                                src={heartEyesLogo}
+                                alt="logo"
+                            />
                             <h3 className="features-item-heading">
                                 Personalise Boost Messages
                             </h3>
                             <p className="features-item-content">
-                                Setup fully customizable boost messages to show nice gesture towards server boosters.
+                                Setup fully customizable boost messages to show
+                                nice gesture towards server boosters.
                             </p>
                         </div>
                         <div className="features-item">
-                            <img className="features-item-logo ghost-logo" src={ghostLogo} alt="logo" />
+                            <img
+                                className="features-item-logo ghost-logo"
+                                src={ghostLogo}
+                                alt="logo"
+                            />
                             <h3 className="features-item-heading">
                                 Custom Roles
                             </h3>
                             <p className="features-item-content">
-                                Allow your boosters to claim and maintain their own role. They can edit role name and color.
+                                Allow your boosters to claim and maintain their
+                                own role. They can edit role name and color.
                             </p>
                         </div>
                     </div>
                     <div className="features-container">
                         <div className="features-item">
-                            <img className="features-item-logo monky-logo" src={monkyLogo} alt="logo" />
+                            <img
+                                className="features-item-logo monky-logo"
+                                src={monkyLogo}
+                                alt="logo"
+                            />
                             <h3 className="features-item-heading">
                                 Track Server Boosters
                             </h3>
                             <p className="features-item-content">
-                                See who boosted and how many times OR removed boost from your server by setting up log channel.
+                                See who boosted and how many times OR removed
+                                boost from your server by setting up log
+                                channel.
                             </p>
                         </div>
                         <div className="features-item">
-                            <img className="features-item-logo heart-logo" src={heartLogo} alt="logo" />
+                            <img
+                                className="features-item-logo heart-logo"
+                                src={heartLogo}
+                                alt="logo"
+                            />
                             <h3 className="features-item-heading">
                                 Boost Stats Voice Channels
                             </h3>
                             <p className="features-item-content">
-                                Use voice channels to let everyone see boost stats easily, instead of opening settings.
+                                Use voice channels to let everyone see boost
+                                stats easily, instead of opening settings.
                             </p>
                         </div>
                     </div>
                 </section>
 
-                <CtaBottom />
+                <div className="landing-cta">
+                    <CtaBottom />
+                </div>
                 <Footer />
             </div>
         </>

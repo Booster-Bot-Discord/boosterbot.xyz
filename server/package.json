@@ -16,6 +16,7 @@
     "helmet": "^4.6.0",
     "mongoose": "^6.0.3",
     "passport": "^0.4.1",
-    "passport-discord": "^0.1.4"
+    "passport-discord": "^0.1.4",
+    "redis": "^4.0.0"
   }
 }

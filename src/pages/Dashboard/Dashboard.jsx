@@ -16,10 +16,16 @@ import "./Dashboard.scss";
 const ServerPicker = () => {
     const history = useHistory();
 
+    const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
     const [activeTab, setActiveTab] = useState("");
     const [guildAvailable, setguildAvailable] = useState(
         useSelector((state) => state.guild.available)
     );
+
+    // if not logged in, redirect to home
+    if (!isAuthenticated) {
+        window.location.href = "/";
+    }
 
     useEffect(() => {
         setActiveTab(history.location.pathname.split("/")[3]);

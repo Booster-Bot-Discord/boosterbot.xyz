@@ -19,21 +19,18 @@ export const useDiscordLogin = () => {
 export const useAuthCheck = () => {
     const dispatch = useDispatch();
 
-    return function () {
-        authCheck()
-            .then(res => {
-                if (res.status === 200) {
-                    dispatch(authenticate());
-                    dispatch(setId(res.data.id));
-                    dispatch(setDiscordId(res.data.discordId));
-                    dispatch(setUsername(res.data.username));
-                    dispatch(setAvatar(res.data.avatar));
-                    dispatch(setPermissionLevel(res.data.permissionLevel));
-                }
-            })
-            .catch(err => {
-                // Do nothing.
-            });
+    return async function () {
+        const res = await authCheck();
+        if (res.status === 200) {
+            dispatch(authenticate());
+            dispatch(setId(res.data.id));
+            dispatch(setDiscordId(res.data.discordId));
+            dispatch(setUsername(res.data.username));
+            dispatch(setAvatar(res.data.avatar));
+            dispatch(setPermissionLevel(res.data.permissionLevel));
+        } else {
+            // do nothing
+        }
     }
 }
 

@@ -9,7 +9,7 @@ const CtaBottom = () => {
         <>
             <div className="ctaBottom">
                 <h2 className="ctaBottom-title">
-                    Personalize your discord server now!
+                    Personalise your discord server now!
                 </h2>
                 <div className="ctaBottom-content">
                     <img className="ctaBottom-content-image" src={sunglassLogo} alt="logo" />

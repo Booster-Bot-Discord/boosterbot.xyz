@@ -26,13 +26,14 @@ function Sidebar({ activeTab, setActiveTab }) {
                         className="sidebar-guild-icon"
                         src={guildIcon}
                         alt={guildName}
-                        onClick={() =>
+                        onClick={() => {
                             history.push(
                                 `/dashboard/${
                                     history.location.pathname.split("/")[2]
                                 }/general`
-                            )
-                        }
+                            );
+                            setActiveTab("general");
+                        }}
                     />
                     <h3 className="sidebar-guild-name">{guildName}</h3>
                     <p className="sidebar-guild-members">
