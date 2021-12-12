@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -18,13 +19,23 @@ import Dropdown from "../../Dropdown/Dropdown";
 
 import "./Greet.scss";
 
-const Greet = () => {
+const Greet = ({ setActiveTab }) => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
     const guildChannels = useSelector((state) => state.guild.channels);
+    const systemChannelId = useSelector((state) => state.guild.systemChannelId);
+    const guildFlags = useSelector((state) => state.guild.systemChannelFlags);
 
     const toastId = React.useRef(null);
     const [disableButton, setDisableButton] = React.useState(false);
+    const [greetDisabled, setGreetDisabled] = React.useState(true);
+    const handleActiveStateChange = () => {
+        setActiveTab("general");
+        history.push(
+            `/dashboard/${history.location.pathname.split("/")[2]}/general`
+        );
+    };
 
     const [addon, setAddon] = React.useState(greetConfig?.greetAddon || "");
     const [color, setColor] = React.useState(greetConfig?.color || null);
@@ -44,19 +55,39 @@ const Greet = () => {
         greetConfig?.authorIcon || ""
     );
 
+    // Sync greet disable states
+    React.useEffect(() => {
+        setGreetDisabled(
+            guildFlags?.includes("SUPPRESS_PREMIUM_SUBSCRIPTIONS") ||
+                !systemChannelId
+        );
+    }, [systemChannelId, guildFlags]);
+
     return (
         <>
             <h1 className="greet-heading">Booster Greeting Message</h1>
 
             <div className="greet">
-                {/* Bot Manager Setup Container */}
+                {/* ENABLE || DISABLE greet messages */}
                 <div className="greet-std-container">
-                    <p className="greet-title">Setup Greet Message:</p>
+                    <p className="greet-title">Boost Message:</p>
                     <div className="greet-content">
                         <p>
-                            Manager can edit bot settings via commands (if they
-                            don't have access to dashbaord)
+                            System Boost Messages are{" "}
+                            <b>{greetDisabled ? "Disabled" : "Enabled"}</b>{" "}
+                            <br /> These are required for proper functioning of
+                            Booster Bot. <br />
+                            {!greetDisabled &&
+                                "⚠️ You can disable them in the Server Settings -> System Messages."}
                         </p>
+                        {greetDisabled && (
+                            <button
+                                className="greet-enable-button"
+                                onClick={handleActiveStateChange}
+                            >
+                                Enable from here!
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>

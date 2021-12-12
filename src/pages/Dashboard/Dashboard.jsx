@@ -50,7 +50,9 @@ const ServerPicker = () => {
                 <div className="dashboard-content">
                     {activeTab === "general" && <General />}
                     {activeTab === "setup" && <Setup />}
-                    {activeTab === "greet" && <Greet />}
+                    {activeTab === "greet" && (
+                        <Greet setActiveTab={setActiveTab} />
+                    )}
                     {activeTab === "stats" && <Soon />}
                 </div>
             </div>

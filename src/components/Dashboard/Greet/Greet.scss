@@ -32,6 +32,10 @@
         margin-top: 1rem;
         padding: 0.5rem;
     }
+    &-enable-button {
+        margin-top: 2rem;
+        @include button-style(40%, 3rem);
+    }
     &-apply {
         @include button-style(20%, 3rem);
     }
