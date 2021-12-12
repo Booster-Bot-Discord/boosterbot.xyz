@@ -1,7 +1,63 @@
 @import "../../scss/config";
 
 .footer {
-    height: 30vh;
+    height: 20vh;
     display: flex;
     background-color: rgba($color: $navy-blue, $alpha: 0.5);
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    &-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+        &-text {
+            margin-left: 1rem;
+            &-title {
+                font-size: 1.5rem;
+                font-weight: 800;
+            }
+            &-subtitle {
+                font-size: 1rem;
+                font-weight: 600;
+                color: $grayish;
+            }
+        }
+        &-logo {
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+    &-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 10%;
+        height: 100%;
+    }
+    &-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 20%;
+        height: 100%;
+    }
+    &-link {
+        display: flex;
+        align-items: center;
+        padding: 0.25rem;
+        img {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+        p {
+            margin-left: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: $grayish;
+        }
+    }
 }

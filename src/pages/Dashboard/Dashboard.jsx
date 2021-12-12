@@ -9,6 +9,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Dashboard/Sidebar/Sidebar";
 import General from "../../components/Dashboard/General/General";
 import Setup from "../../components/Dashboard/Setup/Setup";
+import Greet from "../../components/Dashboard/Greet/Greet";
 import Soon from "../../components/Dashboard/Soon/Soon";
 
 import "./Dashboard.scss";
@@ -49,6 +50,7 @@ const ServerPicker = () => {
                 <div className="dashboard-content">
                     {activeTab === "general" && <General />}
                     {activeTab === "setup" && <Setup />}
+                    {activeTab === "greet" && <Greet />}
                     {activeTab === "stats" && <Soon />}
                 </div>
             </div>

@@ -39,7 +39,7 @@ const Setup = () => {
     const [requiredBoostsForGifts, setRequiredBoostsForGifts] = useState(
         guildConfig?.giftConfig?.length ? guildConfig?.giftConfig[1] : 0
     );
-    const [color, setColor] = useState(guildConfig?.color || "#2f3136");
+    const [color, setColor] = useState(guildConfig?.color || null);
 
     // Sync gifts values
     useEffect(() => {
@@ -74,7 +74,7 @@ const Setup = () => {
         setRequiredBoostsForGifts(
             guildConfig?.giftConfig?.length ? guildConfig?.giftConfig[1] : 0
         );
-        setColor(guildConfig?.color || "#2f3136");
+        setColor(guildConfig?.color || null);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [guildConfig]);
 
@@ -354,19 +354,34 @@ const Setup = () => {
                             <i>except for greet and logs embed colors </i> ).
                         </p>
                         <div className="setup-inputs">
-                            <div className="setup-color-input">
-                                <input
-                                    type="color"
-                                    value={color}
-                                    onChange={colorChange}
-                                    className="setup-color-input-color"
-                                />
-                                <input
-                                    type="text"
-                                    value={color}
-                                    className="setup-color-input-text"
-                                />
-                            </div>
+                            {!color ? (
+                                <button
+                                    className="setup-apply"
+                                    onClick={() => setColor("#2f3136")}
+                                >
+                                    Enable
+                                </button>
+                            ) : (
+                                <div className="setup-color-input">
+                                    <input
+                                        type="color"
+                                        value={color}
+                                        onChange={colorChange}
+                                        className="setup-color-input-color"
+                                    />
+                                    <input
+                                        type="text"
+                                        value={color}
+                                        className="setup-color-input-text"
+                                    />
+                                    <button
+                                        className="setup-apply"
+                                        onClick={() => setColor(null)}
+                                    >
+                                        Disable
+                                    </button>
+                                </div>
+                            )}
                             <button
                                 className="setup-apply"
                                 onClick={changeColor}

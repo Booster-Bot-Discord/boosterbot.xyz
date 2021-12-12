@@ -1,0 +1,41 @@
+@import "../../../scss/config";
+
+.greet {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    &-heading {
+        color: $white;
+        text-align: center;
+        font-size: 2rem;
+        margin: 1rem;
+        font-weight: 900;
+    }
+    &-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: $white;
+        align-self: start;
+    }
+    &-content {
+        padding: 1rem 1rem 0 1rem;
+        color: $grayish;
+        b {
+            color: $fuchia;
+        }
+    }
+    &-inputs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding: 0.5rem;
+    }
+    &-apply {
+        @include button-style(20%, 3rem);
+    }
+    &-std-container {
+        @include glass-container-style(45%, 80%, column, flex-start, center);
+    }
+}

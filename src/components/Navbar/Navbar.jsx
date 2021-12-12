@@ -19,6 +19,12 @@ const Navbar = () => {
     const [showDropdown, setShowDropdown] = React.useState(false);
     const toggleDropdown = () => setShowDropdown(!showDropdown);
 
+    const inviteLink = "https://boosterbot.xyz/invite";
+    const premiumLink = "https://boosterbot.xyz/premium";
+    const serverLink = "https://boosterbot.xyz/support";
+    const docsLink =
+        "https://discord.bots.gg/bots/797339074146205706#getting-started";
+
     return (
         <>
             <div className="nav">
@@ -29,18 +35,38 @@ const Navbar = () => {
                     <p className="nav-brand-title">Booster Bot</p>
                 </NavLink>
                 <div className="nav-links">
-                    <NavLink to="/" className="nav-link">
-                        Invite
-                    </NavLink>
-                    <NavLink to="/" className="nav-link">
+                    <a
+                        href={inviteLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="nav-link"
+                    >
+                        <span>Invite</span>
+                    </a>
+                    <a
+                        href={docsLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="nav-link"
+                    >
                         Docs
-                    </NavLink>
-                    <NavLink to="/" className="nav-link">
+                    </a>
+                    <a
+                        href={premiumLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="nav-link"
+                    >
+                        <span>Premium</span>
+                    </a>
+                    <a
+                        href={serverLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="nav-link"
+                    >
                         Discord
-                    </NavLink>
-                    <NavLink to="/" className="nav-link">
-                        Commands
-                    </NavLink>
+                    </a>
                     {!isAuthenticated ? (
                         <button onClick={discordLogin} className="login-button">
                             <img src={discordLogo} alt="discord_logo" />
@@ -56,9 +82,26 @@ const Navbar = () => {
                             <button className="nav-user-arrowButton" />
                             {showDropdown && (
                                 <div className="nav-user-dropdown">
-                                    <NavLink to="/dashboard" className="nav-user-dropdown-link">Dashboard</NavLink>
-                                    <NavLink to="/" className="nav-user-dropdown-link">Premium</NavLink>
-                                    <button className="nav-user-dropdown-logout" onClick={logout}>Logout</button>
+                                    <NavLink
+                                        to="/dashboard"
+                                        className="nav-user-dropdown-link"
+                                    >
+                                        Dashboard
+                                    </NavLink>
+                                    <a
+                                        href={premiumLink}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="nav-user-dropdown-link"
+                                    >
+                                        Premium
+                                    </a>
+                                    <button
+                                        className="nav-user-dropdown-logout"
+                                        onClick={logout}
+                                    >
+                                        Logout
+                                    </button>
                                 </div>
                             )}
                         </div>

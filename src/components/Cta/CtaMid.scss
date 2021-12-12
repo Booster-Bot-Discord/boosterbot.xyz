@@ -1,7 +1,7 @@
-@import '../../scss/config';
+@import "../../scss/config";
 
 .ctaMid {
-    height: 50vh;
+    height: 40vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -18,5 +18,9 @@
         border: 0.2rem solid $orange;
         font-size: 2rem;
         font-weight: 600;
+        transition: all 0.15s ease-in-out;
+        &:hover {
+            box-shadow: 0 0 4rem 0.1rem rgba(202, 126, 54, 0.75);
+        }
     }
 }

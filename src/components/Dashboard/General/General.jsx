@@ -18,7 +18,7 @@ import Dropdown from "../../Dropdown/Dropdown";
 
 import "./General.scss";
 
-function General() {
+const General = () => {
     const dispatch = useDispatch();
     const guildId = useSelector((state) => state.guild.discordId);
     const guildName = useSelector((state) => state.guild.name);

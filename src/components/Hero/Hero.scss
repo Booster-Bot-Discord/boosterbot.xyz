@@ -44,6 +44,11 @@
         border-radius: 0 1rem;
         // offset-x | offset-y | blur-radius | spread-radius | color
         box-shadow: 1px 1px 8px 1px rgba(255, 255, 255, 0.5);
+        transition: all 0.1s ease-in-out;
+        &:hover {
+            // add glow effect on hover  with transition
+            box-shadow: 0 0 2rem 0.1rem rgba(255, 255, 255, 0.75);
+        }
     }
     &-wave {
         position: absolute;
