@@ -19,6 +19,26 @@ $yellow: #fee75c;
 $green: #57f287;
 $red: #ed4245;
 
+@mixin clear() {
+    justify-self: flex-end;
+    height: 1.5rem;
+    width: 1.5rem;
+    color: $white;
+    padding: 0.25rem;
+    border-radius: 50%;
+    background-color: $red;
+}
+
+@mixin pair() {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
 @mixin input-style($width, $height) {
     color: $black;
     height: $height;

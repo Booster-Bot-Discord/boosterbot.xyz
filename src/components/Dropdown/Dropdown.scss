@@ -30,13 +30,7 @@
             }
         }
         &-clear {
-            justify-self: flex-end;
-            height: 1.5rem;
-            width: 1.5rem;
-            color: $white;
-            padding: 0.25rem;
-            border-radius: 50%;
-            background-color: $red;
+            @include clear();
         }
         &-apply {
             @include button-style(20%, 3rem);

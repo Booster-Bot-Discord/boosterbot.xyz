@@ -25,12 +25,16 @@
             color: $fuchia;
         }
     }
-    &-inputs {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 1rem;
-        padding: 0.5rem;
+    &-clear {
+        @include clear();
+    }
+    &-pair {
+        @include pair();
+    }
+    &-input {
+        resize: both;
+        overflow: auto;
+        @include input-style(80%, 3rem);
     }
     &-enable-button {
         margin-top: 2rem;

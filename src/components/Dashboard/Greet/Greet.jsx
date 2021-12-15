@@ -17,6 +17,8 @@ import {
 
 import Dropdown from "../../Dropdown/Dropdown";
 
+import Messages from "./Messages/Messages";
+
 import "./Greet.scss";
 
 const Greet = ({ setActiveTab }) => {
@@ -70,7 +72,7 @@ const Greet = ({ setActiveTab }) => {
             <div className="greet">
                 {/* ENABLE || DISABLE greet messages */}
                 <div className="greet-std-container">
-                    <p className="greet-title">Boost Message:</p>
+                    <p className="greet-title">System Boost Message:</p>
                     <div className="greet-content">
                         <p>
                             System Boost Messages are{" "}
@@ -90,6 +92,12 @@ const Greet = ({ setActiveTab }) => {
                         )}
                     </div>
                 </div>
+
+                {/* GREET MESSAGE SETTINGS */}
+                <Messages
+                    disableButton={disableButton}
+                    setDisableButton={setDisableButton}
+                />
             </div>
         </>
     );

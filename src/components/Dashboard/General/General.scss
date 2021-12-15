@@ -65,11 +65,7 @@
         font-weight: 800;
     }
     &-pair {
-        margin-top: 1rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        width: 100%;
+        @include pair();
     }
     &-input {
         @include input-style(60%, 3rem);
