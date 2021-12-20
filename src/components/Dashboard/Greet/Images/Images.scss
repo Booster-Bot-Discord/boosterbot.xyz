@@ -1,0 +1,33 @@
+@import "../../../../scss/config";
+
+.greet {
+    &-images {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    &-image {
+        padding: 0.25rem;
+        display: flex;
+        align-items: center;
+        img {
+            cursor: pointer;
+            border: 2px solid $grayish;
+            border-radius: 4px;
+            width: 15rem;
+            &:hover {
+                box-shadow: 0 0 2px 1px $fuchia;
+                border: 2px solid $fuchia;
+            }
+        }
+        &-clear {
+            cursor: pointer;
+            @include clear();
+            margin: 0.2rem;
+        }
+        &-input {
+            @include input-style(75%, 3rem);
+        }
+    }
+}

@@ -18,6 +18,7 @@ import {
 import Dropdown from "../../Dropdown/Dropdown";
 
 import Messages from "./Messages/Messages";
+import Images from "./Images/Images";
 
 import "./Greet.scss";
 
@@ -95,6 +96,12 @@ const Greet = ({ setActiveTab }) => {
 
                 {/* GREET MESSAGE SETTINGS */}
                 <Messages
+                    disableButton={disableButton}
+                    setDisableButton={setDisableButton}
+                />
+
+                {/* GREET IMAGE SETTINGS */}
+                <Images
                     disableButton={disableButton}
                     setDisableButton={setDisableButton}
                 />

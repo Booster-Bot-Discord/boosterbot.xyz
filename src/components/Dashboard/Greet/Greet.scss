@@ -32,9 +32,7 @@
         @include pair();
     }
     &-input {
-        resize: both;
-        overflow: auto;
-        @include input-style(80%, 3rem);
+        @include input-style(60%, 3rem);
     }
     &-enable-button {
         margin-top: 2rem;

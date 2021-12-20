@@ -3,7 +3,7 @@ import { ImCross } from "react-icons/im";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 
-import "../Greet.scss";
+import "./Message.scss";
 
 const Messages = ({ disableButton, setDisableButton }) => {
     const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const Messages = ({ disableButton, setDisableButton }) => {
                     {messages.map((message, index) => (
                         <div className="greet-pair" key={index}>
                             <textarea
-                                className="greet-input"
+                                className="greet-message-input"
                                 type="text-box"
                                 placeholder="Message"
                                 value={message}
@@ -53,6 +53,25 @@ const Messages = ({ disableButton, setDisableButton }) => {
                             />
                         </div>
                     ))}
+                    {/* button to add message */}
+                    <div className="greet-pair">
+                        {!messages.length && (
+                            <p className="greet-content">
+                                <b>Greet Messages are disabled.</b>
+                            </p>
+                        )}
+                        <button
+                            disabled={disableButton}
+                            onClick={() => {
+                                const newMessages = [...messages];
+                                newMessages.push("");
+                                setMessages(newMessages);
+                            }}
+                            className="greet-apply"
+                        >
+                            Add Message
+                        </button>
+                    </div>
                 </div>
             </div>
         </>

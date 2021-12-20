@@ -1,0 +1,11 @@
+@import "../../../../scss/config";
+
+.greet {
+    &-message {
+        &-input {
+            resize: both;
+            overflow: auto;
+            @include input-style(90%, 5rem);
+        }
+    }
+}
