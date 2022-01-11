@@ -202,7 +202,7 @@ const General = () => {
                                     onClick={changePrefix}
                                     disabled={disableButton}
                                 >
-                                    Apply
+                                    Save
                                 </button>
                             </div>
                         </div>
@@ -227,7 +227,7 @@ const General = () => {
                                     onClick={changeNickname}
                                     disabled={disableButton}
                                 >
-                                    Apply
+                                    Save
                                 </button>
                             </div>
                         </div>
@@ -313,6 +313,6 @@ const General = () => {
             </div>
         </>
     );
-}
+};
 
 export default General;

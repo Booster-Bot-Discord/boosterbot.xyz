@@ -1,16 +1,18 @@
 import React from "react";
 import { ImCross } from "react-icons/im";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 
-import "./Images.scss";
+import "./Embed.scss";
 
-const Images = ({ disableButton, setDisableButton }) => {
+const AuthorIcon = ({ disableButton, setDisableButton }) => {
+    const dispatch = useDispatch();
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
+    const toastId = React.useRef(null);
     const [newImageURL, setNewImageURL] = React.useState("");
 
-    const [images, setImages] = React.useState(greetConfig?.images || []);
+    const [images, setImages] = React.useState(greetConfig?.authorIcon || []);
 
     // Sync greet images
     React.useEffect(() => {
@@ -25,11 +27,9 @@ const Images = ({ disableButton, setDisableButton }) => {
         setNewImageURL("");
     };
 
-    // TODO: save images, backend call
-
     return (
         <>
-            <div className="greet-full-container">
+            <div className="greet-std-container">
                 <p className="greet-title">Greet Images:</p>
                 <div className="greet-content">
                     <p>
@@ -106,4 +106,4 @@ const Images = ({ disableButton, setDisableButton }) => {
     );
 };
 
-export default Images;
+export default AuthorIcon;

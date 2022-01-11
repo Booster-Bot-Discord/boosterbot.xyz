@@ -39,9 +39,15 @@
         @include button-style(40%, 3rem);
     }
     &-apply {
+        margin-top: 1rem;
+        align-self: center;
+        color: $grayish;
         @include button-style(20%, 3rem);
     }
     &-std-container {
         @include glass-container-style(45%, 80%, column, flex-start, center);
+    }
+    &-full-container {
+        @include glass-container-style(80%, 80%, column, flex-start, center);
     }
 }

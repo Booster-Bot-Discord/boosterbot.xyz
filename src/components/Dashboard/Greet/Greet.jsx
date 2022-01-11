@@ -19,6 +19,10 @@ import Dropdown from "../../Dropdown/Dropdown";
 
 import Messages from "./Messages/Messages";
 import Images from "./Images/Images";
+import Channel from "./Channel/Channel";
+import IsDM from "./IsDM/IsDM";
+import IsEmbed from "./IsEmbed/IsEmbed";
+import ShowStats from "./ShowStats/ShowStats";
 
 import "./Greet.scss";
 
@@ -72,27 +76,48 @@ const Greet = ({ setActiveTab }) => {
 
             <div className="greet">
                 {/* ENABLE || DISABLE greet messages */}
-                <div className="greet-std-container">
-                    <p className="greet-title">System Boost Message:</p>
-                    <div className="greet-content">
-                        <p>
-                            System Boost Messages are{" "}
-                            <b>{greetDisabled ? "Disabled" : "Enabled"}</b>{" "}
-                            <br /> These are required for proper functioning of
-                            Booster Bot. <br />
-                            {!greetDisabled &&
-                                "⚠️ You can disable them in the Server Settings -> System Messages."}
-                        </p>
-                        {greetDisabled && (
+                {greetDisabled && (
+                    <div className="greet-std-container">
+                        <p className="greet-title">System Boost Message:</p>
+                        <div className="greet-content">
+                            <p>
+                                System Boost Messages are <b>"Disabled"</b>{" "}
+                                <br /> These are required for proper functioning
+                                of Booster Bot. <br />
+                            </p>
                             <button
                                 className="greet-enable-button"
                                 onClick={handleActiveStateChange}
                             >
                                 Enable from here!
                             </button>
-                        )}
+                        </div>
                     </div>
-                </div>
+                )}
+
+                {/* GREET CHANNEL SETTINGS */}
+                <Channel
+                    disableButton={disableButton}
+                    setDisableButton={setDisableButton}
+                />
+
+                {/* IS GREET DM */}
+                <IsDM
+                    disableButton={disableButton}
+                    setDisableButton={setDisableButton}
+                />
+
+                {/* IS GREET MESSAGE AN EMBED */}
+                <IsEmbed
+                    disableButton={disableButton}
+                    setDisableButton={setDisableButton}
+                />
+
+                {/* IF STATS ARE SHOWS WITH MESSAGE */}
+                <ShowStats
+                    disableButton={disableButton}
+                    setDisableButton={setDisableButton}
+                />
 
                 {/* GREET MESSAGE SETTINGS */}
                 <Messages

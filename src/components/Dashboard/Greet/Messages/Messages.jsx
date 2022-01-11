@@ -1,16 +1,11 @@
 import React from "react";
 import { ImCross } from "react-icons/im";
-import { useSelector, useDispatch } from "react-redux";
-import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 import "./Message.scss";
 
 const Messages = ({ disableButton, setDisableButton }) => {
-    const dispatch = useDispatch();
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
-
-    const toastId = React.useRef(null);
-    const [greetDisabled, setGreetDisabled] = React.useState(true);
 
     const [messages, setMessages] = React.useState(greetConfig?.messages || []);
 
@@ -19,9 +14,11 @@ const Messages = ({ disableButton, setDisableButton }) => {
         setMessages(greetConfig?.messages || []);
     }, [greetConfig]);
 
+    // TODO: save messages, backend call
+
     return (
         <>
-            <div className="greet-std-container">
+            <div className="greet-full-container">
                 <p className="greet-title">Greet Messages:</p>
                 <div className="greet-content">
                     <p>
@@ -60,17 +57,30 @@ const Messages = ({ disableButton, setDisableButton }) => {
                                 <b>Greet Messages are disabled.</b>
                             </p>
                         )}
-                        <button
-                            disabled={disableButton}
-                            onClick={() => {
-                                const newMessages = [...messages];
-                                newMessages.push("");
-                                setMessages(newMessages);
-                            }}
-                            className="greet-apply"
-                        >
-                            Add Message
-                        </button>
+                        <div className="greet-message-input-wrapper-buttons">
+                            <button
+                                disabled={disableButton}
+                                onClick={() => {
+                                    const newMessages = [...messages];
+                                    newMessages.push("");
+                                    setMessages(newMessages);
+                                }}
+                                className="greet-message-input-wrapper-buttons-button"
+                            >
+                                Add Message
+                            </button>
+                            <button
+                                disabled={disableButton}
+                                onClick={() => {
+                                    const newMessages = [...messages];
+                                    newMessages.push("");
+                                    setMessages(newMessages);
+                                }}
+                                className="greet-message-input-wrapper-buttons-button"
+                            >
+                                Save Messages
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

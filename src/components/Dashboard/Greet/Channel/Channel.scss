@@ -1,0 +1,8 @@
+@import "../../../../scss/config";
+
+.channel {
+    &-button {
+        color: $grayish;
+        @include button-style(20%, 3rem);
+    }
+}

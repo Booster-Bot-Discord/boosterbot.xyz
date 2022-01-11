@@ -79,7 +79,7 @@ function Dropdown({
                         onClick={onApply}
                         className="dd-header-apply"
                     >
-                        Apply
+                        Save
                     </button>
                 )}
 

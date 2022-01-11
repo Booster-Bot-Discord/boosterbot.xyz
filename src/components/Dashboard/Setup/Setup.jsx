@@ -271,7 +271,7 @@ const Setup = () => {
                                 className="setup-apply"
                                 onClick={changeCustomRole}
                             >
-                                Apply
+                                Save
                             </button>
                         </div>
                     </div>
@@ -305,7 +305,7 @@ const Setup = () => {
                                 className="setup-apply"
                                 onClick={changeGifts}
                             >
-                                Apply
+                                Save
                             </button>
                         </div>
                     </div>
@@ -386,7 +386,7 @@ const Setup = () => {
                                 className="setup-apply"
                                 onClick={changeColor}
                             >
-                                Apply
+                                Save
                             </button>
                         </div>
                     </div>
