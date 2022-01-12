@@ -38,6 +38,7 @@ const Messages = ({ disableButton, setDisableButton }) => {
                                     newMessages[index] = e.target.value;
                                     setMessages(newMessages);
                                 }}
+                                maxLength={2000}
                             />
                             <ImCross
                                 disabled={disableButton}

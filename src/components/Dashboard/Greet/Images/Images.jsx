@@ -82,6 +82,7 @@ const Images = ({ disableButton, setDisableButton }) => {
                             onChange={(e) => {
                                 setNewImageURL(e.target.value);
                             }}
+                            maxLength={1000}
                         />
                         <div className="greet-image-input-wrapper-buttons">
                             <button

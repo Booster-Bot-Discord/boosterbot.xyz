@@ -17,12 +17,14 @@ import {
 
 import Dropdown from "../../Dropdown/Dropdown";
 
+import AddonMessage from "./AddonMessage/AddonMessage";
 import Messages from "./Messages/Messages";
 import Images from "./Images/Images";
 import Channel from "./Channel/Channel";
 import IsDM from "./IsDM/IsDM";
 import IsEmbed from "./IsEmbed/IsEmbed";
 import ShowStats from "./ShowStats/ShowStats";
+import Embed from "./Embed/Embed";
 
 import "./Greet.scss";
 
@@ -124,9 +126,20 @@ const Greet = ({ setActiveTab }) => {
                     disableButton={disableButton}
                     setDisableButton={setDisableButton}
                 />
+                {/* GREET ADDON MESSAGE SETTINGS */}
+                <AddonMessage
+                    disableButton={disableButton}
+                    setDisableButton={setDisableButton}
+                />
 
                 {/* GREET IMAGE SETTINGS */}
                 <Images
+                    disableButton={disableButton}
+                    setDisableButton={setDisableButton}
+                />
+
+                {/* GREET EMBED SETTINGS */}
+                <Embed
                     disableButton={disableButton}
                     setDisableButton={setDisableButton}
                 />

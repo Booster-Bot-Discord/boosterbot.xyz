@@ -1,5 +1,53 @@
 @import "../../../../scss/config";
 
 .embed {
-    
+    &-icon {
+        height: 5rem;
+        width: 5rem;
+        cursor: pointer;
+        border: 2px solid $grayish;
+        border-radius: 50%;
+        width: 5rem;
+        &:hover {
+            box-shadow: 0 0 2px 1px $fuchia;
+            border: 2px solid $fuchia;
+        }
+    }
+    &-radio {
+        margin-top: 1.5rem;
+        display: flex;
+        &-pair {
+            margin-right: 2rem;
+            display: flex;
+            justify-content: flex-start;
+        }
+        &-label {
+            cursor: pointer;
+            font-weight: 600;
+            color: $grayish;
+            margin-bottom: 1rem;
+            &-disabled {
+                cursor: pointer;
+                color: $grayish;
+                font-weight: 800;
+            }
+        }
+        &-input {
+            margin: 0.25rem 0.5rem 0 0;
+            &:checked + label {
+                color: $golden !important;
+            }
+            &-disabled {
+                margin: 0.25rem 0.5rem 0 0;
+                &:checked + label {
+                    color: $red !important;
+                }
+            }
+        }
+        &-desc {
+            font-size: 1rem;
+            font-weight: 600;
+            color: $grayish;
+        }
+    }
 }

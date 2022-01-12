@@ -368,11 +368,13 @@ const Setup = () => {
                                         value={color}
                                         onChange={colorChange}
                                         className="setup-color-input-color"
+                                        maxLength={7}
                                     />
                                     <input
                                         type="text"
                                         value={color}
                                         className="setup-color-input-text"
+                                        maxLength={7}
                                     />
                                     <button
                                         className="setup-apply"

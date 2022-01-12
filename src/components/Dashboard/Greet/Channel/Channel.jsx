@@ -59,7 +59,7 @@ const Channel = ({ disableButton, setDisableButton }) => {
                     <p className="greet-content">
                         <b>Greet Messages are disabled!</b>
                         <br />
-                        Please Select any chanel from below dropdown to enable
+                        Please select any chanel from below dropdown to enable
                         greet messages.
                     </p>
                 ) : (

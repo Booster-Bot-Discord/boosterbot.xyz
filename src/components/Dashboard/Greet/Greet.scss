@@ -39,7 +39,6 @@
         @include button-style(40%, 3rem);
     }
     &-apply {
-        margin-top: 1rem;
         align-self: center;
         color: $grayish;
         @include button-style(20%, 3rem);
