@@ -1,21 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { useSelector, useDispatch } from "react-redux";
-import { toast } from "react-toastify";
-
-import {
-    setDbGeneralConfig,
-    setSystemChannelId,
-    setSystemChannelFlags,
-} from "../../../store/guildSlice";
-import {
-    updatePrefix,
-    updateBotNickname,
-    updateGuildSystemChannel,
-    updateGuildSystemChannelFlags,
-} from "../../../api/index";
-
-import Dropdown from "../../Dropdown/Dropdown";
+import { useSelector } from "react-redux";
 
 import AddonMessage from "./AddonMessage/AddonMessage";
 import Messages from "./Messages/Messages";
@@ -30,13 +15,10 @@ import "./Greet.scss";
 
 const Greet = ({ setActiveTab }) => {
     const history = useHistory();
-    const dispatch = useDispatch();
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
-    const guildChannels = useSelector((state) => state.guild.channels);
     const systemChannelId = useSelector((state) => state.guild.systemChannelId);
     const guildFlags = useSelector((state) => state.guild.systemChannelFlags);
 
-    const toastId = React.useRef(null);
     const [disableButton, setDisableButton] = React.useState(false);
     const [greetDisabled, setGreetDisabled] = React.useState(true);
     const handleActiveStateChange = () => {
@@ -45,26 +27,14 @@ const Greet = ({ setActiveTab }) => {
             `/dashboard/${history.location.pathname.split("/")[2]}/general`
         );
     };
-
-    const [addon, setAddon] = React.useState(greetConfig?.greetAddon || "");
-    const [color, setColor] = React.useState(greetConfig?.color || null);
-    const [messages, setMessages] = React.useState(greetConfig?.messages || []);
-    const [images, setImages] = React.useState(greetConfig?.images || []);
-    const [stats, setStats] = React.useState(greetConfig?.stats || false);
     const [isEmbed, setIsEmbed] = React.useState(greetConfig?.isEmbed || false);
-    const [isDM, setIsDM] = React.useState(greetConfig?.dm || false);
-    const [reaction, setReaction] = React.useState(greetConfig?.reaction || 0);
-    const [greetChannel, setGreetChannel] = React.useState(
-        greetConfig?.channel
-            ? guildChannels.find((r) => r.id === greetConfig?.channel)
-            : null
-    );
-    const [author, setAuthor] = React.useState(greetConfig?.author || "");
-    const [authorIcon, setAuthorIcon] = React.useState(
-        greetConfig?.authorIcon || ""
-    );
 
-    // Sync greet disable states
+    // sync greet config
+    React.useEffect(() => {
+        setIsEmbed(greetConfig?.isEmbed || false);
+    }, [greetConfig]);
+
+    // sync greet disable states
     React.useEffect(() => {
         setGreetDisabled(
             guildFlags?.includes("SUPPRESS_PREMIUM_SUBSCRIPTIONS") ||
@@ -139,10 +109,12 @@ const Greet = ({ setActiveTab }) => {
                 />
 
                 {/* GREET EMBED SETTINGS */}
-                <Embed
-                    disableButton={disableButton}
-                    setDisableButton={setDisableButton}
-                />
+                {isEmbed && (
+                    <Embed
+                        disableButton={disableButton}
+                        setDisableButton={setDisableButton}
+                    />
+                )}
             </div>
         </>
     );

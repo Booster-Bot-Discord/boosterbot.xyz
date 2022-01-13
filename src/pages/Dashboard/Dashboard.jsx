@@ -53,7 +53,9 @@ const ServerPicker = () => {
                     {activeTab === "greet" && (
                         <Greet setActiveTab={setActiveTab} />
                     )}
+                    {activeTab === "logging" && <Soon />}
                     {activeTab === "stats" && <Soon />}
+                    {activeTab === "vars" && <Soon />}
                 </div>
             </div>
         </>

@@ -1,5 +1,4 @@
 import React from "react";
-import { ImCross } from "react-icons/im";
 import { useSelector } from "react-redux";
 
 const AddonMessages = ({ disableButton, setDisableButton }) => {
