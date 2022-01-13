@@ -337,8 +337,10 @@ const Setup = () => {
                             />
                         ) : (
                             <p className="setup-base-role-disabled">
-                                Enable custom roles to setup base-role for the
-                                custom roles.
+                                <b>
+                                    Enable custom roles to setup base-role for
+                                    the custom roles.
+                                </b>
                             </p>
                         )}
                     </div>

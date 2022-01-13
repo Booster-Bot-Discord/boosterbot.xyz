@@ -287,17 +287,25 @@ const General = () => {
                             <p className="guild-title">Boost Message</p>
                             {guildFlags?.includes(
                                 "SUPPRESS_PREMIUM_SUBSCRIPTIONS"
-                            ) ? (
+                            ) || !systemChannelId ? (
                                 <div className="guild-pair">
                                     <p className="guild-pair-info">
                                         Boost messages <b>disabled.</b>
                                     </p>
-                                    <button
-                                        className="guild-pair-button"
-                                        onClick={changeSystemChannelFlags}
-                                    >
-                                        Enable
-                                    </button>
+                                    {!systemChannelId && (
+                                        <p className="guild-pair-info">
+                                            Set system channel to enable the
+                                            boost messages.
+                                        </p>
+                                    )}
+                                    {systemChannelId && (
+                                        <button
+                                            className="guild-pair-button"
+                                            onClick={changeSystemChannelFlags}
+                                        >
+                                            Enable
+                                        </button>
+                                    )}
                                 </div>
                             ) : (
                                 <p className="guild-info">

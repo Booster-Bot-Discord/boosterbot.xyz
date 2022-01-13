@@ -1,0 +1,39 @@
+[
+    {
+        "heading": "Collection of data:",
+        "description": [
+            "We do not store message content except for number of boosts you have.",
+            "We do not log/track messages sent by you except for commands (starting with bot prefix).",
+            "Right now, we tracks every boost if bot has read messages access to system channel."
+        ]
+    },
+    {
+        "heading": "Retention of data:",
+        "description": [
+            "All the data is stored with proper security precautions but we cannot guarantee its absolute security.",
+            "Data will be retained only for as long as is necessary for the purposes set out in this Privacy Policy.",
+            "You can let us know in suppoert server if you don't want your boost data to be stored."
+        ]
+    },
+    {
+        "heading": "Information collected:",
+        "description": [
+            "Your bot settings like greet channel id, auto/custom role(s) ids etc..",
+            "Your boost data (time & number of boosts) for better visibility of stats to server staff."
+        ]
+    },
+    {
+        "heading": "Use of data:",
+        "description": [
+            "All the data that is stored does not contain any personal data like your email or IP.",
+            "The data is only used for basic functionality of bot and allowing server staff to monitor/log boosts.",
+            "Our Service may contain links to other sites that are not operated by us. If you click a third party link, you will be directed to that third party's site."
+        ]
+    },
+    {
+        "heading": "Contact us",
+        "description": [
+            "If you have any questions about our Terms, please feed free to reach out to our discord support server"
+        ]
+    }
+]

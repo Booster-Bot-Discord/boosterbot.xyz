@@ -51,10 +51,10 @@ const Footer = () => {
                     </NavLink>
                 </div>
                 <div className="footer-right">
-                    <NavLink to="/" className="footer-link">
+                    <NavLink to="/privacy" className="footer-link">
                         <p>Privacy</p>
                     </NavLink>
-                    <NavLink to="/" className="footer-link">
+                    <NavLink to="/privacy" className="footer-link">
                         <p>Terms</p>
                     </NavLink>
                 </div>

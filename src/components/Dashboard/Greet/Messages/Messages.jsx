@@ -1,18 +1,42 @@
 import React from "react";
 import { ImCross } from "react-icons/im";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 import "./Message.scss";
 
 const Messages = ({ disableButton, setDisableButton }) => {
+    const guildConfig = useSelector((state) => state.guild.dbGeneralConfig);
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
     const [messages, setMessages] = React.useState(greetConfig?.messages || []);
+    const [isPremium, setIsPremium] = React.useState(
+        guildConfig?.premium || false
+    );
 
     // Sync greet messages
     React.useEffect(() => {
         setMessages(greetConfig?.messages || []);
     }, [greetConfig]);
+
+    // Sync premium status
+    React.useEffect(() => {
+        setIsPremium(guildConfig?.premium || false);
+    }, [guildConfig]);
+
+    // message add handling
+    const handleMessageAdd = () => {
+        if (isPremium && messages.length >= 10) {
+            toast.error("You can only have 10 messages.");
+            return;
+        } else if (!isPremium && messages.length >= 2) {
+            toast.error("Only 2 messages allowed for non premium server.");
+            return;
+        }
+        const newMessages = [...messages];
+        newMessages.push("");
+        setMessages(newMessages);
+    };
 
     // TODO: save messages, backend call
 
@@ -61,11 +85,7 @@ const Messages = ({ disableButton, setDisableButton }) => {
                         <div className="greet-message-input-wrapper-buttons">
                             <button
                                 disabled={disableButton}
-                                onClick={() => {
-                                    const newMessages = [...messages];
-                                    newMessages.push("");
-                                    setMessages(newMessages);
-                                }}
+                                onClick={handleMessageAdd}
                                 className="greet-message-input-wrapper-buttons-button"
                             >
                                 Add Message

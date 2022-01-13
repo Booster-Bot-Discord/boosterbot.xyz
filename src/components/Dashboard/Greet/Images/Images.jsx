@@ -6,19 +6,34 @@ import { toast } from "react-toastify";
 import "./Images.scss";
 
 const Images = ({ disableButton, setDisableButton }) => {
+    const guildConfig = useSelector((state) => state.guild.dbGeneralConfig);
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
     const [newImageURL, setNewImageURL] = React.useState("");
-
     const [images, setImages] = React.useState(greetConfig?.images || []);
+    const [isPremium, setIsPremium] = React.useState(
+        guildConfig?.premium || false
+    );
 
     // Sync greet images
     React.useEffect(() => {
         setImages(greetConfig?.images || []);
     }, [greetConfig]);
 
+    // Sync premium status
+    React.useEffect(() => {
+        setIsPremium(guildConfig?.premium || false);
+    }, [guildConfig]);
+
     // image add handling
     const handleImageAdd = () => {
+        if (isPremium && images.length >= 10) {
+            toast.error("You can only have 10 images.");
+            return;
+        } else if (!isPremium && images.length >= 2) {
+            toast.error("Only 2 images allowed for non premium server.");
+            return;
+        }
         const newImages = [...images];
         newImages.push(newImageURL);
         setImages(newImages);

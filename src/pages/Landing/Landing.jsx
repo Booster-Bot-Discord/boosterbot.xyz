@@ -55,6 +55,8 @@ const Landing = () => {
     return (
         <>
             <div className="scrollbar flex flex-col">
+
+                {/* HERO HEADER */}
                 <Hero />
 
                 <section className="stats">
