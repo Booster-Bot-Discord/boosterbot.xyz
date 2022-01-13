@@ -7,22 +7,22 @@ import Radio from "../util/Radio";
 import "../Embed.scss";
 
 const typeMap = {
-    a_disable: "Greet embed author icon will be disabled.",
-    a_user: "Bot will show booster's profile picture.",
-    a_server: "Bot will show server's icon.",
-    a_url: "You can set any custom image URL.",
+    f_disable: "Greet embed footer icon will be disabled.",
+    f_user: "Bot will show booster's profile picture.",
+    f_server: "Bot will show server's icon.",
+    f_url: "You can set any custom image URL.",
 };
 
-const AuthorIcon = ({ disableButton, setDisableButton }) => {
+const FooterIcon = ({ disableButton, setDisableButton }) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
     const [iconType, setIconType] = React.useState(
-        greetConfig?.authorIcon?.startsWith("http")
+        greetConfig?.footerIcon?.startsWith("http")
             ? "url"
-            : greetConfig?.authorIcon
+            : greetConfig?.footerIcon
     );
-    const [authorIcon, setAuthorIcon] = React.useState(
-        greetConfig?.authorIcon || null
+    const [footerIcon, setFooterIcon] = React.useState(
+        greetConfig?.footerIcon || null
     );
     const [addImage, setAddImage] = React.useState(
         greetConfig?.footerIcon?.startsWith("http")
@@ -30,34 +30,34 @@ const AuthorIcon = ({ disableButton, setDisableButton }) => {
 
     // Sync greet images
     React.useEffect(() => {
-        setAuthorIcon(greetConfig?.authorIcon || null);
+        setFooterIcon(greetConfig?.footerIcon || null);
         setIconType(
-            greetConfig?.authorIcon?.startsWith("http")
+            greetConfig?.footerIcon?.startsWith("http")
                 ? "url"
-                : greetConfig?.authorIcon
+                : greetConfig?.footerIcon
         );
         setAddImage(greetConfig?.footerIcon?.startsWith("http"));
     }, [greetConfig]);
 
-    // handle author icon toggle
+    // handle footer icon toggle
     const handleIconToggle = async () => {
         if (iconType === "disable") {
-            setAuthorIcon("");
+            setFooterIcon("");
             setIconType("user");
         } else if (iconType !== "url") {
-            setAuthorIcon("");
+            setFooterIcon("");
             setIconType("url");
             return;
         } else if (addImage) {
-            setAuthorIcon("");
+            setFooterIcon("");
             setAddImage(false);
             return;
         } else {
-            if (authorIcon === null || authorIcon === "") {
+            if (footerIcon === null || footerIcon === "") {
                 toast.error("Please enter an image URL.");
                 return;
-            } else if (!authorIcon.startsWith("http")) {
-                setAuthorIcon("");
+            } else if (!footerIcon.startsWith("http")) {
+                setFooterIcon("");
                 toast.error("Please enter a valid image URL.");
                 return;
             }
@@ -65,11 +65,11 @@ const AuthorIcon = ({ disableButton, setDisableButton }) => {
         }
     };
 
-    // handle author icon save
+    // handle footer icon save
     const handleIconSave = () => {
         setDisableButton(true);
 
-        // TODO: backend call to save author icon
+        // TODO: backend call to save footer icon
 
         setDisableButton(false);
     };
@@ -77,21 +77,21 @@ const AuthorIcon = ({ disableButton, setDisableButton }) => {
     return (
         <>
             <div className="greet-std-container">
-                <p className="greet-title">Author Icon</p>
+                <p className="greet-title">Footer Icon</p>
                 <div className="greet-content">
                     <p>
                         {iconType === "disable" ? (
                             <>
-                                <b>Author Icon disabled</b>
+                                <b>Footer Icon disabled</b>
                                 <br />
-                                Bot will not add any icon in author field of the
+                                Bot will not add any icon in footer field of the
                                 embded.
                             </>
                         ) : (
                             <>
-                                <b>This will be shown if author is set.</b>
+                                <b>This will be shown if footer is enabled.</b>
                                 <br />
-                                Select what image you want in greet embed author
+                                Select what image you want in greet embed footer
                                 icon field from given option down below.
                             </>
                         )}
@@ -99,11 +99,11 @@ const AuthorIcon = ({ disableButton, setDisableButton }) => {
 
                     <Radio
                         typeMap={typeMap}
-                        prefix={"a_"}
+                        prefix={"f_"}
                         iconType={iconType}
                         setIconType={setIconType}
-                        icon={authorIcon}
-                        setIcon={setAuthorIcon}
+                        icon={footerIcon}
+                        setIcon={setFooterIcon}
                         addImage={addImage}
                         setAddImage={setAddImage}
                         handleIconToggle={handleIconToggle}
@@ -116,4 +116,4 @@ const AuthorIcon = ({ disableButton, setDisableButton }) => {
     );
 };
 
-export default AuthorIcon;
+export default FooterIcon;

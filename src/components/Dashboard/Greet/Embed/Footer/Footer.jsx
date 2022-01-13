@@ -5,35 +5,35 @@ import Text from "../util/Text";
 
 import "../Embed.scss";
 
-const Author = ({ disableButton, setDisableButton }) => {
+const Footer = ({ disableButton, setDisableButton }) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
     const [isDisabled, setIsDisabled] = React.useState(
-        greetConfig?.author ? false : true
+        greetConfig?.footer ? false : true
     );
-    const [author, setAuthor] = React.useState(greetConfig?.author || null);
+    const [footer, setFooter] = React.useState(greetConfig?.footer || null);
 
     // Sync greet images
     React.useEffect(() => {
-        setAuthor(greetConfig?.author || null);
-        setIsDisabled(greetConfig?.author ? false : true);
+        setFooter(greetConfig?.footer || null);
+        setIsDisabled(greetConfig?.footer ? false : true);
     }, [greetConfig]);
 
-    // handle author toggle
-    const handleAuthorToggle = () => {
+    // handle footer toggle
+    const handleFooterToggle = () => {
         if (isDisabled) {
-            setAuthor("");
+            setFooter("");
         } else {
-            setAuthor(null);
+            setFooter(null);
         }
         setIsDisabled(!isDisabled);
     };
 
-    // handle author save
-    const handleAuthorSave = () => {
+    // handle footer save
+    const handleFooterSave = () => {
         setDisableButton(true);
 
-        // TODO: backend call to save author
+        // TODO: backend call to save footer
 
         setDisableButton(false);
     };
@@ -41,26 +41,26 @@ const Author = ({ disableButton, setDisableButton }) => {
     return (
         <>
             <div className="greet-std-container">
-                <p className="greet-title">Author Text</p>
+                <p className="greet-title">Footer Text</p>
                 {!isDisabled ? (
                     <p className="greet-content">
                         Feel free to use <b>bb vars</b> in this field. <br />
-                        Bot will set this text in greet embed author field.
+                        Bot will set this text in greet embed footer field.
                     </p>
                 ) : (
                     <p className="greet-content">
-                        <b>There will be no author and author icon</b>
+                        <b>There will be no footer and footer icon</b>
                         <br />
-                        Enable now to set author name and icon in greet embed.
+                        Enable now to set footer name and icon in greet embed.
                     </p>
                 )}
 
                 <Text
                     isDisabled={isDisabled}
-                    text={author}
-                    setText={setAuthor}
-                    handleTextSave={handleAuthorSave}
-                    handleTextToggle={handleAuthorToggle}
+                    text={footer}
+                    setText={setFooter}
+                    handleTextSave={handleFooterSave}
+                    handleTextToggle={handleFooterToggle}
                     disableButton={disableButton}
                 />
             </div>
@@ -68,4 +68,4 @@ const Author = ({ disableButton, setDisableButton }) => {
     );
 };
 
-export default Author;
+export default Footer;

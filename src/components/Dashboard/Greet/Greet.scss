@@ -49,4 +49,11 @@
     &-full-container {
         @include glass-container-style(80%, 80%, column, flex-start, center);
     }
+    &-inputs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding: 0.5rem;
+    }
 }

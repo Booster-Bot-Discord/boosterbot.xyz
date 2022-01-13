@@ -357,7 +357,11 @@ const Setup = () => {
                             {!color ? (
                                 <button
                                     className="setup-apply"
-                                    onClick={() => setColor("#2f3136")}
+                                    onClick={() =>
+                                        setColor(
+                                            guildConfig?.color || "#2f3136"
+                                        )
+                                    }
                                 >
                                     Enable
                                 </button>
@@ -373,6 +377,7 @@ const Setup = () => {
                                     <input
                                         type="text"
                                         value={color}
+                                        readOnly={true}
                                         className="setup-color-input-text"
                                         maxLength={7}
                                     />

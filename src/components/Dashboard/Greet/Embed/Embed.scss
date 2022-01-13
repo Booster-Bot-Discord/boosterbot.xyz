@@ -13,6 +13,21 @@
             border: 2px solid $fuchia;
         }
     }
+    &-thumbnail {
+        height: 8rem;
+        width: 8rem;
+        border: 2px solid $grayish;
+        border-radius: 1rem;
+        &:hover {
+            box-shadow: 0 0 2px 1px $fuchia;
+            border: 2px solid $fuchia;
+        }
+        &-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-right: 0.5rem;
+        }
+    }
     &-radio {
         margin-top: 1.5rem;
         display: flex;
@@ -48,6 +63,24 @@
             font-size: 1rem;
             font-weight: 600;
             color: $grayish;
+        }
+    }
+    &-color-input {
+        display: flex;
+        &-text {
+            width: 50%;
+            padding: 1rem;
+            outline: none;
+            color: $black;
+            font-weight: 700;
+            height: 3rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        &-color {
+            width: 5rem;
+            height: 3rem;
+            padding: 0.1rem;
+            border-radius: 0.5rem 0 0 0.5rem;
         }
     }
 }
