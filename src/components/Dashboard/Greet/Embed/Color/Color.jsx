@@ -2,9 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
+import { getUpdatedConfig } from "../../../../utilities/changeConfig";
+
 import "../Embed.scss";
 
-const Color = ({ disableButton, setDisableButton }) => {
+const Color = ({ toastId, updateConfig, disableButton, setDisableButton }) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
     const [color, setColor] = React.useState(greetConfig?.color || ["#F47FFF"]);
@@ -16,19 +18,25 @@ const Color = ({ disableButton, setDisableButton }) => {
 
     // handle color change
     const handleColorChange = (e) => {
-        setColor([e.target.value]);
+        setColor([e.target.value?.toUpperCase()]);
     };
 
     // handle color save
     const handleColorSave = () => {
-        console.log("color", color);
-
+        if (color === greetConfig?.color || color.length > 1) {
+            return toast.warn(`Color is already ${color}`);
+        }
         setDisableButton(true);
-        toast.info("Saving...");
-
-        // TODO: Save color backend call
-
-        setDisableButton(false);
+        toastId.current = toast.info(
+            `${color ? "Setting" : "Removing"} color`,
+            {
+                autoClose: false,
+            }
+        );
+        updateConfig(
+            getUpdatedConfig(greetConfig, { color: color }),
+            `${color ? "Updated" : "Removed"} color`
+        );
     };
 
     return (

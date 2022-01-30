@@ -3,9 +3,16 @@ import { ImCross } from "react-icons/im";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
+import { getUpdatedConfig } from "../../../utilities/changeConfig";
+
 import "./Message.scss";
 
-const Messages = ({ disableButton, setDisableButton }) => {
+const Messages = ({
+    toastId,
+    updateConfig,
+    disableButton,
+    setDisableButton,
+}) => {
     const guildConfig = useSelector((state) => state.guild.dbGeneralConfig);
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
@@ -39,6 +46,19 @@ const Messages = ({ disableButton, setDisableButton }) => {
     };
 
     // TODO: save messages, backend call
+    const handleSaveMessages = () => {
+        if (greetConfig?.messages === messages) {
+            return toast.warn("No changes made.");
+        }
+        setDisableButton(true);
+        updateConfig(
+            getUpdatedConfig(greetConfig, { messages }),
+            "Updated greet messages."
+        );
+        toastId.current = toast.info("Saving Messages...", {
+            autoClose: false,
+        });
+    };
 
     return (
         <>
@@ -92,11 +112,7 @@ const Messages = ({ disableButton, setDisableButton }) => {
                             </button>
                             <button
                                 disabled={disableButton}
-                                onClick={() => {
-                                    const newMessages = [...messages];
-                                    newMessages.push("");
-                                    setMessages(newMessages);
-                                }}
+                                onClick={handleSaveMessages}
                                 className="greet-message-input-wrapper-buttons-button"
                             >
                                 Save Messages

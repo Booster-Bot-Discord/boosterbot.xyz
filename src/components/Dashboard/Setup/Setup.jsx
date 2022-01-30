@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 import { setDbGeneralConfig } from "../../../store/guildSlice";
 import { updateGuildConfig } from "../../../api/index";
-import { getUpdatedConfig } from "./utils";
+import { getUpdatedConfig } from "../../utilities/changeConfig";
 
 import IncDec from "../../IncDec/IncDec";
 import Dropdown from "../../Dropdown/Dropdown";
@@ -80,7 +80,7 @@ const Setup = () => {
 
     // handle color change event
     const colorChange = (e) => {
-        setColor(e.target.value);
+        setColor(e.target.value?.toUpperCase());
     };
 
     // reusable error handler
@@ -361,7 +361,7 @@ const Setup = () => {
                                     className="setup-apply"
                                     onClick={() =>
                                         setColor(
-                                            guildConfig?.color || "#2f3136"
+                                            guildConfig?.color || "#2F3136"
                                         )
                                     }
                                 >

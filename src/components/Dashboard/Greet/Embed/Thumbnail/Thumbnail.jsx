@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
+import { getUpdatedConfig } from "../../../../utilities/changeConfig";
 import Radio from "../util/Radio";
 
 import "../Embed.scss";
@@ -13,7 +14,12 @@ const typeMap = {
     t_url: "You can set any custom image URL.",
 };
 
-const Thumbnail = ({ disableButton, setDisableButton }) => {
+const Thumbnail = ({
+    toastId,
+    updateConfig,
+    disableButton,
+    setDisableButton,
+}) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
     const [iconType, setIconType] = React.useState(
@@ -31,11 +37,11 @@ const Thumbnail = ({ disableButton, setDisableButton }) => {
     // Sync greet images
     React.useEffect(() => {
         setThumbnail(greetConfig?.thumbnail || null);
-        setIconType(
-            greetConfig?.thumbnail?.startsWith("http")
-                ? "url"
-                : greetConfig?.thumbnail
-        );
+        let type = greetConfig?.thumbnail?.startsWith("http")
+            ? "url"
+            : greetConfig?.thumbnail;
+        if (!type) type = "disable";
+        setIconType(type);
         setAddImage(greetConfig?.thumbnail?.startsWith("http"));
     }, [greetConfig]);
 
@@ -67,11 +73,37 @@ const Thumbnail = ({ disableButton, setDisableButton }) => {
 
     // handle thumbnail save
     const handleIconSave = () => {
+        if (
+            iconType === greetConfig?.thumbnail ||
+            (iconType === "url" && thumbnail === greetConfig?.thumbnail) ||
+            (iconType === "disable" && !greetConfig?.thumbnail)
+        ) {
+            return toast.warn(
+                `Thumbnail is already '${thumbnail || "disabled"}'`
+            );
+        }
+        if (iconType === "url" && thumbnail === "") {
+            return toast.warn(`Thumbnail url can not be empty.`);
+        }
         setDisableButton(true);
-
-        // TODO: backend call to save thumbnail
-
-        setDisableButton(false);
+        toastId.current = toast.info(
+            `${
+                iconType === "disable" ? "Removing" : "Updating"
+            } embed thumbnail.`,
+            {
+                autoClose: false,
+            }
+        );
+        let icon = iconType === "disable" ? null : iconType;
+        if (icon === "url") {
+            icon = thumbnail;
+        }
+        updateConfig(
+            getUpdatedConfig(greetConfig, {
+                thumbnail: icon,
+            }),
+            `${iconType === "disable" ? "Removed" : "Updated"} embed thumbnail.`
+        );
     };
 
     return (

@@ -1,6 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+
+import { setDbGreetConfig } from "../../../store/guildSlice";
+import { updateGreetConfig } from "../../../api/index";
 
 import AddonMessage from "./AddonMessage/AddonMessage";
 import Messages from "./Messages/Messages";
@@ -15,10 +19,13 @@ import "./Greet.scss";
 
 const Greet = ({ setActiveTab }) => {
     const history = useHistory();
+    const dispatch = useDispatch();
+    const guildId = useSelector((state) => state.guild.discordId);
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
     const systemChannelId = useSelector((state) => state.guild.systemChannelId);
     const guildFlags = useSelector((state) => state.guild.systemChannelFlags);
 
+    const toastId = React.useRef(null);
     const [disableButton, setDisableButton] = React.useState(false);
     const [greetDisabled, setGreetDisabled] = React.useState(true);
     const handleActiveStateChange = () => {
@@ -41,6 +48,30 @@ const Greet = ({ setActiveTab }) => {
                 !systemChannelId
         );
     }, [systemChannelId, guildFlags]);
+
+    // reusable error handler
+    const handleError = (error) => {
+        toast.update(toastId.current, {
+            render: error.message,
+            type: toast.TYPE.ERROR,
+            autoClose: 5000,
+        });
+        setDisableButton(false);
+    };
+    const updateConfig = (newGuildConfig, msg) => {
+        // return console.log("UPDATING CONFIG", newGuildConfig);
+        updateGreetConfig(guildId, newGuildConfig)
+            .then(() => {
+                dispatch(setDbGreetConfig(newGuildConfig));
+                toast.update(toastId.current, {
+                    render: msg,
+                    type: toast.TYPE.SUCCESS,
+                    autoClose: 5000,
+                });
+                setDisableButton(false);
+            })
+            .catch((err) => handleError(err));
+    };
 
     return (
         <>
@@ -69,41 +100,55 @@ const Greet = ({ setActiveTab }) => {
 
                 {/* GREET CHANNEL SETTINGS */}
                 <Channel
+                    toastId={toastId}
+                    updateConfig={updateConfig}
                     disableButton={disableButton}
                     setDisableButton={setDisableButton}
                 />
 
                 {/* IS GREET DM */}
                 <IsDM
+                    toastId={toastId}
+                    updateConfig={updateConfig}
                     disableButton={disableButton}
                     setDisableButton={setDisableButton}
                 />
 
                 {/* IS GREET MESSAGE AN EMBED */}
                 <IsEmbed
+                    toastId={toastId}
+                    updateConfig={updateConfig}
                     disableButton={disableButton}
                     setDisableButton={setDisableButton}
                 />
 
                 {/* IF STATS ARE SHOWS WITH MESSAGE */}
                 <ShowStats
+                    toastId={toastId}
+                    updateConfig={updateConfig}
                     disableButton={disableButton}
                     setDisableButton={setDisableButton}
                 />
 
                 {/* GREET MESSAGE SETTINGS */}
                 <Messages
+                    toastId={toastId}
+                    updateConfig={updateConfig}
                     disableButton={disableButton}
                     setDisableButton={setDisableButton}
                 />
                 {/* GREET ADDON MESSAGE SETTINGS */}
                 <AddonMessage
+                    toastId={toastId}
+                    updateConfig={updateConfig}
                     disableButton={disableButton}
                     setDisableButton={setDisableButton}
                 />
 
                 {/* GREET IMAGE SETTINGS */}
                 <Images
+                    toastId={toastId}
+                    updateConfig={updateConfig}
                     disableButton={disableButton}
                     setDisableButton={setDisableButton}
                 />
@@ -111,6 +156,8 @@ const Greet = ({ setActiveTab }) => {
                 {/* GREET EMBED SETTINGS */}
                 {isEmbed && (
                     <Embed
+                        toastId={toastId}
+                        updateConfig={updateConfig}
                         disableButton={disableButton}
                         setDisableButton={setDisableButton}
                     />

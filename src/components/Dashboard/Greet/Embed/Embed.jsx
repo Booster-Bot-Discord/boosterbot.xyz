@@ -9,32 +9,44 @@ import Thumbnail from "./Thumbnail/Thumbnail";
 
 import "./Embed.scss";
 
-const Embed = ({ disableButton, setDisableButton }) => {
+const Embed = ({ toastId, updateConfig, disableButton, setDisableButton }) => {
     return (
         <>
             <Author
+                toastId={toastId}
+                updateConfig={updateConfig}
                 disableButton={disableButton}
                 setDisableButton={setDisableButton}
             />
             <AuthorIcon
+                toastId={toastId}
+                updateConfig={updateConfig}
                 disableButton={disableButton}
                 setDisableButton={setDisableButton}
             />
 
             <Color
+                toastId={toastId}
+                updateConfig={updateConfig}
                 disableButton={disableButton}
                 setDisableButton={setDisableButton}
             />
             <Thumbnail
+                toastId={toastId}
+                updateConfig={updateConfig}
                 disableButton={disableButton}
                 setDisableButton={setDisableButton}
             />
 
             <Footer
+                toastId={toastId}
+                updateConfig={updateConfig}
                 disableButton={disableButton}
                 setDisableButton={setDisableButton}
             />
             <FooterIcon
+                toastId={toastId}
+                updateConfig={updateConfig}
                 disableButton={disableButton}
                 setDisableButton={setDisableButton}
             />

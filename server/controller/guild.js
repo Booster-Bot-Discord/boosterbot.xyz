@@ -20,9 +20,22 @@ const getGuildConfig = async (req, res) => {
 // update guild config in database
 const updateGuildConfig = async (req, res) => {
     try {
-        await axios.default.delete(`http://localhost:3000/guild/${req.params.guildId}/cache`);
+        await axios.default.delete(`http://localhost:3000/guild/${req.params.guildId}/cache/guild-config`);
         await GuildConfig.findOneAndUpdate({ id: req.params.guildId }, req.body);
         return res.status(200).json({ message: "Guild config updated" });
+    }
+    catch (err) {
+        return res.status(500).json({ message: "Could not update settings" });
+    }
+}
+
+// update greet config in database
+const updateGreetConfig = async (req, res) => {
+    try {
+        // TODO: GREET CONFIG CACHING
+        // await axios.default.delete(`http://localhost:3000/guild/${req.params.guildId}/cache`);
+        await GreetConfig.findOneAndUpdate({ id: req.params.guildId }, req.body);
+        return res.status(200).json({ message: "Greet config updated" });
     }
     catch (err) {
         return res.status(500).json({ message: "Could not update settings" });
@@ -73,6 +86,7 @@ const getGuildData = async (req, res) => {
 module.exports = {
     getGuildConfig,
     updateGuildConfig,
+    updateGreetConfig,
     updateGuildSystemChannel,
     updateGuildSystemChannelFlags,
     getGuildData

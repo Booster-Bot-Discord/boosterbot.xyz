@@ -2,15 +2,15 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
+import { getUpdatedConfig } from "../../../utilities/changeConfig";
 import Dropdown from "../../../Dropdown/Dropdown";
 
 import "./Channel.scss";
 
-const Channel = ({ disableButton, setDisableButton }) => {
+const Channel = ({ toastId, updateConfig, disableButton, setDisableButton }) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
     const guildChannels = useSelector((state) => state.guild.channels);
 
-    const toastId = React.useRef(null);
     const [selectedChannel, setSelectedChannel] = React.useState(
         guildChannels?.find((c) => c.id === greetConfig?.channel || "")
     );
@@ -23,32 +23,27 @@ const Channel = ({ disableButton, setDisableButton }) => {
     }, [greetConfig, guildChannels]);
 
     // handle change system channel apply
-    const changeSystemChannel = () => {
-        if (!selectedChannel || selectedChannel === "-- disabled --") {
-            // TODO: remove greet channel, backend call
-            return toast.success("Greet channel is disabled", {
-                toastId: toastId.current,
-            });
-        }
-        if (greetConfig?.channel === selectedChannel.id) {
+    const changeGreetChannel = () => {
+        if (greetConfig?.channel === selectedChannel?.id) {
             return toast.warn(
                 `System channel is already set to ${selectedChannel.name}`
             );
         }
         setDisableButton(true);
-        toastId.current = toast.info("Changing System Channel...", {
-            autoClose: false,
-        });
-
-        // TODO: change system channel, backend call
-        setTimeout(() => {
-            toast.update(toastId.current, {
-                render: "System Channel updated!",
-                type: toast.TYPE.SUCCESS,
-                autoClose: 5000,
+        if (!selectedChannel || selectedChannel === "-- disabled --") {
+            updateConfig(getUpdatedConfig(greetConfig, { channel: null }));
+            toastId.current = toast.info("Removing Greet Channel...", {
+                autoClose: false,
             });
-            setDisableButton(false);
-        }, 1000);
+        } else {
+            updateConfig(
+                getUpdatedConfig(greetConfig, { channel: selectedChannel.id }),
+                "Greet Channel set to " + selectedChannel.name
+            );
+            toastId.current = toast.info("Changing Greet Channel...", {
+                autoClose: false,
+            });
+        }
     };
 
     return (
@@ -86,7 +81,7 @@ const Channel = ({ disableButton, setDisableButton }) => {
                     channel={true}
                     apply={true}
                     disableButton={disableButton}
-                    onApply={changeSystemChannel}
+                    onApply={changeGreetChannel}
                     clear={true}
                 />
             </div>

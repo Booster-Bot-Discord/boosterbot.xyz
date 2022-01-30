@@ -1,11 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
+import { getUpdatedConfig } from "../../../../utilities/changeConfig";
 
 import Text from "../util/Text";
 
 import "../Embed.scss";
 
-const Footer = ({ disableButton, setDisableButton }) => {
+const Footer = ({ toastId, updateConfig, disableButton, setDisableButton }) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
     const [isDisabled, setIsDisabled] = React.useState(
@@ -31,11 +34,20 @@ const Footer = ({ disableButton, setDisableButton }) => {
 
     // handle footer save
     const handleFooterSave = () => {
+        if (footer === greetConfig?.footer) {
+            return toast.warn(`Footer is already ${footer}`);
+        }
         setDisableButton(true);
-
-        // TODO: backend call to save footer
-
-        setDisableButton(false);
+        toastId.current = toast.info(
+            `${footer ? "Setting" : "Removing"} footer`,
+            {
+                autoClose: false,
+            }
+        );
+        updateConfig(
+            getUpdatedConfig(greetConfig, { footer: footer }),
+            `${footer ? "Updated" : "Removed"} footer`
+        );
     };
 
     return (

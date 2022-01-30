@@ -6,6 +6,7 @@
         width: 5rem;
         cursor: pointer;
         border: 2px solid $grayish;
+        object-fit: cover;
         border-radius: 50%;
         width: 5rem;
         &:hover {

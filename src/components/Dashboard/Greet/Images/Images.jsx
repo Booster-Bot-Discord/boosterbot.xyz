@@ -3,9 +3,11 @@ import { ImCross } from "react-icons/im";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
+import { getUpdatedConfig } from "../../../utilities/changeConfig";
+
 import "./Images.scss";
 
-const Images = ({ disableButton, setDisableButton }) => {
+const Images = ({ toastId, updateConfig, disableButton, setDisableButton }) => {
     const guildConfig = useSelector((state) => state.guild.dbGeneralConfig);
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
@@ -40,7 +42,14 @@ const Images = ({ disableButton, setDisableButton }) => {
         setNewImageURL("");
     };
 
-    // TODO: save images, backend call
+    const handleSaveImages = () => {
+        if (greetConfig?.images === images) {
+            return toast.warn("No changes made.");
+        }
+        setDisableButton(true);
+        updateConfig(getUpdatedConfig(greetConfig, { images }));
+        toastId.current = toast.info("Saving Images...", { autoClose: false });
+    };
 
     return (
         <>
@@ -109,7 +118,7 @@ const Images = ({ disableButton, setDisableButton }) => {
                             </button>
                             <button
                                 disabled={disableButton}
-                                onClick={handleImageAdd}
+                                onClick={handleSaveImages}
                                 className="greet-image-input-wrapper-buttons-button"
                             >
                                 Save Images

@@ -2,12 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
+import { getUpdatedConfig } from "../../../utilities/changeConfig";
+
 import "../Greet.scss";
 
-const IsDM = ({ disableButton, setDisableButton }) => {
+const IsDM = ({ toastId, updateConfig, disableButton, setDisableButton }) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
-    const toastId = React.useRef(null);
     const [isDM, setIsDM] = React.useState(greetConfig?.dm || false);
 
     // Sync is dm
@@ -22,20 +23,22 @@ const IsDM = ({ disableButton, setDisableButton }) => {
 
     // handle is dm save
     const handleIsDMSave = async () => {
+        if (isDM === greetConfig?.dm) {
+            return toast.warn(
+                `Is DM is already ${isDM ? "enabled" : "disabled"}`
+            );
+        }
         setDisableButton(true);
-        toastId.current = toast.info("Saving...", {
-            type: "info",
-            autoClose: false,
-        });
-
-        // TODO: Save is dm, backend call
-        setTimeout(() => {
-            toast.update(toastId.current, {
-                render: "Saved!",
-                type: toast.TYPE.SUCCESS,
-                autoClose: 5000,
-            });
-        }, 3000);
+        toastId.current = toast.info(
+            `${isDM ? "Enabling" : "Disabling"} DM message`,
+            {
+                autoClose: false,
+            }
+        );
+        updateConfig(
+            getUpdatedConfig(greetConfig, { dm: isDM }),
+            `${isDM ? "Enabled" : "Disabled"} DM message`
+        );
     };
 
     return (

@@ -23,7 +23,10 @@ function Radio({
             {/* RADIO BUTTONS */}
             <div className="embed-radio">
                 {Object.keys(typeMap).map((type) => (
-                    <div className="embed-radio-pair">
+                    <div
+                        key={`embed-radio-${type}`}
+                        className="embed-radio-pair"
+                    >
                         <input
                             type="radio"
                             id={`embed-radio-${type}`}

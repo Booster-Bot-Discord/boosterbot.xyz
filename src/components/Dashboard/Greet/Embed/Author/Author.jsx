@@ -1,11 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
+import { getUpdatedConfig } from "../../../../utilities/changeConfig";
 
 import Text from "../util/Text";
 
 import "../Embed.scss";
 
-const Author = ({ disableButton, setDisableButton }) => {
+const Author = ({ toastId, updateConfig, disableButton, setDisableButton }) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
     const [isDisabled, setIsDisabled] = React.useState(
@@ -31,11 +34,23 @@ const Author = ({ disableButton, setDisableButton }) => {
 
     // handle author save
     const handleAuthorSave = () => {
+        if (author === greetConfig?.author) {
+            return toast.warn(`Author is already ${author || "disabled"}`);
+        }
+        if (author === "" || author === null) {
+            return toast.warn(`Author can not be empty.`);
+        }
         setDisableButton(true);
-
-        // TODO: backend call to save author
-
-        setDisableButton(false);
+        toastId.current = toast.info(
+            `${author ? "Setting" : "Removing"} author`,
+            {
+                autoClose: false,
+            }
+        );
+        updateConfig(
+            getUpdatedConfig(greetConfig, { author: author }),
+            `${author ? "Updated" : "Removed"} author`
+        );
     };
 
     return (

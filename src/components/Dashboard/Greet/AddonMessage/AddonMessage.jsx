@@ -1,7 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
-const AddonMessages = ({ disableButton, setDisableButton }) => {
+import { getUpdatedConfig } from "../../../utilities/changeConfig";
+
+const AddonMessages = ({
+    toastId,
+    updateConfig,
+    disableButton,
+    setDisableButton,
+}) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
     const [isDisabled, setIsDisabled] = React.useState(
@@ -25,12 +33,18 @@ const AddonMessages = ({ disableButton, setDisableButton }) => {
         setIsDisabled(!isDisabled);
     };
 
-    // TODO: save addon messages, backend call
     const handleAddonSave = () => {
+        if (addonMsg === greetConfig?.addon) {
+            return toast.warn(`Addon message is not changed.`);
+        }
         setDisableButton(true);
-        setTimeout(() => {
-            setDisableButton(false);
-        }, 3000);
+        updateConfig(
+            getUpdatedConfig(greetConfig, { addon: addonMsg }),
+            "Updated Addon Message"
+        );
+        toastId.current = toast.info("Saving Addon Message...", {
+            autoClose: false,
+        });
     };
 
     return (

@@ -2,12 +2,18 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
+import { getUpdatedConfig } from "../../../utilities/changeConfig";
+
 import "../Greet.scss";
 
-const IsEmbed = ({ disableButton, setDisableButton }) => {
+const IsEmbed = ({
+    toastId,
+    updateConfig,
+    disableButton,
+    setDisableButton,
+}) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
-    const toastId = React.useRef(null);
     const [isEmbed, setIsEmbed] = React.useState(greetConfig?.isEmbed || false);
 
     // Sync is embed
@@ -22,20 +28,22 @@ const IsEmbed = ({ disableButton, setDisableButton }) => {
 
     // handle is embed save
     const handleIsEmbedSave = async () => {
+        if (isEmbed === greetConfig?.isEmbed) {
+            return toast.warn(
+                `Is Embed is already ${isEmbed ? "enabled" : "disabled"}`
+            );
+        }
         setDisableButton(true);
-        toastId.current = toast.info("Saving...", {
-            type: "info",
-            autoClose: false,
-        });
-
-        // TODO: Save is embed, backend call
-        setTimeout(() => {
-            toast.update(toastId.current, {
-                render: "Saved!",
-                type: toast.TYPE.SUCCESS,
-                autoClose: 5000,
-            });
-        }, 3000);
+        toastId.current = toast.info(
+            `${isEmbed ? "Enabling" : "Disabling"} embed`,
+            {
+                autoClose: false,
+            }
+        );
+        updateConfig(
+            getUpdatedConfig(greetConfig, { isEmbed: isEmbed }),
+            `${isEmbed ? "Enabled" : "Disabled"} embed`
+        );
     };
 
     return (

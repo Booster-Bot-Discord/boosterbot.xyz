@@ -2,12 +2,18 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
+import { getUpdatedConfig } from "../../../utilities/changeConfig";
+
 import "../Greet.scss";
 
-const ShowStats = ({ disableButton, setDisableButton }) => {
+const ShowStats = ({
+    toastId,
+    updateConfig,
+    disableButton,
+    setDisableButton,
+}) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
-    const toastId = React.useRef(null);
     const [stats, setStats] = React.useState(greetConfig?.stats || false);
 
     // Sync is Stats
@@ -22,20 +28,22 @@ const ShowStats = ({ disableButton, setDisableButton }) => {
 
     // handle is Stats save
     const handleIsStatsSave = async () => {
+        if (stats === greetConfig?.stats) {
+            return toast.warn(
+                `Stats is already ${stats ? "enabled" : "disabled"}`
+            );
+        }
         setDisableButton(true);
-        toastId.current = toast.info("Saving...", {
-            type: "info",
-            autoClose: false,
-        });
-
-        // TODO: Save is Stats, backend call
-        setTimeout(() => {
-            toast.update(toastId.current, {
-                render: "Saved!",
-                type: toast.TYPE.SUCCESS,
-                autoClose: 5000,
-            });
-        }, 3000);
+        toastId.current = toast.info(
+            `${stats ? "Enabling" : "Disabling"} stats on greet msg.`,
+            {
+                autoClose: false,
+            }
+        );
+        updateConfig(
+            getUpdatedConfig(greetConfig, { stats: stats }),
+            `${stats ? "Enabled" : "Disabled"} stats on greet msg.`
+        );
     };
 
     return (

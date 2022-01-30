@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
+import { getUpdatedConfig } from "../../../../utilities/changeConfig";
 import Radio from "../util/Radio";
 
 import "../Embed.scss";
@@ -13,7 +14,12 @@ const typeMap = {
     f_url: "You can set any custom image URL.",
 };
 
-const FooterIcon = ({ disableButton, setDisableButton }) => {
+const FooterIcon = ({
+    toastId,
+    updateConfig,
+    disableButton,
+    setDisableButton,
+}) => {
     const greetConfig = useSelector((state) => state.guild.dbGreetConfig);
 
     const [iconType, setIconType] = React.useState(
@@ -31,11 +37,11 @@ const FooterIcon = ({ disableButton, setDisableButton }) => {
     // Sync greet images
     React.useEffect(() => {
         setFooterIcon(greetConfig?.footerIcon || null);
-        setIconType(
-            greetConfig?.footerIcon?.startsWith("http")
-                ? "url"
-                : greetConfig?.footerIcon
-        );
+        let type = greetConfig?.footerIcon?.startsWith("http")
+            ? "url"
+            : greetConfig?.footerIcon;
+        if (!type) type = "disable";
+        setIconType(type);
         setAddImage(greetConfig?.footerIcon?.startsWith("http"));
     }, [greetConfig]);
 
@@ -67,11 +73,35 @@ const FooterIcon = ({ disableButton, setDisableButton }) => {
 
     // handle footer icon save
     const handleIconSave = () => {
+        if (
+            iconType === greetConfig?.footerIcon ||
+            (iconType === "url" && footerIcon === greetConfig?.footerIcon) ||
+            (iconType === "disable" && !greetConfig?.footerIcon)
+        ) {
+            return toast.warn(
+                `Footer icon is already '${footerIcon || "disabled"}'`
+            );
+        }
+        if (iconType === "url" && footerIcon === "") {
+            return toast.warn(`Footer icon url can not be empty.`);
+        }
         setDisableButton(true);
-
-        // TODO: backend call to save footer icon
-
-        setDisableButton(false);
+        toastId.current = toast.info(
+            `${iconType === "disable" ? "Removing" : "Updating"} footer icon`,
+            {
+                autoClose: false,
+            }
+        );
+        let icon = iconType === "disable" ? null : iconType;
+        if (icon === "url") {
+            icon = footerIcon;
+        }
+        updateConfig(
+            getUpdatedConfig(greetConfig, {
+                footerIcon: icon,
+            }),
+            `${iconType === "disable" ? "Removed" : "Updated"} footer icon`
+        );
     };
 
     return (
