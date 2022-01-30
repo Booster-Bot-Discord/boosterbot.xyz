@@ -59,8 +59,8 @@ const General = () => {
 
     // hande prefix change apply
     const changePrefix = () => {
-        if (prefixValue.length < 1 || prefixValue.length > 35) {
-            return toast.warn("Prefix length can be 1 to 35 characters long.");
+        if (prefixValue.length < 1 || prefixValue.length > 20) {
+            return toast.warn("Prefix length can be 1 to 20 characters long.");
         }
         if (guildConfig.prefix === prefixValue) {
             return toast.warn("Prefix is already set to this value.");
@@ -237,7 +237,11 @@ const General = () => {
                             {!guildConfig?.premium ? (
                                 <>
                                     You're missing out premium features. <br />
-                                    <a href="/premium" target="_blank">
+                                    <a
+                                        href="https://boosterbot.xyz/premium"
+                                        rel="noreferrer"
+                                        target="_blank"
+                                    >
                                         Get Premium now!
                                     </a>
                                 </>

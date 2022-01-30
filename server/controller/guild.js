@@ -4,6 +4,8 @@ const GuildConfig = require("../database/models/GuildConfig");
 const GreetConfig = require("../database/models/GreetConfig");
 const GuildData = require("../database/models/GuildData");
 
+const { validateGuildConfig, validateGreetConfig } = require("../validators/guild");
+
 // get guild config from database.
 const getGuildConfig = async (req, res) => {
     try {
@@ -20,8 +22,9 @@ const getGuildConfig = async (req, res) => {
 // update guild config in database
 const updateGuildConfig = async (req, res) => {
     try {
+        const config = await validateGuildConfig(req.body.id, req.body);
         await axios.default.delete(`http://localhost:3000/guild/${req.params.guildId}/cache/guild-config`);
-        await GuildConfig.findOneAndUpdate({ id: req.params.guildId }, req.body);
+        await GuildConfig.findOneAndUpdate({ id: req.params.guildId }, config);
         return res.status(200).json({ message: "Guild config updated" });
     }
     catch (err) {
@@ -34,7 +37,8 @@ const updateGreetConfig = async (req, res) => {
     try {
         // TODO: GREET CONFIG CACHING
         // await axios.default.delete(`http://localhost:3000/guild/${req.params.guildId}/cache`);
-        await GreetConfig.findOneAndUpdate({ id: req.params.guildId }, req.body);
+        const config = await validateGreetConfig(req.body.id, req.body);
+        await GreetConfig.findOneAndUpdate({ id: req.params.guildId }, config);
         return res.status(200).json({ message: "Greet config updated" });
     }
     catch (err) {
@@ -68,7 +72,7 @@ const updateGuildSystemChannelFlags = async (req, res) => {
     }
 }
 
-// get guild from discord api
+// get guild from bot api
 const getGuildData = async (req, res) => {
     try {
         const result = await axios({
@@ -78,7 +82,6 @@ const getGuildData = async (req, res) => {
         return res.status(200).json(result.data);
     }
     catch (err) {
-        console.log(err);
         return res.status(500).json({ message: err.message });
     }
 }

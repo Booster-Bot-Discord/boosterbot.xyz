@@ -84,9 +84,9 @@ const Setup = () => {
     };
 
     // reusable error handler
-    const handleError = (error) => {
+    const handleError = (resp) => {
         toast.update(toastId.current, {
-            render: error.message,
+            render: resp.data.message,
             type: toast.TYPE.ERROR,
             autoClose: 5000,
         });
@@ -103,7 +103,7 @@ const Setup = () => {
                 });
                 setDisableButton(false);
             })
-            .catch((err) => handleError(err));
+            .catch((err) => handleError(err.response));
     };
 
     // handle bot manager update apply

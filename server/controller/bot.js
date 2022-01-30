@@ -36,7 +36,7 @@ const updatePrefix = async (req, res) => {
     }
     catch (err) {
         return res.status(500).json({
-            message: "Invalid nickname"
+            message: "Internal Server Error"
         });
     }
 };

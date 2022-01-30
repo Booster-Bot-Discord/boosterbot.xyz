@@ -18,9 +18,10 @@ const guildConfigSchema = new mongoose.Schema({
     logEvents: { type: Map },
     // LOG EVENTS : role, gifts, boosts, settings, server
     lvlRoles: { type: Map },
-    stats: { type: Map }
     // STATS : { allboosts: { id: String, name: String}, currboosts: { id: String, name: String}, 
     //    allboosters: { id: Srting, name: String}, currboosters: { id: String, name: String }}
+    stats: { type: Map },
+    hasCustomBot: { type: Boolean },
 });
 
 module.exports = mongoose.model("guildConfig", guildConfigSchema);

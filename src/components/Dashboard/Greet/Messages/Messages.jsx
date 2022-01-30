@@ -45,10 +45,12 @@ const Messages = ({
         setMessages(newMessages);
     };
 
-    // TODO: save messages, backend call
     const handleSaveMessages = () => {
         if (greetConfig?.messages === messages) {
             return toast.warn("No changes made.");
+        }
+        if (messages.some((msg) => msg === "")) {
+            return toast.error("You can't have empty messages.");
         }
         setDisableButton(true);
         updateConfig(

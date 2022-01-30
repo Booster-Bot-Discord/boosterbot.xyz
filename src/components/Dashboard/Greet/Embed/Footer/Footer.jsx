@@ -74,6 +74,7 @@ const Footer = ({ toastId, updateConfig, disableButton, setDisableButton }) => {
                     handleTextSave={handleFooterSave}
                     handleTextToggle={handleFooterToggle}
                     disableButton={disableButton}
+                    maxLength={1000}
                 />
             </div>
         </>

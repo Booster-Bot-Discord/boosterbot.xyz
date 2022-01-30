@@ -77,6 +77,7 @@ const Author = ({ toastId, updateConfig, disableButton, setDisableButton }) => {
                     handleTextSave={handleAuthorSave}
                     handleTextToggle={handleAuthorToggle}
                     disableButton={disableButton}
+                    maxLength={1000}
                 />
             </div>
         </>

@@ -50,16 +50,15 @@ const Greet = ({ setActiveTab }) => {
     }, [systemChannelId, guildFlags]);
 
     // reusable error handler
-    const handleError = (error) => {
+    const handleError = (resp) => {
         toast.update(toastId.current, {
-            render: error.message,
+            render: resp.data.message,
             type: toast.TYPE.ERROR,
             autoClose: 5000,
         });
         setDisableButton(false);
     };
     const updateConfig = (newGuildConfig, msg) => {
-        // return console.log("UPDATING CONFIG", newGuildConfig);
         updateGreetConfig(guildId, newGuildConfig)
             .then(() => {
                 dispatch(setDbGreetConfig(newGuildConfig));
@@ -70,7 +69,9 @@ const Greet = ({ setActiveTab }) => {
                 });
                 setDisableButton(false);
             })
-            .catch((err) => handleError(err));
+            .catch((err) => {
+                handleError(err.response);
+            });
     };
 
     return (

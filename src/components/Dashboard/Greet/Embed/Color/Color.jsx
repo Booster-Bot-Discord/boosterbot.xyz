@@ -23,19 +23,19 @@ const Color = ({ toastId, updateConfig, disableButton, setDisableButton }) => {
 
     // handle color save
     const handleColorSave = () => {
-        if (color === greetConfig?.color || color.length > 1) {
+        if (color === greetConfig?.color || color?.length > 1) {
             return toast.warn(`Color is already ${color}`);
         }
         setDisableButton(true);
         toastId.current = toast.info(
-            `${color ? "Setting" : "Removing"} color`,
+            `${color ? "Setting" : "Reseting"} color`,
             {
                 autoClose: false,
             }
         );
         updateConfig(
             getUpdatedConfig(greetConfig, { color: color }),
-            `${color ? "Updated" : "Removed"} color`
+            `${color ? "Updated" : "Reseted to default"} color`
         );
     };
 
