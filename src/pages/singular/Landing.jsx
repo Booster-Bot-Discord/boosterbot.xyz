@@ -5,7 +5,7 @@ import "../../assets/styles/pages/singular/landing.scss";
 const cardData = [
   { name: "Commands", description: "See all of the features Booster Bot has to offer your server!", link: "/commands" },
   { name: "Support", description: "FAQ page not enough to help? Head over to our support server!", link: "https://discord.gg/8kdx63YsDf" },
-  { name: "Premium", description: "Click here to head to Patreon to see our premium perk selections!", link: "https://www.patreon.com/join/boosterbot?" }
+  { name: "Dashboard", description: "Setup the bot with ease of a web dashboard and premium support!", link: "https://dashboard.boosterbot.xyz/" },
 ];
 
 export default function Landing(props) {
