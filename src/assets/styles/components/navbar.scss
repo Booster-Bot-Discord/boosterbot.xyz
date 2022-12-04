@@ -110,7 +110,7 @@
 			list-style-type: none;
 			&.discount {
 				a, a.active, a:hover {
-					color: #ffcb00!important;
+					color: #eb459e!important;
 					animation: discountFlash 2s infinite both;
 				}
 			}
@@ -243,13 +243,13 @@
 
 @keyframes discountFlash {
 	0% {
-		text-shadow: 0px 0px 5px #ffcb0050;
+		text-shadow: 0px 0px 5px #c13c8d75;
 	}
 	50% {
-		text-shadow: 0px 0px 7px #ffcc0091;
+		text-shadow: 0px 0px 7px #c13c8d;
 	}
 	100% {
-		text-shadow: 0px 0px 5px #ffcb0050;
+		text-shadow: 0px 0px 5px #c13c8d75;
 	}
 }
 

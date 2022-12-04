@@ -29,13 +29,13 @@
 		}
 		&-cta {
 			margin-top: 30px;
-			width: 245px;
+			font-size: 28px;
+			font-family: "Montserrat";
+			font-weight: 700;
+			text-transform: uppercase;
+			display: flex;
+			gap: 20px;
 			&-invite {
-				display: block;
-				font-size: 28px;
-				font-family: "Montserrat";
-				font-weight: 700;
-				text-transform: uppercase;
 				background: #bf9a22;
 				color: white;
 				padding: 20px 30px;
@@ -49,6 +49,22 @@
 					transform: translateY(-5px);
 					box-shadow: 0px 5px 20px rgba(232, 187, 42, 0.7),
 								inset 0px 0px 20px rgba(191, 154, 34, 0.3);
+				}
+			}
+			&-dashboard {
+				background: #c13c8d;
+				color: white;
+				padding: 20px 30px;
+				border-radius: 5px;
+				box-shadow: 0px 0px 35px rgba(235, 69, 158, 0.5),
+							inset 0px 0px 20px rgba(193, 60, 141, 0.3);
+				transition: transform ease-in-out .3s, box-shadow ease-in-out .3s;
+				box-sizing: border-box;
+				&:hover {
+					text-decoration: none;
+					transform: translateY(-5px);
+					box-shadow: 0px 5px 20px rgba(235, 69, 158, 0.7),
+								inset 0px 0px 20px rgba(193, 60, 141, 0.3);
 				}
 			}
 		}

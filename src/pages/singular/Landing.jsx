@@ -6,6 +6,7 @@ const cardData = [
   { name: "Commands", description: "See all of the features Booster Bot has to offer your server!", link: "/commands" },
   { name: "Support", description: "FAQ page not enough to help? Head over to our support server!", link: "https://discord.gg/8kdx63YsDf" },
   { name: "Dashboard", description: "Setup the bot with ease of a web dashboard and premium support!", link: "https://dashboard.boosterbot.xyz/" },
+  { name: "Docs", description: "Checkout the bot documentation (work in progress) & join suppoer server for further assistance", link: "https://docs.boosterbot.xyz/" },
 ];
 
 export default function Landing(props) {

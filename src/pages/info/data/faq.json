@@ -29,12 +29,12 @@
   ],
   "Premium": [
     {
-      "q": "What are the premium features of bot?",
-      "a": "Currently there are no premium features in Booster Bot and all functionalities are free and the only way you can support me is by voting at : https://top.gg/bot/797339074146205706/vote regularly :)"
+      "q": "Where can I get premium from?",
+      "a": "You can purchase premium from: https://boosterbot.xyz/premium and support the bot development :)"
     },
     {
-      "q": "Does Booster Bot has premium?",
-      "a": "NO. Alteast not for now... You can support by voting regularly at : https://top.gg/bot/797339074146205706/vote"
+      "q": "What are the premium features?",
+      "a": "You can check the premium features by tying `bb premium` command in any server."
     }
   ]
 }

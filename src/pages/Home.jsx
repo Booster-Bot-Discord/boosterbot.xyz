@@ -19,9 +19,15 @@ export default function Home () {
 				<div id="home-hero-cta">
 					<a id="home-hero-cta-invite"
 						target="_blank"
-						href="https://discord.com/api/oauth2/authorize?client_id=797339074146205706&permissions=1343581297&redirect_uri=https%3A%2F%2Fboosterbot.xyz%2Flanding&scope=bot&response_type=code"
+						href="https://invite.boosterbot.xyz/"
 						rel="noreferrer noopener">
-						Invite now
+						Invite Now
+					</a>
+					<a id="home-hero-cta-dashboard"
+						target="_blank"
+						href="https://dashboard.boosterbot.xyz/"
+						rel="noreferrer noopener">
+						Dashboard
 					</a>
 				</div>
 					<div id="home-hero-circles">

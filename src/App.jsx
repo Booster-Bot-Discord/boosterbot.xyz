@@ -24,9 +24,10 @@ const App = () => {
 					<Route component={() => <Suspense fallback={<div/>}><Commands /></Suspense>} path="/commands" />
 					<Route component={() => <Suspense fallback={<div/>}><Faq /></Suspense>} path="/faq" />
 					<Route component={() => <Suspense fallback={<div/>}><Landing /></Suspense>} path="/landing" />
+					<Route component={() => <Suspense fallback={<div/>}><Landing /></Suspense>} path="/landing" />
 					{/* <Route component={() => <Suspense fallback={<div/>}><Rules /></Suspense>} path="/rules" />
 					<Route component={() => <Suspense fallback={<div/>}><About /></Suspense>} path="/about" /> */}
-					
+
 					<Route component={() => <Suspense fallback={<div/>}><NotFound /></Suspense>} path="*" />
 				</Switch>
 			</div>
