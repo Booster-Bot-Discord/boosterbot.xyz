@@ -19,7 +19,7 @@ export default function Home () {
 				<div id="home-hero-cta">
 					<a id="home-hero-cta-invite"
 						target="_blank"
-						href="https://invite.boosterbot.xyz/"
+						href="https://boosterbot.xyz/invite"
 						rel="noreferrer noopener">
 						Invite Now
 					</a>
