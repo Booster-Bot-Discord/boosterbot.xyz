@@ -1,6 +1,10 @@
 {
   "Booster Bot": [
     {
+      "q": "Can't find command for any feature you want to use?",
+      "a": "Please refer to Documentation link mentioned on top navigation bar and if it's not there in docs as well, please join support server so that we can help you properly."
+    },
+    {
       "q": "How do I see multiple greet messages?",
       "a": "You can set messages 1 by 1 : `bb greet message This is a cool message` and bot will send random message with random image whenever someoen boosts the server"
     },
@@ -13,7 +17,7 @@
       "a": "Ask any admin to setup bot-manager role and assign that to you : `bb setup manager <role>`"
     },
     {
-      "q": "Why won’t the bot respond to me on my server?",
+      "q": "Why won't the bot respond to me on my server?",
       "a": "Please make sure the prefix has not changed, and the bot is showing online in your member list. If neither of these things are the case, please contact a support specialist for further help."
     },
     {
@@ -21,10 +25,14 @@
       "a": "You get vote reminder DM after 12 hours of your vote to remind about voting again because voting really hlps a lot and this is the only way you can support the bot. If you still don't want reminders use : `bb reminders disable` in any server where bot is in."
     }
   ],
-  "Website": [
+  "Support": [
     {
-      "q": "Website is showing 404 error!",
-      "a": "Website is currently under developement and not all features are added."
+      "q": "Need help with bot?",
+      "a": "Please join support server so that we can assist you properly and you will get to know newly added features which are not mentioned here 😛"
+    },
+    {
+      "q": "Can't find command for any feature you want to use?",
+      "a": "Please refer to Documentation link mentioned on top navigation bar and if it's not there in docs as well, please join support server so that we can help you properly."
     }
   ],
   "Premium": [

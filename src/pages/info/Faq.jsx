@@ -79,7 +79,23 @@ export default function FAQ() {
 			<div id="nitropay-faq-top" className="nitropay" />
 			<div id="faq-header">
 				<h1 id="faq-header-title">Frequently Asked Questions</h1>
-				<p id="faq-header-message">List of all Frequently Asked Questions that are asked to our support team.</p>
+				<p id="faq-header-message">
+                    List of all Frequently Asked Questions that are asked to our
+                    support team. <br />
+                    <b>
+                        Please refer{" "}
+                        <a
+                            id="bottom-cta-button"
+                            target="_blank"
+                            href="https://docs.boosterbot.xyz/"
+                            rel="noreferrer noopener"
+                        >
+                            Documentation
+                        </a>{" "}
+                        for updated commands and latest features OR join supoprt
+                        server for any help requried.
+                    </b>
+                </p>
 				<svg id="faq-header-circles" height="200" width="350">
 					<circle cx="23" cy="130" r="22.5" fill="#242424"/>
 					<circle cx="150" cy="73" r="73" fill="#242424"/>
