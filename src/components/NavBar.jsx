@@ -68,7 +68,7 @@ const Navbar = () => {
 			<ul id="navbar-links">
 				<li className="navbar-link"><NavLink activeClassName="active" exact to="/">Home</NavLink></li>
 				<li className="navbar-link discount"><a rel="noreferrer" target="_blank" href="https://boosterbot.xyz/premium">Premium</a></li>
-				<li className="navbar-link"><a rel="noreferrer" target="_blank" href="https://docs.xyz/premium">Documentation</a></li>
+				<li className="navbar-link"><a rel="noreferrer" target="_blank" href="https://docs.boosterbot.xyz/">Documentation</a></li>
 				<li className="navbar-link"><NavLink activeClassName="active" to="/commands">Commands</NavLink></li>
 				<li className="navbar-link"><a rel="noreferrer" target="_blank" href="https://discord.gg/8kdx63YsDf">Support Server</a></li>
 				{/* <li className="navbar-link"><a rel="noreferrer" target="_blank" href="https://top.gg/bot/797339074146205706/vote">Vote</a></li> */}
