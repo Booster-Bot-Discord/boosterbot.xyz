@@ -85,7 +85,6 @@ export default function FAQ() {
                     <b>
                         Please refer{" "}
                         <a
-                            id="bottom-cta-button"
                             target="_blank"
                             href="https://docs.boosterbot.xyz/"
                             rel="noreferrer noopener"
