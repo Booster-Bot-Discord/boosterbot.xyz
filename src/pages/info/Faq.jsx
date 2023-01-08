@@ -91,8 +91,14 @@ export default function FAQ() {
                         >
                             Documentation
                         </a>{" "}
-                        for updated commands and latest features OR join supoprt
-                        server for any help requried.
+                        for updated commands and latest features OR{" "}
+                        <a
+                            target="_blank"
+                            href="https://discord.gg/8kdx63YsDf"
+                            rel="noreferrer noopener"
+                        >
+                            join support server
+                        </a>
                     </b>
                 </p>
 				<svg id="faq-header-circles" height="200" width="350">
