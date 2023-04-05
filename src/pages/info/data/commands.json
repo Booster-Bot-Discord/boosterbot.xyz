@@ -1,196 +1,248 @@
 {
-    "Boosters": [
-        {
-            "t": [
-                "boosters"
-            ],
-            "u": "bb boosters [ all | early | top ]",
-            "d": "Shows list of current server boosters. You can use `all` to list all-time server boosters after bot is added to server. `early` - current boosters sorted on based of time of boost. `top` - current boosters sorted on basis of number of boosts",
-            "p": [
-                "embedLinks",
-                "addReactions"
-            ]
-        },
-        {
-            "t": [
-                "role",
-                "privaterole",
-                "boostrole"
-            ],
-            "u": "bb role < create | color | name | delete >",
-            "d": "Maintain your own custom role (only name and color).",
-            "p": [
-                "manageRoles",
-                "embedLinks"
-            ]
-        },
-        {
-            "t": [
-                "levelroles",
-                "lvlroles",
-                "lvlrole"
-            ],
-            "u": "bb lvlrole [add | clear] [number of boosts] [role]",
-            "d": "Booster Level Roles on basis of number of boosts a user has. `bb lvlrole add <number of boosts> <role>` to set role as boost level. `bb lvlrole clear` removes all boost level roles.",
-            "p": [
-                "manageRoles",
-                "embedLinks"
-            ]
-        },
-        {
-            "t": [
-                "rolelist",
-                "claimed"
-            ],
-            "u": "bb rolelist",
-            "d": "Shows list of all claimed personal role by server boosters.",
-            "p": [
-                "embedLinks",
-                "addReactions"
-            ]
-        }
-    ],
-    "Users": [
-        {
-            "t": [
-                "count",
-                "boostcount"
-            ],
-            "u": "bb count",
-            "d": "Shows total boosts and boost level of server!",
-            "p": [
-                "embedLinks"
-            ]
-        },
-        {
-            "t": [
-                "userinfo",
-                "info"
-            ],
-            "u": "bb info [user]",
-            "d": "Shows user's server boost stats and information.",
-            "p": [
-                "embedLinks"
-            ]
-        },
-        {
-            "t": [
-                "reminder"
-            ],
-            "u": "bb reminder < ENABLE | DISABLE >",
-            "d": "Enable or Disable upvote reminders! `Please vote, it helps a lot <3`",
-            "p": [
-                "embedLinks"
-            ]
-        },
-        {
-            "t": [
-                "guide"
-            ],
-            "u": "bb guide",
-            "d": "To get starter guide on bot. Step by step instructions to setup bot perfectly.",
-            "p": [
-                "embedLinks"
-            ]
-        },
-        {
-            "t": [
-                "boosters"
-            ],
-            "u": "bb boosters [ all | early | top ]",
-            "d": "Shows list of current server boosters. You can use `all` to list all-time server boosters after bot is added to server. `early` - current boosters sorted on based of time of boost. `top` - current boosters sorted on basis of number of boosts",
-            "p": [
-                "embedLinks",
-                "addReactions"
-            ]
-        },
-        {
-            "t": [
-                "help"
-            ],
-            "u": "bb help [command]",
-            "d": "Shows all available commands or shows information on provided command.",
-            "p": [
-                "embedLinks"
-            ]
-        },
-        {
-            "t": [
-                "invite"
-            ],
-            "u": "bb invite",
-            "d": "Gives you useful links related to bot.",
-            "p": [
-                "embedLinks"
-            ]
-        }
-    ],
     "Admins": [
         {
             "t": [
-                "guide"
+                "emoji"
             ],
-            "u": "bb guide",
-            "d": "To get starter guide on bot. Step by step instructions to setup bot perfectly.",
-            "p": [
-                "embedLinks"
-            ]
-        },
-        {
-            "t": [
-                "setup"
-            ],
-            "u": "bb setup < prefix | manager | boost-role | add-role | remove-role | custom-role | log-channel >",
-            "d": "For admins or bot manager to maintain bot settings for your server. `bb help setup` in any channel to get details on how to setup each property.",
-            "p": [
-                "embedLinks"
-            ]
-        },
-        {
-            "t": [
-                "stats"
-            ],
-            "u": "bb stats <crete | update | delete> <allboosts | currboosts | allboosters | currboosters>",
-            "d": "Create or Update VCs for server booster stats.",
-            "p": [
-                "manageServer",
-                "manageChannels",
-                "viewChannels",
-                "connect"
-            ]
+            "u": "bb emoji <lock|unlock|info|reset> <emoji|normal|animated> <role>",
+            "d": "Restrict emoji(s) to specified role.",
+            "p": []
         },
         {
             "t": [
                 "greet"
             ],
-            "u": "bb greet <channel | message | image | embed | thumbnail | stats | test>",
-            "d": "This command is used to setup/edit/remove Greet Configurations whenever someone boosts your server. `bb help greet` to see detailed info on how to configur settings.",
-            "p": [
-                "Send Images",
-                "embedLinks"
-            ]
+            "u": "bb greet <channel | message | addon | author | author-icon | title | footer | footer-icon | image | dm | emoji | react | embed | thumbnail | stats | test>",
+            "d": "This command is used to setup/edit/remove Greet Configurations.",
+            "p": []
         },
         {
             "t": [
-                "emoji"
+                "fixdata"
             ],
-            "u": "bb emoji <lock | unlock | info> <emoji | normal | animated> <role>",
-            "d": "Restrict emoji(s) to specified role i.e Only provided role members will be able to use this emoji. `bb help emoji` to see detailed instructions.",
-            "p": [
-                "manageEmojis",
-                "embedLinks"
-            ]
+            "u": "bb fixdata ",
+            "d": "fix all missed boosts and perform necessary tasks (ex. log message).",
+            "p": []
+        },
+        {
+            "t": [
+                "guide"
+            ],
+            "u": "bb guide ",
+            "d": "To get starter guide on bot",
+            "p": []
         },
         {
             "t": [
                 "rank"
             ],
-            "u": "bb rank <current | alltime> <add | remove> <role>",
-            "d": "Add or Remove role from current or all time server boosters.",
-            "p": [
-                "manageRoles",
-                "embedLinks"
-            ]
+            "u": "bb rank <add | remove> <current | alltime | number of boosts> <role>",
+            "d": "Add or Remove role from all Current or All-Time server boosters.",
+            "p": []
+        },
+        {
+            "t": [
+                "pc-setup",
+                "pcs",
+                "pvtchannelsetup"
+            ],
+            "u": "bb pvtchannelsetup <category | type | lock | boosts | invite | disable>",
+            "d": "This command allows to setup private channels perks for boosters.",
+            "p": []
+        },
+        {
+            "t": [
+                "set",
+                "setup"
+            ],
+            "u": "bb setup < prefix | manager | add-role | remove-role | custom-role | gift | base-role | color | log-event >",
+            "d": "This command is used to setup/edit/remove bot settings.",
+            "p": []
+        },
+        {
+            "t": [
+                "stats"
+            ],
+            "u": "bb stats <link | create | update | delete> <allboosts|currboosts|allboosters|currboosters>",
+            "d": "Create or Update VCs for server booster stats.",
+            "p": []
+        },
+        {
+            "t": [
+                "variables",
+                "vars"
+            ],
+            "u": "bb vars ",
+            "d": "List of variables you can use in custom messages.",
+            "p": []
+        }
+    ],
+    "Boosters": [
+        {
+            "t": [
+                "age",
+                "duration",
+                "agerole"
+            ],
+            "u": "bb agerole <add | remove | clear | claim> <duration> [role]",
+            "d": "Booster Level Roles on basis of how long they've been boosting the server.",
+            "p": []
+        },
+        {
+            "t": [
+                "gift-role",
+                "gifts",
+                "gift"
+            ],
+            "u": "bb gift  < add | remove | return | info > <user>",
+            "d": "Gift your custom role to members (If you have enough boosts)!",
+            "p": []
+        },
+        {
+            "t": [
+                "link",
+                "linkrole"
+            ],
+            "u": "bb linkrole <add | remove | clear | claim> <role>",
+            "d": "Allow boosters to link existing custom roles with bot so they can further customise the roles or delete & re-create if requried.",
+            "p": []
+        },
+        {
+            "t": [
+                "lvlroles",
+                "levelroles",
+                "lvlrole"
+            ],
+            "u": "bb lvlrole <add | remove | clear> <number of boosts> <role>",
+            "d": "Booster Level Roles on basis of number of boosts a user has.",
+            "p": []
+        },
+        {
+            "t": [
+                "pc",
+                "privatechannel"
+            ],
+            "u": "bb privatechannel <claim | name | invite | delete>",
+            "d": "This command allows boosters to claim teir private channels.",
+            "p": []
+        },
+        {
+            "t": [
+                "ar",
+                "reaction"
+            ],
+            "u": "bb reaction  <set | remove> [emoji]",
+            "d": "Bot reacts with your choosen emoji to message if booster is mentioned/tagged in that messages!",
+            "p": []
+        },
+        {
+            "t": [
+                "privaterole",
+                "boostrole",
+                "role"
+            ],
+            "u": "bb role  < claim | color | name | icon | delete >",
+            "d": "Maintain your own custom role (Only for Nitro Boosters)!",
+            "p": []
+        },
+        {
+            "t": [
+                "claimed",
+                "rolelist"
+            ],
+            "u": "bb rolelist undefined",
+            "d": "Shows list of all claimed personal role by server boosters.",
+            "p": []
+        }
+    ],
+    "Users": [
+        {
+            "t": [
+                "boosters"
+            ],
+            "u": "bb boosters [ all | early | top ]",
+            "d": "Shows total boosts and boost level of server!",
+            "p": []
+        },
+        {
+            "t": [
+                "boostcount",
+                "Server Boost Info",
+                "count"
+            ],
+            "u": "bb count undefined",
+            "d": "Shows total boosts and boost level of server!",
+            "p": []
+        },
+        {
+            "t": [
+                "commands",
+                "help"
+            ],
+            "u": "bb help undefined",
+            "d": "Shows all available commands.",
+            "p": []
+        },
+        {
+            "t": [
+                "lvl",
+                "level"
+            ],
+            "u": "bb level undefined",
+            "d": "Show's target user's level card containing boosts progress bar.",
+            "p": []
+        },
+        {
+            "t": [
+                "ping"
+            ],
+            "u": "bb ping undefined",
+            "d": "Shows bot ping and response time!",
+            "p": []
+        },
+        {
+            "t": [
+                "premium"
+            ],
+            "u": "bb premium  <add | remove> <serverID>",
+            "d": "Checkout exciting premium features (and purchase as well pls 😛)",
+            "p": []
+        },
+        {
+            "t": [
+                "reminder"
+            ],
+            "u": "bb reminder < enable | disable >",
+            "d": "Enable or Disable upvote reminders!",
+            "p": []
+        },
+        {
+            "t": [
+                "votes",
+                "vote"
+            ],
+            "u": "bb vote [ donate | avail ]",
+            "d": "Check your available votes and avail free premium via votes!",
+            "p": []
+        },
+        {
+            "t": [
+                "info",
+                "ui",
+                "Boost Info",
+                "userinfo"
+            ],
+            "u": "bb userinfo [@user]",
+            "d": "Shows user's Boost information",
+            "p": []
+        },
+        {
+            "t": [
+                "voters"
+            ],
+            "u": "bb voters undefined",
+            "d": "Shows top voters and voters data overall but can only be used in [Support Server](https://discord.com/invite/8kdx63YsDf)",
+            "p": []
         }
     ]
 }

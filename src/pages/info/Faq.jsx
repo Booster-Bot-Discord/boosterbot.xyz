@@ -89,7 +89,7 @@ export default function FAQ() {
                             href="https://docs.boosterbot.xyz/"
                             rel="noreferrer noopener"
                         >
-                            Documentation
+                            Docs
                         </a>{" "}
                         for updated commands and latest features OR{" "}
                         <a
